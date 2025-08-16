@@ -1,0 +1,54 @@
+# web_interface/utils.py
+import logging
+from datetime import datetime
+from pathlib import Path
+import os
+
+# Asegúrate de que el directorio logs/ exista
+LOG_DIR = Path(__file__).resolve().parent.parent / "logs"
+LOG_FILE = LOG_DIR / "app.log"
+
+os.makedirs(LOG_DIR, exist_ok=True)
+
+# Configurar logging a archivo
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s | %(levelname)-8s | %(source)s | %(message)s',
+    handlers=[
+        logging.FileHandler(LOG_FILE, encoding='utf-8'),
+        logging.StreamHandler()  # También muestra en consola
+    ]
+)
+logger = logging.getLogger(__name__)
+
+def log_event(level: str, message: str, source: str):
+    """
+    Registra un evento en archivo y en la base de datos.
+
+    Args:
+        level (str): Nivel del log ('INFO', 'WARNING', 'ERROR', 'CRITICAL')
+        message (str): Mensaje descriptivo
+        source (str): Módulo origen ('bot_handler', 'email_service', etc.)
+    """
+    # 1. Log en archivo y consola
+    extra = {'source': source}
+    if level == 'INFO':
+        logger.info(message, extra=extra)
+    elif level == 'WARNING':
+        logger.warning(message, extra=extra)
+    elif level == 'ERROR':
+        logger.error(message, extra=extra)
+    elif level == 'CRITICAL':
+        logger.critical(message, extra=extra)
+
+    # 2. Log en base de datos (solo si Django está listo)
+    try:
+        from web_interface.models import LogEntry
+        LogEntry.objects.create(
+            level=level,
+            message=message,
+            source=source
+        )
+    except Exception as e:
+        # Evitar fallos si DB no está lista (ej: en migraciones)
+        logger.error(f"[DB] No se pudo guardar log: {e}", extra={'source': 'log_system'})

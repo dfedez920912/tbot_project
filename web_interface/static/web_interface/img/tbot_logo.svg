@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2024 Daniel
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Fondo púrpura con esquinas redondeadas -->
+  <rect x="0" y="0" width="256" height="256" rx="32" fill="#5F259F" />
+
+  <!-- Llave blanca centrada -->
+  <g id="key">
+    <!-- Cabeza circular hueca -->
+    <circle cx="58" cy="128" r="44" fill="#FFFFFF" />
+    <circle cx="58" cy="128" r="32" fill="#5F259F" />
+
+    <!-- Vástago horizontal con bordes redondeados -->
+    <rect x="90" y="120" width="120" height="16" rx="8" fill="#FFFFFF" />
+
+    <!-- Punta escalonada con bordes redondeados -->
+    <rect x="180" y="120" width="10" height="30" rx="4" fill="#FFFFFF" />
+    <rect x="185" y="130" width="10" height="15" rx="4" fill="#FFFFFF" />
+  </g>
+
+  <!-- Ícono de Email (arriba izquierda) -->
+  <g id="email">
+    <!-- Fondo azul más grueso con esquinas redondeadas -->
+    <rect x="18" y="18" width="61" height="47" rx="10" fill="#1976D2" />
+
+    <!-- Sobre blanco centrado -->
+    <rect x="26" y="26" width="44" height="30" rx="4" fill="#FFFFFF" />
+
+    <!-- Solapa triangular con borde azul grueso -->
+    <path d="M26,26 L48,41 L70,26" fill="none" stroke="#1976D2" stroke-width="4" />
+  </g>
+<!-- Ícono de Telegram (arriba derecha, alineado con email) -->
+<!-- Ícono de Telegram (avión centrado en fondo azul) -->
+<g id="telegram" transform="translate(177, 18)">
+  <!-- Fondo azul claro con esquinas redondeadas -->
+  <rect x="0" y="0" width="61" height="47" rx="10" fill="#37AEE2" />
+
+  <!-- Avión de papel centrado -->
+  <g transform="translate(6, -5) scale(0.1)">
+    <path fill="#C8DAEA" d="M199 404c-11 0-10-4-13-14l-32-105 245-144"/>
+    <path fill="#A9C9DD" d="M199 404c7 0 11-4 16-8l45-43-56-34"/>
+    <path fill="#F6FBFE" d="M204 319l135 99c14 9 26 4 30-14l55-258c5-22-9-32-24-25L79 245c-21 8-21 21-4 26l83 26 190-121c9-5 17-3 11 4"/>
+  </g>
+</g>
+
+<!-- Ícono de Campana (abajo derecha, sin fondo) -->
+<g id="notification" transform="translate(185, 190)">
+  <!-- Campana roja centrada -->
+  <g transform="translate(0, 0) scale(0.12)">
+    <path fill="#E53935" d="M408.079,344.152c0-154.423,7.873-291.468-144.268-308.509c0.031-0.591,0.047-1.186,0.047-1.785
+      C263.858,15.159,248.699,0,230,0s-33.858,15.159-33.858,33.858c0,0.599,0.017,1.193,0.047,1.785
+      C44.048,52.684,51.921,189.729,51.921,344.152c0,35.016-34.015,61.027-34.015,61.027h157.273C175.179,435.456,199.723,460,230,460
+      s54.821-24.544,54.821-54.821h157.273C442.094,405.179,408.079,379.167,408.079,344.152z"/>
+    <path fill="#E53935" d="M230,405.179H17.906c0,0,34.015-26.012,34.015-61.027c0-165.073-9.004-310.294,178.079-310.294
+      s178.079,145.221,178.079,310.294c0,35.015,34.015,61.027,34.015,61.027H230z"/>
+    <path fill="#B71C1C" opacity="0.3" d="M281.049,425.159c2.426-6.193,3.772-12.927,3.772-19.98
+      H175.179c0,7.053,1.346,13.787,3.772,19.98H281.049z"/>
+    <path fill="#B71C1C" opacity="0.3" d="M408.079,344.152c0-165.073,9.004-310.294-178.079-310.294
+      v371.321h212.094C442.094,405.179,408.079,379.168,408.079,344.152z"/>
+  </g>
+</g>
+<!-- Ícono de Mensaje (abajo izquierda) -->
+<g id="chat" transform="translate(18, 190)">
+
+  <!-- Burbuja blanca con tres puntos -->
+  <g transform="translate(10, 12)">
+    <!-- Burbuja redondeada -->
+    <rect x="0" y="0" width="51" height="33" rx="6" fill="#FFFFFF" />
+    <!-- Cola triangular -->
+    <polygon points="7,23 24,23 10,40" fill="#FFFFFF" />
+    <!-- Tres puntos -->
+    <circle cx="12" cy="15" r="4.5" fill="#26C6DA" />
+    <circle cx="23.5" cy="15" r="4.5" fill="#26C6DA" />
+    <circle cx="35" cy="15" r="4.5" fill="#26C6DA" />
+  </g>
+</g>
+
+
+</svg>

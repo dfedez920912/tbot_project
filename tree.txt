@@ -1,0 +1,50 @@
+.
+|-- ad_connector
+|   |-- __init__.py
+|   |-- __pycache__
+|   `-- ad_operations.py
+|-- bot_handler
+|   |-- __init__.py
+|   |-- __pycache__
+|   `-- bot_handler.py
+|-- db_handler
+|   |-- __init__.py
+|   |-- __pycache__
+|   `-- db_handler.py
+|-- email_service
+|   |-- __init__.py
+|   |-- __pycache__
+|   `-- email_sender.py
+|-- logs
+|   `-- project.log
+|-- manage.py
+|-- requirements.txt
+|-- tbot_project
+|   |-- __init__.py
+|   |-- __pycache__
+|   |-- asgi.py
+|   |-- settings.py
+|   |-- urls.py
+|   `-- wsgi.py
+|-- telegram_bot
+|   |-- __init__.py
+|   |-- __pycache__
+|   |-- admin.py
+|   |-- apps.py
+|   |-- management
+|   |   |-- __init__.py
+|   |   |-- __pycache__
+|   |   `-- commands
+|   |       |-- __init__.py
+|   |       |-- __pycache__
+|   |       |-- run_bot.py
+|   |       `-- sync_ussers.py
+|   |-- migrations
+|   |   |-- 0001_initial.py
+|   |   |-- __init__.py
+|   |   `-- __pycache__
+|   |-- models.py
+|   |-- tests.py
+|   `-- views.py
+|-- users.sh
+`-- venv

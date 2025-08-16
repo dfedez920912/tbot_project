@@ -1,0 +1,89 @@
+<!-- web_interface/templates/web_interface/dashboard.html -->
+{% extends 'web_interface/base.html' %}
+{% block content %}
+
+<h2><i class="fas fa-tachometer-alt"></i> Dashboard</h2>
+<hr>
+
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="card p-3 card-stat">
+            <h5>Total Usuarios</h5>
+            <h2>{{ total_users }}</h2>
+            <small><i class="fas fa-user"></i> Registrados</small>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-3 card-stat">
+            <h5>Activos (7 días)</h5>
+            <h2>{{ active_users }}</h2>
+            <small><i class="fas fa-bolt"></i> Actividad reciente</small>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-3 card-stat">
+            <h5>Logs Registrados</h5>
+            <h2>{{ total_logs }}</h2>
+            <small><i class="fas fa-file-alt"></i> Total de eventos</small>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5><i class="fas fa-chart-line"></i> Actividad Reciente</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="activityChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-info text-white">
+                <h5><i class="fas fa-list"></i> Últimos Logs</h5>
+            </div>
+            <div class="card-body p-0">
+                <ul class="list-group list-group-flush">
+                    {% for log in recent_logs %}
+                    <li class="list-group-item small">
+                        <strong>[{{ log.level }}]</strong> {{ log.message|truncatechars:50 }}
+                        <br>
+                        <small class="text-muted">{{ log.timestamp|date:"H:i:s" }}</small>
+                    </li>
+                    {% empty %}
+                    <li class="list-group-item text-center text-muted">No hay logs</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Gráfico simple de ejemplo
+    const ctx = document.getElementById('activityChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'],
+            datasets: [{
+                label: 'Actividad Diaria',
+                data: [12, 19, 15, 23, 18, 14, 20],
+                borderColor: '#007bff',
+                backgroundColor: 'rgba(0, 123, 255, 0.1)',
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: false }
+            }
+        }
+    });
+</script>
+
+{% endblock %}
