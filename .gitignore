@@ -1,0 +1,37 @@
+# 🔒 Archivos sensibles
+.env
+
+# 🧠 Entornos virtuales
+.venv/
+venv/
+
+# 🛠 Configuración de IDEs
+.idea/
+.vscode/
+
+# 🗂 Archivos de sistema y cachés comunes
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+
+# 📦 Archivos de dependencias compiladas
+*.egg
+*.egg-info/
+dist/
+build/
+
+# 📁 Archivos de Django estáticos y media (si se generan localmente)
+staticfiles/
+media/
+
+# 🧪 Archivos de pruebas
+.coverage
+htmlcov/
+nosetests.xml
+coverage.xml
+*.cover
+
+# 🧹 Otros
+.DS_Store
+Thumbs.db

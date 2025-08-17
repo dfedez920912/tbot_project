@@ -1,0 +1,40 @@
+# 🧾 Normalización de finales de línea
+* text=auto eol=lf
+
+# 🐍 Código fuente Python
+*.py text diff=python
+
+# 📄 Archivos de configuración y documentación
+*.env text
+*.md text
+*.txt text
+*.json text
+*.yaml text
+*.yml text
+*.ini text
+
+# 🖼 Archivos gráficos
+*.svg text
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+
+# 🧪 Archivos de pruebas
+*.cover text
+*.xml text
+
+# 🧠 Archivos de base de datos
+*.sqlite3 binary
+
+# 🧰 Archivos de entorno virtual (no deberían estar en el repo, pero por si acaso)
+.venv/** binary
+
+# 🛠 Archivos de IDEs
+.idea/** binary
+.vsco/** binary
+
+# 🧼 Archivos de sistema
+.DS_Store binary
+Thumbs.db binary
