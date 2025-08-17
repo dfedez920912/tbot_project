@@ -1,34 +1,30 @@
-# web_interface/views.py
-
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from web_interface.models import LogEntry  # ✅ Correcto
-from telegram_bot.models import TelegramUser  # Asume modelo de usuarios
-from django.utils import timezone
-from datetime import timedelta
+from django.contrib import messages
+from .models import LogEntry  # ← Importa el modelo aquí, no hay problema
+from .utils import log_event  # ← Ahora seguro gracias al import diferido
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            log_event('INFO', f'Usuario {username} inició sesión.', 'login')
+            return redirect('web_interface:dashboard')  # ← Con namespace
+        else:
+            messages.error(request, 'Credenciales inválidas.')
+            log_event('WARNING', f'Intento fallido de login para {username}.', 'login')
+    return render(request, 'web_interface/login.html')
 
 @login_required
-def dashboard(request):
-    # Estadísticas
-    total_users = TelegramUser.objects.count()
-    active_users = TelegramUser.objects.filter(last_active__gte=timezone.now() - timedelta(days=7)).count()
-    total_logs = LogEntry.objects.count()
-    recent_logs = LogEntry.objects.order_by('-timestamp')[:10]
+def dashboard_view(request):
+    return render(request, 'web_interface/dashboard.html')
 
-    context = {
-        'total_users': total_users,
-        'active_users': active_users,
-        'total_logs': total_logs,
-        'recent_logs': recent_logs,
-    }
-    return render(request, 'web_interface/dashboard.html', context)
-
-@login_required
-def logs_view(request):
-    logs = LogEntry.objects.all().order_by('-timestamp')
-    return render(request, 'web_interface/logs.html', {'logs': logs})
-
-@login_required
-def users_view(request):
-    users = TelegramUser.objects.all()
-    return render(request, 'web_interface/users.html', {'users': users})
+def logout_view(request):
+    username = request.user.username
+    logout(request)
+    log_event('INFO', f'Usuario {username} cerró sesión.', 'login')
+    return redirect('login')

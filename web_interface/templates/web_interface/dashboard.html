@@ -1,89 +1,139 @@
-<!-- web_interface/templates/web_interface/dashboard.html -->
 {% extends 'web_interface/base.html' %}
+{% load static %} 
+{% block title %}Dashboard{% endblock %}
+
 {% block content %}
-
-<h2><i class="fas fa-tachometer-alt"></i> Dashboard</h2>
-<hr>
-
-<div class="row mb-4">
-    <div class="col-md-4">
-        <div class="card p-3 card-stat">
-            <h5>Total Usuarios</h5>
-            <h2>{{ total_users }}</h2>
-            <small><i class="fas fa-user"></i> Registrados</small>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card p-3 card-stat">
-            <h5>Activos (7 días)</h5>
-            <h2>{{ active_users }}</h2>
-            <small><i class="fas fa-bolt"></i> Actividad reciente</small>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card p-3 card-stat">
-            <h5>Logs Registrados</h5>
-            <h2>{{ total_logs }}</h2>
-            <small><i class="fas fa-file-alt"></i> Total de eventos</small>
-        </div>
-    </div>
-</div>
-
 <div class="row">
-    <div class="col-md-8">
-        <div class="card shadow-sm">
-            <div class="card-header bg-primary text-white">
-                <h5><i class="fas fa-chart-line"></i> Actividad Reciente</h5>
-            </div>
-            <div class="card-body">
-                <canvas id="activityChart"></canvas>
-            </div>
-        </div>
+  <div class="col-lg-3 col-6">
+    <div class="small-box bg-info">
+      <div class="inner">
+        <h3 id="active-directory-users">0</h3>
+        <p>Usuarios en Directorio Activo</p>
+      </div>
+      <div class="icon">
+        <i class="fas fa-users"></i>
+      </div>
+      <a href="#" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
     </div>
-    <div class="col-md-4">
-        <div class="card shadow-sm">
-            <div class="card-header bg-info text-white">
-                <h5><i class="fas fa-list"></i> Últimos Logs</h5>
-            </div>
-            <div class="card-body p-0">
-                <ul class="list-group list-group-flush">
-                    {% for log in recent_logs %}
-                    <li class="list-group-item small">
-                        <strong>[{{ log.level }}]</strong> {{ log.message|truncatechars:50 }}
-                        <br>
-                        <small class="text-muted">{{ log.timestamp|date:"H:i:s" }}</small>
-                    </li>
-                    {% empty %}
-                    <li class="list-group-item text-center text-muted">No hay logs</li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
+  </div>
+
+  <div class="col-lg-3 col-6">
+    <div class="small-box bg-success">
+      <div class="inner">
+        <h3 id="active-users">0</h3>
+        <p>Usuarios Activos (AD)</p>
+      </div>
+      <div class="icon">
+        <i class="fas fa-user-check"></i>
+      </div>
+      <a href="#" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
     </div>
+  </div>
+
+  <div class="col-lg-3 col-6">
+    <div class="small-box bg-warning">
+      <div class="inner">
+        <h3 id="expiring-passwords">0</h3>
+        <p>Contraseñas Próximas a Vencer</p>
+      </div>
+      <div class="icon">
+        <i class="fas fa-clock"></i>
+      </div>
+      <a href="#" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-6">
+    <div class="small-box bg-primary">
+      <div class="inner">
+        <h3 id="valid-telegram-todus">0</h3>
+        <p>Válidos para Telegram & Todus</p>
+      </div>
+      <div class="icon">
+        <i class="fas fa-check-double"></i>
+      </div>
+      <a href="#" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-6">
+    <div class="small-box bg-teal">
+      <div class="inner">
+        <h3 id="active-telegram">0</h3>
+        <p>Usuarios Activos en Telegram</p>
+      </div>
+      <div class="icon">
+        <i class="fab fa-telegram-plane"></i>
+      </div>
+      <a href="#" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-6">
+    <div class="small-box bg-purple">
+      <div class="inner">
+        <h3 id="active-todus">0</h3>
+        <p>Usuarios Activos en Todus</p>
+      </div>
+      <div class="icon">
+        <i class="fas fa-cloud"></i>
+      </div>
+      <a href="#" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+  </div>
 </div>
 
-<script>
-    // Gráfico simple de ejemplo
-    const ctx = document.getElementById('activityChart').getContext('2d');
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'],
-            datasets: [{
-                label: 'Actividad Diaria',
-                data: [12, 19, 15, 23, 18, 14, 20],
-                borderColor: '#007bff',
-                backgroundColor: 'rgba(0, 123, 255, 0.1)',
-                fill: true
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: { display: false }
-            }
-        }
-    });
-</script>
+<!-- Gráfico de ejemplo -->
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Actividad Reciente</h3>
+      </div>
+      <div class="card-body">
+        <canvas id="activityChart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
 
+{% block scripts %}
+<script>
+// Simulación de datos (en producción, vienen del backend)
+document.getElementById('active-directory-users').textContent = '124';
+document.getElementById('active-users').textContent = '112';
+document.getElementById('expiring-passwords').textContent = '8';
+document.getElementById('valid-telegram-todus').textContent = '95';
+document.getElementById('active-telegram').textContent = '78';
+document.getElementById('active-todus').textContent = '70';
+
+// Gráfico
+const ctx = document.getElementById('activityChart').getContext('2d');
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'],
+    datasets: [{
+      label: 'Mensajes en Telegram',
+      data: [12, 19, 3, 17, 28, 24, 7],
+      borderColor: '#007bff',
+      tension: 0.3,
+      fill: false
+    }, {
+      label: 'Archivos en Todus',
+      data: [5, 8, 12, 15, 20, 18, 10],
+      borderColor: '#6f42c1',
+      tension: 0.3,
+      fill: false
+    }]
+  },
+  options: {
+    animation: {
+      duration: 1500,
+      easing: 'easeInOutQuart'
+    }
+  }
+});
+</script>
 {% endblock %}

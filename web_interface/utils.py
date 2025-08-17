@@ -1,4 +1,3 @@
-# web_interface/utils.py
 import logging
 from datetime import datetime
 from pathlib import Path
@@ -43,6 +42,7 @@ def log_event(level: str, message: str, source: str):
 
     # 2. Log en base de datos (solo si Django está listo)
     try:
+        # ← Importación diferida (evita el ciclo)
         from web_interface.models import LogEntry
         LogEntry.objects.create(
             level=level,

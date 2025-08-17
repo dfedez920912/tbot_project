@@ -1,60 +1,50 @@
-<!-- web_interface/templates/web_interface/login.html -->
-{% load static %}
+{% load static %} 
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>TBot Admin</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'web_interface/css/main.css' %}">
-    <!-- Favicon -->
-    <link rel="icon" href="{% static 'web_interface/img/tbot_logo.png' %}" type="image/png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login | TBot Project</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="{% static 'web_interface/adminlte/plugins/fontawesome-free/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'web_interface/adminlte/dist/css/adminlte.min.css' %}">
 </head>
-<body class="login-bg">
-    <div class="container d-flex justify-content-center align-items-center min-vh-100">
-        <div class="login-card">
-            <div class="login-header text-center py-4">
-                <img src="{% static 'web_interface/img/tbot_logo.svg' %}" alt="TBot Logo" class="mb-2" style="width: 80px; height: 80px;">
-                <h3 class="mb-1">TBot Admin</h3>
-                <p class="text-muted mb-0">Gestión de Contraseñas Universitarias</p>
-            </div>
-            <div class="login-body">
-                <form method="post">
-                    {% csrf_token %}
-                    <div class="mb-3">
-                        <label for="id_username" class="form-label">Usuario</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            <input type="text" name="username" class="form-control" id="id_username" required>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="id_password" class="form-label">Contraseña</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                            <input type="password" name="password" class="form-control" id="id_password" required>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100">
-                        <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
-                    </button>
-                </form>
-
-                {% if form.errors %}
-                <div class="alert alert-danger mt-3 text-center">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    Usuario o contraseña incorrectos.
-                </div>
-                {% endif %}
-
-                <div class="text-center mt-3 text-muted small">
-                    Acceso restringido a administradores
-                </div>
-            </div>
-        </div>
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="card card-outline card-primary">
+    <div class="card-header text-center">
+      <b>TBot Project</b>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="card-body">
+      <p class="login-box-msg">Inicia sesión para acceder</p>
+      <form method="post">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+          <input type="text" name="username" class="form-control" placeholder="Usuario" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="{% static 'web_interface/adminlte/plugins/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'web_interface/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>

@@ -6,11 +6,8 @@ from django.conf import settings
 from django.conf.urls.static import static  # 👈 Importar
 
 urlpatterns = [
-    path('', RedirectView.as_view(url='/web/'), name='home'),
     path('admin/', admin.site.urls),
-    path('web/', include('web_interface.urls')),
-    path('accounts/login/', auth_views.LoginView.as_view(template_name='web_interface/login.html'), name='login'),
-    path('accounts/logout/', auth_views.LogoutView.as_view(next_page='/web/'), name='logout'),
+    path('', include('web_interface.urls')),
 ]
 
 # Sirve archivos estáticos en desarrollo

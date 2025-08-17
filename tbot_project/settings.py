@@ -147,7 +147,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "web_interface" / "static",
+    BASE_DIR / 'web_interface/static',
 ]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
@@ -177,3 +177,10 @@ LOGGING = {
         'propagate': True
     }
 }
+# Media (opcional)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# Login redirect
+LOGIN_REDIRECT_URL = '/dashboard/'
+LOGOUT_REDIRECT_URL = '/login/'
