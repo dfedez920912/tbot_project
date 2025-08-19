@@ -3,6 +3,8 @@ from datetime import datetime
 from pathlib import Path
 import os
 
+logger = logging.getLogger(__name__)
+
 # Asegúrate de que el directorio logs/ exista
 LOG_DIR = Path(__file__).resolve().parent.parent / "logs"
 LOG_FILE = LOG_DIR / "app.log"
@@ -18,7 +20,6 @@ logging.basicConfig(
         logging.StreamHandler()  # También muestra en consola
     ]
 )
-logger = logging.getLogger(__name__)
 
 def log_event(level: str, message: str, source: str):
     """

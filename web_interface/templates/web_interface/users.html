@@ -1,34 +1,185 @@
-<!-- web_interface/templates/web_interface/users.html -->
 {% extends 'web_interface/base.html' %}
+{% load static %}
+{% block title %}Gestión de Usuarios{% endblock %}
+
 {% block content %}
-<h2><i class="fas fa-users"></i> Gestión de Usuarios</h2>
-<hr>
-<table class="table table-bordered">
-    <thead class="table-dark">
-        <tr>
-            <th>ID Telegram</th>
-            <th>Nombre</th>
-            <th>Usuario</th>
-            <th>Última Actividad</th>
-            <th>Estado</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for user in users %}
-        <tr>
-            <td>{{ user.telegram_id }}</td>
-            <td>{{ user.first_name }} {{ user.last_name|default:"" }}</td>
-            <td>@{{ user.username|default:"N/A" }}</td>
-            <td>{{ user.last_active|date:"Y-m-d H:i" }}</td>
-            <td>
-                <span class="badge bg-{% if user.is_active %}success{% else %}secondary{% endif %}">
-                    {% if user.is_active %}Activo{% else %}Inactivo{% endif %}
+<div class="row">
+  <!-- Configuración de Grupo AD -->
+  <div class="col-md-5">
+    <div class="card card-primary">
+      <div class="card-header">
+        <h3 class="card-title">Grupo de Administradores del Dominio</h3>
+      </div>
+      <form id="group-form">
+        {% csrf_token %}
+        <div class="card-body">
+          <div class="form-group">
+            <label for="AD_GROUP">DN del Grupo</label>
+            <input type="text" class="form-control" id="AD_GROUP" name="AD_GROUP" value="{{ ad_group }}" placeholder="CN=Admins,DC=example,DC=com">
+            <small class="form-text text-muted">
+              Ej: <code>CN=Adminz. del dominio,CN=Users,DC=example,DC=com</code>
+            </small>
+          </div>
+          <div class="form-group">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="enable_auth" name="enable_ad_admin_auth"
+                     {% if auth_enabled %}checked{% endif %}>
+              <label class="custom-control-label" for="enable_auth">
+                Habilitar autenticación basada en grupo
+              </label>
+            </div>
+            <small class="form-text text-muted">
+              Solo los miembros de este grupo tendrán permisos de administrador.
+            </small>
+          </div>
+          <button type="submit" class="btn btn-primary">Guardar Configuración</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lista de Usuarios -->
+  <div class="col-md-7">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Usuarios del Sistema</h3>
+        <div class="card-tools">
+          <button id="show-import-modal" class="btn btn-sm btn-success">
+            <i class="fas fa-user-plus"></i> Agregar usuarios del grupo AD
+          </button>
+        </div>
+      </div>
+      <div class="card-body p-0">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Usuario</th>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Origen</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for user in django_users %}
+            <tr>
+              <td>{{ user.username }}</td>
+              <td>{{ user.first_name }} {{ user.last_name }}</td>
+              <td>{{ user.email|default:"-" }}</td>
+              <td>
+                <span class="badge bg-{{ user.origin_class }}">
+                  {{ user.origin }}
                 </span>
-            </td>
-        </tr>
-        {% empty %}
-        <tr><td colspan="5" class="text-center">No hay usuarios</td></tr>
-        {% endfor %}
-    </tbody>
-</table>
+              </td>
+              <td>
+                <button class="btn btn-xs btn-warning disable-user"
+                        data-username="{{ user.username }}"
+                        data-is-active="{{ user.is_active|yesno:'true,false' }}">
+                  <i class="fas fa-{{ user.status_icon }}"></i>
+                </button>
+                {% if django_users|length > 1 %}
+                  <button class="btn btn-xs btn-danger delete-user"
+                          data-username="{{ user.username }}">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                {% endif %}
+              </td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="5" class="text-center">No hay usuarios</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Confirmación de Eliminación -->
+<div class="modal fade" id="confirm-delete-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmar Eliminación</h5>
+        <button type="button" class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>¿Está seguro de que desea eliminar al usuario <strong id="delete-username"></strong>?</p>
+        <p><strong>Esta acción no se puede deshacer.</strong></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" id="confirm-delete-btn">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Importación -->
+<div class="modal fade" id="importModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle">Confirmar Importación</h5>
+        <button type="button" class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Paso 1: Confirmación -->
+        <div id="step-confirmation">
+          <p>¿Desea cargar los usuarios del grupo de administradores para importarlos?</p>
+        </div>
+
+        <!-- Paso 2: Carga de usuarios -->
+        <div id="step-loading" style="display: none; text-align: center;">
+          <p>Cargando usuarios del grupo AD...</p>
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Cargando...</span>
+          </div>
+        </div>
+
+        <!-- Paso 3: Tabla de usuarios -->
+        <div id="step-users" style="display: none;">
+          <p>Seleccione los usuarios que desea importar:</p>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th><input type="checkbox" id="select-all"> Seleccionar</th>
+                  <th>Usuario</th>
+                  <th>Nombre</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody id="ad-users-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="load-users-btn">Cargar Usuarios</button>
+        <button type="button" class="btn btn-primary" id="confirm-import" style="display: none;">Importar Seleccionados</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+$(document).ready(function () {
+    const currentPath = window.location.pathname;
+    $('.nav-item a').each(function () {
+        const href = $(this).attr('href') || '';
+        if (href === currentPath || currentPath.startsWith(href.replace(/\/$/, '') + '/')) {
+            $(this).addClass('active');
+            $(this).closest('.has-treeview').addClass('menu-open').find('> a').addClass('active');
+        }
+    });
+});
+</script>
 {% endblock %}

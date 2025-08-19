@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="{% static 'web_interface/adminlte/dist/css/adminlte.min.css' %}">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="{% static 'web_interface/css/custom.css' %}">
+  <!-- Toastr CSS -->
+<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -87,8 +89,16 @@
                   <p>Active Directory</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{% url 'web_interface:users' %}" class="nav-link">
+                  <i class="nav-icon fas fa-users"></i>
+                  <p>Usuarios</p>
+                </a>
+              </li>
             </ul>
           </li>
+
+
 
           <li class="nav-item">
             <a href="/logs/" class="nav-link">
@@ -123,7 +133,7 @@
 
   <!-- Footer -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2024 <a href="#">TBot Project</a>.</strong> Todos los derechos reservados.
+    <strong>Copyright &copy; 2024 <a href="https://github.com/dfedez920912/tbot_project">TBot Project</a>.</strong> Todos los derechos reservados.
   </footer>
 </div>
 
@@ -137,6 +147,8 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!-- Custom JS -->
 <script src="{% static 'web_interface/js/custom.js' %}"></script>
+<!-- Toastr JS -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
 {% block scripts %}{% endblock %}
 </body>

@@ -155,33 +155,57 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Media (opcional)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# Autenticación
+AUTHENTICATION_BACKENDS = [
+    'web_interface.auth_backend.ADGroupBackend',  # ← Tu backend personalizado
+    'django.contrib.auth.backends.ModelBackend',  # ← Backend por defecto (para usuarios locales)
+]
+
+# URL de login
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/dashboard/'
+LOGOUT_REDIRECT_URL = '/login/'
+# Configuración de logging
+import logging
+
+# Configuración de logging
+import logging
+
+# Al final del archivo
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-            'formatter': 'verbose',
-            'level': 'DEBUG'
-        },
-    },
     'formatters': {
         'verbose': {
             'format': '{levelname} {asctime} {module} {message}',
             'style': '{',
         },
     },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+    },
     'root': {
         'handlers': ['console'],
-        'level': 'DEBUG',
-        'propagate': True
-    }
+        'level': 'INFO',
+    },
+    'loggers': {
+        'web_interface': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'ad_connector': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+    },
 }
-# Media (opcional)
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-
-# Login redirect
-LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/dashboard/'
-LOGOUT_REDIRECT_URL = '/login/'
