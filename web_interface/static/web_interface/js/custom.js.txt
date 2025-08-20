@@ -1,16 +1,16 @@
+//custom.js
 console.log("Custom JS cargado");
 
+// Función para obtener el token CSRF
 function getCSRFToken() {
     return $('input[name=csrfmiddlewaretoken]').val();
 }
 
+// Variable global definida desde el template
+// (Se define en users.html como: <script>const AUTH_ENABLED = true/false;</script>)
+
 $(document).ready(function () {
     // --- Activar ítem del sidebar ---
-    
-     if (typeof AUTH_ENABLED !== 'undefined') {
-        $('#enable_ad_admin_auth').prop('checked', AUTH_ENABLED);
-    }
-    
     const currentPath = window.location.pathname;
     $('.nav-item a').each(function () {
         const href = $(this).attr('href') || '';
@@ -196,47 +196,43 @@ $(document).ready(function () {
     // --- Guardar configuración con modal ---
     $('#save-config-btn').on('click', function () {
         const adGroup = $('#AD_GROUP').val().trim();
-        const enableAuth = $('#enable_ad_admin_auth').is(':checked'); // ← Estado actual
+        const enableAuth = $('#enable_ad_admin_auth').is(':checked');
 
         if (!adGroup) {
             toastr.warning('Debe ingresar el DN del grupo.');
             return;
         }
 
-        // Mostrar valor del grupo
-        $('#confirm-group-value').text(adGroup);
-        // Sincronizar estado en el modal
-        $('#confirm-auth-status').html(enableAuth ? 
-            '<span class="badge badge-success">Habilitado</span>' : 
-            '<span class="badge badge-danger">Deshabilitado</span>'
-        );
+        $('#confirm-group-value').html(`<strong>Grupo:</strong> ${adGroup}`);
+        $('#confirm-enable-auth').prop('checked', enableAuth);
 
-        // ← Aseguramos que el checkbox del modal no afecte nada
-        // (no usamos checkbox, solo mostramos estado)
-
-        // Mostrar modal
         $('#confirm-save-modal').modal('show');
     });
 
     // --- Confirmar guardado ---
     $('#confirm-save-btn').on('click', function () {
         const adGroup = $('#AD_GROUP').val().trim();
-        // ← Usamos el estado actual del interruptor principal
-        const enableAuth = $('#enable_ad_admin_auth').is(':checked');
+        const enableAuth = $('#confirm-enable-auth').is(':checked');
 
         $.post('', {
+            'action': 'save_ad_config',
             'AD_GROUP': adGroup,
             'enable_ad_admin_auth': enableAuth ? 'true' : 'false',
             'csrfmiddlewaretoken': getCSRFToken()
         }, function (data) {
-            if (data.status === 'success') {
+            console.log("Respuesta del servidor:", data); // ← Depuración
+
+            if (data && data.status === 'success') {
                 toastr.success('Configuración guardada.');
                 $('#confirm-save-modal').modal('hide');
-                // ← El interruptor ya está bien, pero aseguramos la variable global
+                // ← Actualizar estado del interruptor
+                $('#enable_ad_admin_auth').prop('checked', enableAuth);
+                // ← Actualizar AUTH_ENABLED para otros usos
                 window.AUTH_ENABLED = enableAuth;
             } else {
                 const errorMsg = data?.message || 'Error desconocido';
                 toastr.error('Error: ' + errorMsg);
+                console.error('Error en save_ad_config:', data);
             }
         }).fail(function (jqXHR, textStatus, errorThrown) {
             console.error('Error AJAX:', textStatus, errorThrown);

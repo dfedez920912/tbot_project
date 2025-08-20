@@ -20,19 +20,24 @@
               Ej: <code>CN=Adminz. del dominio,CN=Users,DC=example,DC=com</code>
             </small>
           </div>
+
           <div class="form-group">
+            <!-- Asegúrate de que el checkbox tenga el estado correcto -->
             <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="enable_auth" name="enable_ad_admin_auth"
-                     {% if auth_enabled %}checked{% endif %}>
-              <label class="custom-control-label" for="enable_auth">
-                Habilitar autenticación basada en grupo
-              </label>
+                <input type="checkbox" 
+                      class="custom-control-input" 
+                      id="enable_ad_admin_auth" 
+                      name="enable_ad_admin_auth"
+                      {% if auth_enabled %}checked{% endif %}>
+                <label class="custom-control-label" for="enable_ad_admin_auth">
+                    Habilitar autenticación basada en grupo
+                </label>
             </div>
             <small class="form-text text-muted">
               Solo los miembros de este grupo tendrán permisos de administrador.
             </small>
           </div>
-          <button type="submit" class="btn btn-primary">Guardar Configuración</button>
+          <button type="button" id="save-config-btn" class="btn btn-primary">Guardar Configuración</button>
         </div>
       </form>
     </div>
@@ -90,6 +95,30 @@
             {% endfor %}
           </tbody>
         </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal de Confirmación -->
+<div class="modal fade" id="confirm-save-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmar Guardado</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>¿Desea guardar la configuración del grupo de administradores?</p>
+        <p><strong>DN del Grupo:</strong> <code id="confirm-group-value"></code></p>
+        <p><strong>Estado de autenticación:</strong> <span id="confirm-auth-status"></span></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="confirm-save-btn">Guardar</button>
       </div>
     </div>
   </div>
@@ -170,16 +199,10 @@
 {% endblock %}
 
 {% block scripts %}
+
 <script>
-$(document).ready(function () {
-    const currentPath = window.location.pathname;
-    $('.nav-item a').each(function () {
-        const href = $(this).attr('href') || '';
-        if (href === currentPath || currentPath.startsWith(href.replace(/\/$/, '') + '/')) {
-            $(this).addClass('active');
-            $(this).closest('.has-treeview').addClass('menu-open').find('> a').addClass('active');
-        }
-    });
-});
+    // ← Pasar el valor de Django a JavaScript
+    const AUTH_ENABLED = {{ auth_enabled|yesno:"true,false" }};
 </script>
+
 {% endblock %}

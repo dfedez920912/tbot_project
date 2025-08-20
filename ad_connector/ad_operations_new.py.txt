@@ -6,26 +6,33 @@ from ldap3 import Server, Connection, Tls, SUBTREE, MODIFY_REPLACE
 from ldap3.core.exceptions import LDAPException, LDAPBindError
 from datetime import datetime, timedelta, timezone
 from dotenv import load_dotenv
+from web_interface.utils import log_event
 
-# Configurar logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Importaciones con manejo de errores para módulos opcionales
-try:
-    from web_interface.utils import log_event
-except ImportError:
-    def log_event(level, message, source):
-        logger.log(logging.getLevelName(level), f"[{source}] {message}")
 
-try:
-    from web_interface.models import AppSetting
-except ImportError:
-    class AppSetting:
-        @staticmethod
-        def get_bool(key, default):
-            return default
+# === FUNCIONES EXISTENTES (no modificadas) ===
 
+def authenticate_user(username: str, password: str) -> bool:
+    try:
+        config = get_ad_config()
+        server = Server(config['host'], port=config['port'], use_ssl=config['use_ssl'])
+        conn = Connection(
+            server,
+            user=f"{config['user']}",
+            password=config['password'],
+            auto_bind=True
+        )
+        success = conn.rebind(user=f"{username}@{os.getenv('AD_DOMAIN')}", password=password)
+        conn.unbind()
+        log_event(level='INFO' if success else 'WARNING',
+                  message=f"{'Éxito' if success else 'Fallo'} al autenticar a {username} en AD",
+                  source='ad_connector')
+        return success
+    except Exception as e:
+        logger.error(f"Error en authenticate_user: {str(e)}")
+        return False
 
 def get_ad_config():
     """Devuelve la configuración básica de AD desde variables de entorno."""
@@ -36,9 +43,7 @@ def get_ad_config():
         'user': os.getenv('AD_USER'),
         'password': os.getenv('AD_PASSWORD'),
         'search_base': os.getenv('AD_SEARCH_BASE'),
-        'tls_config': Tls(validate=ssl.CERT_NONE, version=ssl.PROTOCOL_TLSv1_2)
     }
-
 
 def cambiar_password_usuario(email: str, new_password: str) -> dict:
     """
@@ -119,107 +124,68 @@ def cambiar_password_usuario(email: str, new_password: str) -> dict:
         return {"success": False, "message": f"Error inesperado: {e}"}
 
 
-def fetch_ad_users(retries=3, delay=5):
-    """Obtiene usuarios de AD con reintentos y manejo de errores"""
-    config = get_ad_config()
 
+
+def fetch_ad_users(retries=3):
+    """Obtiene todos los usuarios del AD."""
+    config = get_ad_config()
+    server = Server(config['host'], port=config['port'], use_ssl=config['use_ssl'])
+    users = []
     for attempt in range(1, retries + 1):
         try:
             logger.info(f"Intento {attempt} de conexión con {config['host']}:{config['port']}")
-
-            # Configurar servidor
-            server = Server(
-                host=config['host'],
-                port=config['port'],
-                use_ssl=config['use_ssl'],
-                tls=config['tls_config'],
-                connect_timeout=10
-            )
-
-            # Establecer conexión
             with Connection(
-                    server,
-                    user=config['user'],
-                    password=config['password'],
-                    auto_bind=True,
-                    receive_timeout=30
+                server,
+                user=f"{config['user']}",
+                password=config['password'],
+                auto_bind=True
             ) as conn:
-
-                logger.debug(f"Conexión establecida: {conn.bound}")
-
-                # Realizar búsqueda
-                search_filter = '(&(objectClass=user)(objectCategory=person))'
-                attributes = [
-                    'sAMAccountName',
-                    'displayName',
-                    'mail',
-                    'telephoneNumber'
-                ]
-
                 conn.search(
                     search_base=config['search_base'],
-                    search_filter=search_filter,
-                    attributes=attributes,
+                    search_filter='(objectClass=user)',
                     search_scope=SUBTREE,
-                    size_limit=10000
+                    attributes=['sAMAccountName', 'givenName', 'sn', 'mail', 'telephoneNumber', 'displayName']
                 )
-
-                logger.info(f"Usuarios encontrados: {len(conn.entries)}")
-
-                # Procesar resultados
-                usuarios = []
                 for entry in conn.entries:
-                    try:
-                        usuario = {
-                            'username': entry.sAMAccountName.value,
-                            'name': entry.displayName.value if entry.displayName else entry.sAMAccountName.value,
-                            'email': entry.mail.value if entry.mail else '',
-                            'phone': entry.telephoneNumber.value if entry.telephoneNumber else ''
-                        }
-                        usuarios.append(usuario)
-                    except AttributeError as e:
-                        logger.warning(f"Error procesando entrada: {e}")
-                        continue
-
-                return usuarios
-
+                    users.append({
+                        'sAMAccountName': entry.sAMAccountName.value if entry.sAMAccountName else '',
+                        'givenName': entry.givenName.value if entry.givenName else '',
+                        'sn': entry.sn.value if entry.sn else '',
+                        'mail': entry.mail.value if entry.mail else '',
+                        'telephoneNumber': entry.telephoneNumber.value if entry.telephoneNumber else '',
+                        'displayName': entry.displayName.value if entry.displayName else ''
+                    })
+                logger.debug(f"Conexión establecida: {conn.bound}")
+                logger.info(f"Usuarios encontrados: {len(users)}")
+                break
         except Exception as e:
             logger.error(f"Error en intento {attempt}: {str(e)}")
-            if attempt < retries:
-                logger.info(f"Reintentando en {delay} segundos...")
-                time.sleep(delay)
-            else:
+            if attempt == retries:
                 raise
+            time.sleep(2)
+    return users
 
-    return []
-
-
-def check_group_membership(email_or_username: str) -> bool:
+def check_group_membership(email_or_username):
     """Verifica si un usuario pertenece al grupo de administradores."""
     try:
         config = get_ad_config()
         server = Server(config['host'], port=config['port'], use_ssl=config['use_ssl'])
-        
-        # Determinar si es email o username
-        if '@' in email_or_username:
-            username = email_or_username.split('@')[0]
-        else:
-            username = email_or_username
-            
-        group_dn = os.getenv('AD_GROUP')
-        if not group_dn:
-            return False
-            
-        search_filter = f"(&(objectClass=user)(sAMAccountName={username})(memberOf:1.2.840.113556.1.4.1941:={group_dn}))"
-        
         with Connection(
             server,
-            user=config['user'],
+            user=f"{config['user']}",
             password=config['password'],
             auto_bind=True
         ) as conn:
+            if '@' in email_or_username:
+                username = email_or_username.split('@')[0]
+            else:
+                username = email_or_username
+            group_dn = os.getenv('AD_GROUP')
+            if not group_dn:
+                return False
+            search_filter = f"(&(objectClass=user)(sAMAccountName={username})(memberOf:1.2.840.113556.1.4.1941:={group_dn}))"
             conn.search(
-                search_base=config['search_base'],
+                search_base=os.getenv('AD_SEARCH_BASE'),
                 search_filter=search_filter,
                 attributes=['sAMAccountName']
             )
@@ -228,6 +194,35 @@ def check_group_membership(email_or_username: str) -> bool:
         logger.error(f"Error verificando pertenencia al grupo: {str(e)}")
         return False
 
+def get_password_expiry(email: str) -> dict:
+    """Obtiene la fecha de expiración de la contraseña de un usuario."""
+    try:
+        config = get_ad_config()
+        server = Server(config['host'], port=config['port'], use_ssl=config['use_ssl'])
+        with Connection(
+            server,
+            user=f"{config['user']}",
+            password=config['password'],
+            auto_bind=True
+        ) as conn:
+            conn.search(
+                search_base=os.getenv('AD_SEARCH_BASE'),
+                search_filter=f'(mail={email})',
+                attributes=['pwdLastSet', 'msDS-UserPasswordExpiryTimeComputed']
+            )
+            if conn.entries:
+                entry = conn.entries[0]
+                expiry_time = entry['msDS-UserPasswordExpiryTimeComputed'].value
+                if expiry_time != 0:
+                    expiry_dt = datetime.fromtimestamp((expiry_time - 116444736000000000) / 10000000, tz=timezone.utc)
+                    return {
+                        'expires': True,
+                        'date': expiry_dt,
+                        'days_left': (expiry_dt - datetime.now(timezone.utc)).days
+                    }
+    except Exception as e:
+        logger.error(f"Error obteniendo expiración de contraseña: {str(e)}")
+    return {'expires': False, 'date': None, 'days_left': None}
 
 def is_user_active(email: str) -> bool:
     """
@@ -262,129 +257,39 @@ def is_user_active(email: str) -> bool:
         logger.error(f"Error inesperado verificando estado del usuario: {str(e)}")
         return False
 
-
-def get_password_expiry(email: str) -> dict:
-    """Calcula la expiración usando pwdLastSet y la política definida en .env"""
-    logger.debug(f"Iniciando consulta para email: {email}")
-
-    config = get_ad_config()
-    result = {
-        'email': email,
-        'expiry_date': None,
-        'days_remaining': None,
-        'is_expired': True,
-        'error': None
-    }
-
-    try:
-        # Obtener la política desde .env
-        policy_days = int(os.getenv('AD_PASSWORD_POLICY_DAYS', 180))
-        logger.debug(f"Política de contraseña: {policy_days} días")
-
-        if policy_days <= 0:
-            raise ValueError("AD_PASSWORD_POLICY_DAYS debe ser mayor a 0")
-
-        # Conexión a Active Directory
-        server = Server(
-            config['host'],
-            port=config['port'],
-            use_ssl=config['use_ssl'],
-            connect_timeout=10
-        )
-
-        with Connection(
-                server,
-                user=config['user'],
-                password=config['password'],
-                auto_bind=True
-        ) as conn:
-
-            # Buscar el usuario usando el email
-            conn.search(
-                search_base=config['search_base'],
-                search_filter=f"(&(objectClass=user)(mail={email}))",
-                attributes=['pwdLastSet'],
-                search_scope=SUBTREE,
-                size_limit=1
-            )
-
-            if not conn.entries:
-                raise ValueError(f"Usuario {email} no encontrado en AD")
-
-            user_entry = conn.entries[0]
-            pwd_last_set_value = user_entry.pwdLastSet.value
-            logger.debug(f"Valor obtenido de pwdLastSet: {pwd_last_set_value}")
-
-            # Procesar pwdLastSet: si es un datetime, usarlo directamente;
-            # de lo contrario, convertirlo a entero y calcular la fecha.
-            if isinstance(pwd_last_set_value, datetime):
-                last_set_date = pwd_last_set_value
-            else:
-                # Asegurarse de convertir el valor a entero
-                pwd_last_set_value = int(pwd_last_set_value)
-                epoch_start = datetime(1601, 1, 1, tzinfo=timezone.utc)
-                last_set_date = epoch_start + timedelta(
-                    microseconds=pwd_last_set_value // 10
-                )
-
-            logger.debug(f"Último cambio de contraseña: {last_set_date.isoformat()}")
-
-            # Calcular la fecha de expiración según la política
-            expiry_date = last_set_date + timedelta(days=policy_days)
-            logger.debug(f"Expiración calculada: {expiry_date.isoformat()}")
-
-            # Determinar los días restantes y el estado de expiración
-            now = datetime.now(timezone.utc)
-            days_remaining = (expiry_date - now).days
-            logger.debug(f"Días restantes: {days_remaining}")
-
-            result.update({
-                'expiry_date': expiry_date.strftime('%d/%m/%Y %H:%M UTC'),
-                'days_remaining': days_remaining,
-                'is_expired': days_remaining < 0
-            })
-
-    except Exception as e:
-        logger.error(f"Error para {email}: {str(e)}", exc_info=True)
-        result['error'] = str(e)
-
-    logger.debug(f"Resultado final: {result}")
-    return result
-
-
-# === NUEVAS FUNCIONES DEL FICHERO NEW ===
-
-def authenticate_user(username: str, password: str) -> bool:
+def is_user_active_in_ad(username: str) -> bool:
+    """Verifica si un usuario está activo en AD."""
     try:
         config = get_ad_config()
         server = Server(config['host'], port=config['port'], use_ssl=config['use_ssl'])
-        conn = Connection(
+        with Connection(
             server,
             user=f"{config['user']}",
             password=config['password'],
             auto_bind=True
-        )
-        success = conn.rebind(user=f"{username}@{os.getenv('AD_DOMAIN')}", password=password)
-        conn.unbind()
-        log_event(level='INFO' if success else 'WARNING',
-                  message=f"{'Éxito' if success else 'Fallo'} al autenticar a {username} en AD",
-                  source='ad_connector')
-        return success
+        ) as conn:
+            conn.search(
+                search_base=os.getenv('AD_SEARCH_BASE'),
+                search_filter=f'(sAMAccountName={username})',
+                attributes=['userAccountControl']
+            )
+            if conn.entries:
+                uac = conn.entries[0]['userAccountControl'].value
+                return (uac & 2) == 0  # 2 = ACCOUNTDISABLE
     except Exception as e:
-        logger.error(f"Error en authenticate_user: {str(e)}")
-        return False
+        logger.error(f"Error verificando estado del usuario: {str(e)}")
+    return False
 
+# === NUEVAS FUNCIONES CORREGIDAS ===
 
 def get_ad_group_config():
     """Devuelve el DN del grupo de administradores desde .env"""
     return os.getenv("AD_GROUP")
 
-
 def is_ad_admin_group_enabled():
     """Verifica si la autenticación por grupo de admin está habilitada."""
     from web_interface.models import AppSetting
     return AppSetting.get_bool('AD_ADMIN_GROUP_AUTH', False)
-
 
 def fetch_ad_users_for_import():
     """Obtiene todos los usuarios del AD, con sAMAccountName como username."""
@@ -392,21 +297,20 @@ def fetch_ad_users_for_import():
     result = []
     for user in users:
         try:
-            username = user.get('username')
+            username = user.get('sAMAccountName') or user.get('username')
             if not username:
                 continue
             result.append({
                 'username': username,
-                'first_name': '',  # No disponible en la versión original
-                'last_name': '',   # No disponible en la versión original
-                'email': user.get('email', ''),
-                'name': user.get('name', username)
+                'first_name': user.get('givenName', ''),
+                'last_name': user.get('sn', ''),
+                'email': user.get('mail', ''),
+                'name': f"{user.get('givenName', '')} {user.get('sn', '')}".strip() or username
             })
         except Exception as e:
             logger.warning(f"Error procesando usuario: {e}")
             continue
     return result
-
 
 def get_users_in_ad_group():
     """Obtiene directamente los usuarios del grupo AD usando el atributo 'member'."""
@@ -419,7 +323,7 @@ def get_users_in_ad_group():
         server = Server(config['host'], port=config['port'], use_ssl=config['use_ssl'])
         with Connection(
             server,
-            user=config['user'],
+            user=f"{config['user']}",
             password=config['password'],
             auto_bind=True
         ) as conn:
@@ -455,39 +359,3 @@ def get_users_in_ad_group():
     except Exception as e:
         logger.error(f"Error obteniendo usuarios del grupo AD: {str(e)}")
         return []
-
-
-def is_user_active_in_ad(username: str) -> bool:
-    """Verifica si un usuario está activo en AD."""
-    try:
-        config = get_ad_config()
-        server = Server(config['host'], port=config['port'], use_ssl=config['use_ssl'])
-        with Connection(
-            server,
-            user=config['user'],
-            password=config['password'],
-            auto_bind=True
-        ) as conn:
-            conn.search(
-                search_base=config['search_base'],
-                search_filter=f'(sAMAccountName={username})',
-                attributes=['userAccountControl']
-            )
-            if conn.entries:
-                uac = conn.entries[0]['userAccountControl'].value
-                return (uac & 2) == 0  # 2 = ACCOUNTDISABLE
-    except Exception as e:
-        logger.error(f"Error verificando estado del usuario: {str(e)}")
-    return False
-
-
-if __name__ == "__main__":
-    # Para pruebas directas
-    load_dotenv()
-    try:
-        users = fetch_ad_users()
-        print(f"\nUsuarios obtenidos ({len(users)}):")
-        for user in users[:5]:
-            print(f" - {user['username']}: {user['name']}")
-    except Exception as e:
-        print(f"Error crítico: {str(e)}")

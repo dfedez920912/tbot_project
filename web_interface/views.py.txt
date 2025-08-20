@@ -1,8 +1,9 @@
+# vieys.py
 import os
 import json
 import logging
 from django.shortcuts import render, redirect
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -22,7 +23,7 @@ from ad_connector.ad_operations import (
 )
 
 # Importaciones locales
-from .models import LogEntry, AppSetting
+from .models import LogEntry
 from .utils import log_event
 
 logger = logging.getLogger(__name__)
@@ -131,33 +132,19 @@ def users_view(request):
     # --- POST: Acciones
     if request.method == 'POST':
         action = request.POST.get('action')
+
         if not action:
             # Guardar configuración del grupo
             ad_group_val = request.POST.get('AD_GROUP')
-            # ← Cambiar de 'in request.POST' a obtener el valor
-            enable_auth_value = request.POST.get('enable_ad_admin_auth', 'false')
-            enable_auth = enable_auth_value.lower() == 'true'  # ← Convertir a booleano
-
-            logger.info(f"Guardando configuración: AD_GROUP={ad_group_val}, enable_ad_admin_auth={enable_auth}")
+            enable_auth = 'enable_ad_admin_auth' in request.POST  # ← True si está marcado
 
             if ad_group_val:
                 set_key(env_path, 'AD_GROUP', ad_group_val)
-
-            # Guardar en base de datos
-            try:
-                from web_interface.models import AppSetting
-                AppSetting.set_bool(
-                    'AD_ADMIN_GROUP_AUTH',
-                    enable_auth,
-                    'Habilita autenticación basada en grupo AD'
-                )
-                logger.info(f"Estado guardado en DB: AD_ADMIN_GROUP_AUTH = {enable_auth}")
-            except Exception as e:
-                logger.exception("Error al guardar en AppSetting")
+            set_key(env_path, 'AD_ADMIN_GROUP_AUTH', 'true' if enable_auth else 'false')
 
             log_event('INFO', 'Configuración de grupo de administradores actualizada.', 'users_view')
             return JsonResponse({'status': 'success', 'message': 'Configuración guardada.'})
-        
+
         elif request.POST.get('action') == 'import_ad_admins':
             try:
                 selected_users = json.loads(request.POST.get('users'))
@@ -168,16 +155,25 @@ def users_view(request):
                     if not username:
                         continue
 
+                    # ← Usa get_or_create con el username exacto, sin iexact
                     user, created = User.objects.get_or_create(username=username)
+
+                    # ← Si no fue creado, asegúrate de que el username esté bien
+                    if not created:
+                        if not user.username:  # Si está vacío, fíjalo
+                            user.username = username
+
+                    # ← Establecer contraseña no utilizable
                     if created or not user.has_usable_password():
                         user.set_unusable_password()
 
+                    # ← Actualizar campos
                     user.first_name = user_data.get('first_name', '')
                     user.last_name = user_data.get('last_name', '')
                     user.email = user_data.get('email', '')
                     user.is_staff = True
                     user.is_superuser = True
-                    user.save()
+                    user.save()  # ← Guardar
 
                     if created:
                         imported += 1
@@ -219,6 +215,33 @@ def users_view(request):
                 return JsonResponse({'success': False, 'message': 'Usuario no encontrado.'}, status=404)
             except Exception as e:
                 return JsonResponse({'success': False, 'message': str(e)}, status=500)
+            
+        elif request.POST.get('action') == 'save_ad_config':
+            try:
+                ad_group = request.POST.get('AD_GROUP')
+                enable_auth = request.POST.get('enable_ad_admin_auth') == 'true'
+
+                if not ad_group:
+                    return JsonResponse({'status': 'error', 'message': 'DN del grupo requerido.'}, status=400)
+
+                env_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env')
+
+                # ← Guardar AD_GROUP (puede tener espacios, set_key lo maneja con comillas)
+                set_key(env_path, 'AD_GROUP', ad_group)
+
+                # ← Guardar AD_ADMIN_GROUP_AUTH SIN comillas
+                # ← Usar set_key, pero asegurarnos de que no añada comillas innecesarias
+                set_key(env_path, 'AD_ADMIN_GROUP_AUTH', 'true' if enable_auth else 'false')
+
+                # ← 🔥 FORZAR RECARGA del entorno para esta instancia
+                import dotenv
+                dotenv.load_dotenv(env_path, override=True)
+
+                log_event('INFO', f'Configuración de AD guardada: Grupo={ad_group}, Auth={enable_auth}', 'users_view')
+                return JsonResponse({'status': 'success', 'message': 'Configuración guardada.'})
+            except Exception as e:
+                logger.exception("Error en save_ad_config")
+                return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
 
     # --- GET AJAX: Obtener usuarios del grupo AD ---
     if request.GET.get('action') == 'fetch_ad_admins':
@@ -274,15 +297,17 @@ def users_view(request):
             'is_active': user.is_active
         })
 
+    # --- Vista normal: Preparar datos ---
     ad_group = get_ad_group_config()
-    auth_enabled = is_ad_admin_group_enabled()  # ← Lee de DB
+    auth_enabled = is_ad_admin_group_enabled()  # ← Esto ya lo tienes
 
     return render(request, 'web_interface/users.html', {
         'django_users': django_users,
         'ad_group': ad_group,
-        'auth_enabled': auth_enabled,
+        'auth_enabled': auth_enabled,  # ← Asegúrate de que se pase
         'config': config,
     })
+
 
 
 # --- VISTA DE LOGS ---
@@ -343,3 +368,4 @@ def logs_view(request):
         'levels': levels,
         'sources': list(sources),
     })
+
