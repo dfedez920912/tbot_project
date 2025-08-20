@@ -10,7 +10,6 @@
         <h3 class="card-title">Conexión a Active Directory</h3>
       </div>
       <form id="ad-config-form">
-        {% csrf_token %}
         <div class="card-body">
           <div class="row">
             <div class="col-md-6">
@@ -30,17 +29,13 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="AD_USER">Usuario de servicio</label>
+                <label for="AD_USER">Usuario de Conexión (DN)</label>
                 <input type="text" class="form-control" id="AD_USER" name="AD_USER" value="{{ config.AD_USER }}">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="AD_PASSWORD">Contraseña</label>
-                <input type="password" class="form-control" id="AD_PASSWORD" name="AD_PASSWORD" value="{{ config.AD_PASSWORD }}">
-              </div>
-              <div class="form-group">
-                <label for="AD_SEARCH_BASE">Base de búsqueda</label>
+                <label for="AD_SEARCH_BASE">Base de Búsqueda</label>
                 <input type="text" class="form-control" id="AD_SEARCH_BASE" name="AD_SEARCH_BASE" value="{{ config.AD_SEARCH_BASE }}">
               </div>
               <div class="form-group">
@@ -48,42 +43,26 @@
                 <input type="text" class="form-control" id="AD_DOMAIN" name="AD_DOMAIN" value="{{ config.AD_DOMAIN }}">
               </div>
               <div class="form-group">
-                <label for="AD_PASSWORD_POLICY_DAYS">Días de expiración</label>
+                <label for="AD_PASSWORD_POLICY_DAYS">Días de vigencia de contraseña</label>
                 <input type="number" class="form-control" id="AD_PASSWORD_POLICY_DAYS" name="AD_PASSWORD_POLICY_DAYS" value="{{ config.AD_PASSWORD_POLICY_DAYS }}">
+              </div>
+              <div class="form-group">
+                <label for="SESSION_DURATION">Duración de sesión (minutos)</label>
+                <input type="number" class="form-control" id="SESSION_DURATION" name="SESSION_DURATION" value="{{ config.SESSION_DURATION }}">
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-12">
-              <button type="button" id="test-connection" class="btn btn-info">Probar Conexión</button>
-              <button type="button" id="save-config-btn" class="btn btn-primary" disabled>Guardar Configuración</button>
+
+          <div class="row mt-3">
+            <div class="col">
+              <button type="button" class="btn btn-info" id="test-connection">Probar Conexión</button>
+              <button type="submit" class="btn btn-primary">Guardar Configuración</button>
             </div>
           </div>
+
           <div class="alert mt-3" id="status-message" style="display: none;"></div>
         </div>
       </form>
-    </div>
-  </div>
-</div>
-
-<!-- Modal de Confirmación -->
-<div class="modal fade" id="confirm-save-modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Confirmar Guardado</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>¿Desea guardar los siguientes cambios?</p>
-        <div id="confirm-changes-list"></div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" id="confirm-save-btn">Guardar</button>
-      </div>
     </div>
   </div>
 </div>
@@ -91,10 +70,40 @@
 
 {% block scripts %}
 <script>
-    // No hay scripts adicionales en el bloque principal
+$('#ad-config-form').on('submit', function(e) {
+  e.preventDefault();
+  $.post('', $(this).serialize(), function(data) {
+    $('#status-message')
+      .removeClass('alert-danger alert-success')
+      .addClass('alert-success')
+      .text(data.message)
+      .show();
+  }).fail(function() {
+    $('#status-message')
+      .removeClass('alert-success')
+      .addClass('alert-danger')
+      .text('Error al guardar.')
+      .show();
+  });
+});
+
+$('#test-connection').click(function() {
+  $.get('?action=test_connection', function(data) {
+    $('#status-message')
+      .removeClass('alert-danger alert-success')
+      .addClass(data.success ? 'alert-success' : 'alert-danger')
+      .text(data.message)
+      .show();
+  }).fail(function() {
+    $('#status-message')
+      .removeClass('alert-success')
+      .addClass('alert-danger')
+      .text('Error de conexión.')
+      .show();
+  });
+});
 </script>
 {% endblock %}
-
 {% block custom_scripts %}
-<script src="{% static 'web_interface/js/config_ad.js' %}"></script>
+<script src="{% static 'web_interface/js/custom.js' %}"></script>
 {% endblock %}

@@ -67,7 +67,6 @@ def config_ad_view(request):
     env_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env')
     config = dotenv_values(env_path)
 
-    # Manejo de acciones vía GET (AJAX)
     if request.GET.get('action') == 'test_connection':
         try:
             users = fetch_ad_users(retries=1)
@@ -81,25 +80,10 @@ def config_ad_view(request):
                 'message': f'Error de conexión: {str(e)}'
             })
 
-    if request.GET.get('action') == 'test_admin_group':
-        test_email = request.GET.get('email', 'admin@example.com')
-        try:
-            is_member = check_group_membership(test_email)
-            return JsonResponse({
-                'success': is_member,
-                'message': 'El usuario pertenece al grupo de administradores.' if is_member else 'El usuario NO pertenece al grupo.'
-            })
-        except Exception as e:
-            return JsonResponse({
-                'success': False,
-                'message': f'Error al verificar grupo: {str(e)}'
-            })
-
-    # Manejo de POST: guardar configuración
     if request.method == 'POST':
         keys_to_update = [
             'AD_SERVER', 'AD_PORT', 'AD_USE_SSL', 'AD_USER', 'AD_SEARCH_BASE',
-            'AD_DOMAIN', 'AD_GROUP', 'AD_PASSWORD_POLICY_DAYS', 'SESSION_DURATION'
+            'AD_DOMAIN', 'AD_PASSWORD_POLICY_DAYS', 'SESSION_DURATION'
         ]
         for key in keys_to_update:
             value = request.POST.get(key)
@@ -109,14 +93,12 @@ def config_ad_view(request):
         log_event('INFO', 'Configuración de AD actualizada desde la interfaz web.', 'config_ad')
         return JsonResponse({'status': 'success', 'message': 'Configuración guardada.'})
 
-    # En GET normal: renderizar plantilla
     ad_config = get_ad_config()
     return render(request, 'web_interface/config_ad.html', {
         'config': config,
         'ad_config': ad_config,
     })
-
-
+    
 # --- VISTA UNIFICADA: USUARIOS ---
 
 @login_required
@@ -169,6 +151,9 @@ def users_view(request):
                         continue
 
                     user, created = User.objects.get_or_create(username=username)
+                    if not created and not user.username:
+                        user.username = username
+
                     if created or not user.has_usable_password():
                         user.set_unusable_password()
 
@@ -181,11 +166,18 @@ def users_view(request):
 
                     if created:
                         imported += 1
+                        # ← Log: Usuario AD importado
+                        log_event(
+                            'INFO',
+                            f"Usuario '{username}' importado del grupo AD por '{request.user.username}'.",
+                            'users_view'
+                        )
 
                 return JsonResponse({'success': True, 'count': imported})
             except Exception as e:
                 logger.exception("Error en import_ad_admins")
                 return JsonResponse({'success': False, 'message': str(e)}, status=500)
+
 
         elif action == 'toggle_user':
             try:
@@ -194,14 +186,24 @@ def users_view(request):
                     return JsonResponse({'success': False, 'message': 'Usuario requerido.'}, status=400)
 
                 user = User.objects.get(username__iexact=username)
-                user.is_active = not user.is_active
+                new_status = not user.is_active
+                user.is_active = new_status
                 user.save()
+
+                # ← Log: Usuario habilitado/deshabilitado
+                status_text = "habilitado" if new_status else "deshabilitado"
+                log_event(
+                    'INFO',
+                    f"Usuario '{username}' {status_text} por '{request.user.username}'.",
+                    'users_view'
+                )
 
                 return JsonResponse({'success': True})
             except User.DoesNotExist:
                 return JsonResponse({'success': False, 'message': 'Usuario no encontrado.'}, status=404)
             except Exception as e:
                 return JsonResponse({'success': False, 'message': str(e)}, status=500)
+
 
         elif action == 'delete_user':
             try:
@@ -213,13 +215,21 @@ def users_view(request):
                 if user.username == 'admin':
                     return JsonResponse({'success': False, 'message': 'No se puede eliminar el usuario admin.'}, status=400)
 
+                deleted_username = user.username
                 user.delete()
+
+                # ← Log: Usuario eliminado
+                log_event(
+                    'WARNING',  # ← Nivel WARNING por ser una acción irreversible
+                    f"Usuario '{deleted_username}' eliminado por '{request.user.username}'.",
+                    'users_view'
+                )
+
                 return JsonResponse({'success': True})
             except User.DoesNotExist:
                 return JsonResponse({'success': False, 'message': 'Usuario no encontrado.'}, status=404)
             except Exception as e:
                 return JsonResponse({'success': False, 'message': str(e)}, status=500)
-
     # --- GET AJAX: Obtener usuarios del grupo AD ---
     if request.GET.get('action') == 'fetch_ad_admins':
         try:
