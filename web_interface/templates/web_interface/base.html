@@ -1,4 +1,5 @@
 {% load static %}
+{% load gravatar %}
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -43,13 +44,34 @@
             ></a>
           </li>
         </ul>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'web_interface:logout' %}"
-              >Cerrar sesión</a
-            >
-          </li>
-        </ul>
+        <!-- Navbar - Perfil de Usuario -->
+<ul class="navbar-nav ml-auto">
+  <li class="nav-item dropdown">
+    <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+      <img src="https://www.gravatar.com/avatar/{{ request.user.email|cut:"@"|make_md5 }}?s=40&d=identicon" 
+           class="img-circle elevation-1" 
+           alt="Gravatar" 
+           width="30" 
+           height="30"
+           style="object-fit: cover;">
+    </a>
+    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+      <div class="dropdown-header text-center border-bottom">
+        <img src="https://www.gravatar.com/avatar/{{ request.user.email|cut:"@"|make_md5 }}?s=80&d=identicon" 
+             class="img-circle mb-2" 
+             alt="User Image" 
+             width="60" 
+             height="60">
+        <p class="mb-0 font-weight-bold">{{ request.user.get_full_name|default:request.user.username }}</p>
+        <small class="text-muted">{{ request.user.email|default:"Sin correo" }}</small>
+      </div>
+      <div class="dropdown-divider"></div>
+      <a href="{% url 'web_interface:logout' %}" class="dropdown-item text-center text-danger">
+        <i class="fas fa-sign-out-alt mr-2"></i> Cerrar sesión
+      </a>
+    </div>
+  </li>
+</ul>
       </nav>
 
       <!-- Main Sidebar Container -->

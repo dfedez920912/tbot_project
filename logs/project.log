@@ -19208,3 +19208,7 @@ telegram.error.Conflict: Conflict: terminated by other getUpdates request; make 
 2025-08-20 14:55:50,177 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
 2025-08-20 14:55:54,879 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
 2025-08-20 15:40:29,181 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-20 16:10:21,164 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-20 16:10:26,007 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-20 16:11:43,016 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-20 16:11:44,565 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
