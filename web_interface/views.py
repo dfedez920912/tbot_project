@@ -290,51 +290,63 @@ def users_view(request):
 @login_required
 def logs_view(request):
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
-        logs = LogEntry.objects.all().order_by('-timestamp')
+        try:
+            logs = LogEntry.objects.all().order_by('-timestamp')
 
-        # Filtros
-        level = request.GET.get('level')
-        source = request.GET.get('source')
-        search = request.GET.get('search')
-        from_date = request.GET.get('from_date')
-        to_date = request.GET.get('to_date')
+            # Filtros
+            level = request.GET.get('level')
+            source = request.GET.get('source')
+            search = request.GET.get('search')
+            from_date = request.GET.get('from_date')
+            to_date = request.GET.get('to_date')
 
-        if level:
-            logs = logs.filter(level=level)
-        if source:
-            logs = logs.filter(source__icontains=source)
-        if search:
-            logs = logs.filter(message__icontains=search)
-        if from_date:
-            logs = logs.filter(timestamp__date__gte=from_date)
-        if to_date:
-            logs = logs.filter(timestamp__date__lte=to_date)
+            if level:
+                logs = logs.filter(level=level)
+            if source:
+                logs = logs.filter(source__icontains=source)
+            if search:
+                logs = logs.filter(message__icontains=search)
+            if from_date:
+                logs = logs.filter(timestamp__date__gte=from_date)
+            if to_date:
+                logs = logs.filter(timestamp__date__lte=to_date)
 
-        # Paginación
-        page_size = int(request.GET.get('page_size', 25))
-        paginator = Paginator(logs, page_size)
-        page_number = request.GET.get('page')
-        page_obj = paginator.get_page(page_number)
+            # Paginación
+            page_size = int(request.GET.get('page_size', 25))
+            paginator = Paginator(logs, page_size)
+            page_number = request.GET.get('page')
+            page_obj = paginator.get_page(page_number)
 
-        # Serializar datos
-        data = {
-            'logs': [
-                {
-                    'timestamp': log.timestamp.strftime('%Y-%m-%d %H:%M:%S'),
-                    'level': log.level,
-                    'message': log.message,
-                    'source': log.source,
-                } for log in page_obj
-            ],
-            'pagination': {
-                'has_next': page_obj.has_next(),
-                'has_previous': page_obj.has_previous(),
-                'num_pages': paginator.num_pages,
-                'current_page': page_obj.number,
-                'total': paginator.count,
+            # Serializar datos
+            data = {
+                'logs': [
+                    {
+                        'timestamp': log.timestamp.strftime('%Y-%m-%d %H:%M:%S'),
+                        'level': log.level,
+                        'message': log.message,
+                        'source': log.source,
+                    } for log in page_obj
+                ],
+                'pagination': {
+                    'has_next': page_obj.has_next(),
+                    'has_previous': page_obj.has_previous(),
+                    'num_pages': paginator.num_pages,
+                    'current_page': page_obj.number,
+                    'total': paginator.count,
+                }
             }
-        }
-        return JsonResponse(data)
+            return JsonResponse(data)
+        except Exception as e:
+            logger.exception("Error en logs_view AJAX")
+            return JsonResponse({'error': 'Error interno'}, status=500)
+
+    # Solicitud normal
+    levels = LogEntry.LEVEL_CHOICES
+    sources = LogEntry.objects.values_list('source', flat=True).distinct()
+    return render(request, 'web_interface/logs.html', {
+        'levels': levels,
+        'sources': list(sources),
+    })
 
     # Solicitud normal
     levels = LogEntry.LEVEL_CHOICES

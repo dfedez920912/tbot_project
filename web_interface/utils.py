@@ -51,5 +51,10 @@ def log_event(level: str, message: str, source: str):
             source=source
         )
     except Exception as e:
-        # Evitar fallos si DB no está lista (ej: en migraciones)
+        # ← Mostrar el error real
         logger.error(f"[DB] No se pudo guardar log: {e}", extra={'source': 'log_system'})
+        # ← Lanzar el error en desarrollo
+        if not settings.DEBUG:
+            pass  # Silenciar en producción
+        else:
+            raise  # ← Lanzar en desarrollo para ver el error
