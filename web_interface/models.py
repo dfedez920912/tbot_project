@@ -46,4 +46,23 @@ class AppSetting(models.Model):
         logger.debug(f"AppSetting.set_bool: {'Creado' if created else 'Actualizado'} registro con ID={obj.id}")
 
     class Meta:
-        db_table = 'app_auth_settings'  # ← Nombre exacto de la tabla que creaste
+        db_table = 'app_auth_settings'  # ← Nombre exacto de la tabla que 
+        
+
+
+class User(models.Model):
+    id = models.AutoField(primary_key=True)
+    password = models.CharField(max_length=128)
+    last_login = models.DateTimeField(null=True, blank=True)
+    is_superuser = models.BooleanField()
+    username = models.CharField(max_length=150)
+    first_name = models.CharField(max_length=150)
+    last_name = models.CharField(max_length=150)
+    email = models.CharField(max_length=254)
+    is_staff = models.BooleanField()
+    is_active = models.BooleanField()
+    date_joined = models.DateTimeField()
+
+    class Meta:
+        db_table = 'auth_user'
+        managed = False  # ← Django no debe gestionar esta tabla

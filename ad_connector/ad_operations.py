@@ -119,80 +119,45 @@ def cambiar_password_usuario(email: str, new_password: str) -> dict:
         return {"success": False, "message": f"Error inesperado: {e}"}
 
 
-def fetch_ad_users(retries=3, delay=5):
-    """Obtiene usuarios de AD con reintentos y manejo de errores"""
-    config = get_ad_config()
+def fetch_ad_users(retries=3):
+    """Obtiene todos los usuarios del AD."""
 
+    config = get_ad_config()
+    server = Server(config['host'], port=config['port'], use_ssl=config['use_ssl'])
+    users = []
     for attempt in range(1, retries + 1):
         try:
             logger.info(f"Intento {attempt} de conexión con {config['host']}:{config['port']}")
-
-            # Configurar servidor
-            server = Server(
-                host=config['host'],
-                port=config['port'],
-                use_ssl=config['use_ssl'],
-                tls=config['tls_config'],
-                connect_timeout=10
-            )
-
-            # Establecer conexión
             with Connection(
-                    server,
-                    user=config['user'],
-                    password=config['password'],
-                    auto_bind=True,
-                    receive_timeout=30
+                server,
+                user=f"{config['user']}",
+                password=config['password'],
+                auto_bind=True
             ) as conn:
-
-                logger.debug(f"Conexión establecida: {conn.bound}")
-
-                # Realizar búsqueda
-                search_filter = '(&(objectClass=user)(objectCategory=person))'
-                attributes = [
-                    'sAMAccountName',
-                    'displayName',
-                    'mail',
-                    'telephoneNumber'
-                ]
-
                 conn.search(
                     search_base=config['search_base'],
-                    search_filter=search_filter,
-                    attributes=attributes,
-                    search_scope=SUBTREE,
-                    size_limit=10000
+                    search_filter='(objectClass=user)',
+                    attributes=['sAMAccountName', 'givenName', 'sn', 'mail', 'telephoneNumber', 'displayName']
                 )
-
-                logger.info(f"Usuarios encontrados: {len(conn.entries)}")
-
-                # Procesar resultados
-                usuarios = []
                 for entry in conn.entries:
-                    try:
-                        usuario = {
-                            'username': entry.sAMAccountName.value,
-                            'name': entry.displayName.value if entry.displayName else entry.sAMAccountName.value,
-                            'email': entry.mail.value if entry.mail else '',
-                            'phone': entry.telephoneNumber.value if entry.telephoneNumber else ''
-                        }
-                        usuarios.append(usuario)
-                    except AttributeError as e:
-                        logger.warning(f"Error procesando entrada: {e}")
-                        continue
-
-                return usuarios
-
+                    # ← Acceder a los atributos usando .value
+                    users.append({
+                        'sAMaccountName': entry.sAMaccountName.value if entry.sAMaccountName else '',
+                        'givenName': entry.givenName.value if entry.givenName else '',
+                        'sn': entry.sn.value if entry.sn else '',
+                        'mail': entry.mail.value if entry.mail else '',
+                        'telephoneNumber': entry.telephoneNumber.value if entry.telephoneNumber else '',
+                        'displayName': entry.displayName.value if entry.displayName else ''
+                    })
+                logger.debug(f"Conexión establecida: {conn.bound}")
+                logger.info(f"Usuarios encontrados: {len(users)}")
+                break
         except Exception as e:
             logger.error(f"Error en intento {attempt}: {str(e)}")
-            if attempt < retries:
-                logger.info(f"Reintentando en {delay} segundos...")
-                time.sleep(delay)
-            else:
+            if attempt == retries:
                 raise
-
-    return []
-
+            time.sleep(2)
+    return users
 
 def check_group_membership(email_or_username: str) -> bool:
     """Verifica si un usuario pertenece al grupo de administradores."""
@@ -355,6 +320,7 @@ def get_password_expiry(email: str) -> dict:
 # === NUEVAS FUNCIONES DEL FICHERO NEW ===
 
 def authenticate_user(username: str, password: str) -> bool:
+    """Autentica al usuario contra el AD."""
     try:
         config = get_ad_config()
         server = Server(config['host'], port=config['port'], use_ssl=config['use_ssl'])

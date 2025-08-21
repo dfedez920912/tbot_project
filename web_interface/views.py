@@ -99,6 +99,7 @@ def config_ad_view(request):
         'ad_config': ad_config,
     })
     
+    
 # --- VISTA UNIFICADA: USUARIOS ---
 
 @login_required
