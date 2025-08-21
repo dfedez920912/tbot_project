@@ -2,6 +2,8 @@ import logging
 from datetime import datetime
 from pathlib import Path
 import os
+from dotenv import load_dotenv, set_key, get_key
+
 
 logger = logging.getLogger(__name__)
 
@@ -54,3 +56,18 @@ def log_event(level: str, message: str, source: str):
         # ← Mostrar el error real
         logger.error(f"[DB] No se pudo guardar log: {e}", extra={'source': 'log_system'})
         
+
+
+def set_key_in_env(key, value):
+    """
+    Guarda una clave-valor en el archivo .env
+    """
+    env_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env')
+    # Asegurarse de que el archivo exista
+    if not os.path.exists(env_path):
+        open(env_path, 'a').close()
+    # Escribir la clave
+    success, key = set_key(env_path, key, value)
+    # Forzar recarga
+    load_dotenv(env_path, override=True)
+    return success

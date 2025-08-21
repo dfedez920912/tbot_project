@@ -8,7 +8,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.core.paginator import Paginator
-from dotenv import dotenv_values, set_key
+from dotenv import dotenv_values, load_dotenv, set_key
+from decouple import AutoConfig, config as decouple_config
+from django.views.decorators.csrf import csrf_exempt
 
 # Importaciones desde ad_connector
 from ad_connector.ad_operations import (
@@ -26,6 +28,7 @@ from .models import LogEntry, AppSetting
 from .utils import log_event
 
 logger = logging.getLogger(__name__)
+
 
 # --- VISTAS DE AUTENTICACIÓN ---
 
@@ -295,7 +298,6 @@ def users_view(request):
         'config': config,
     })
 
-
 # --- VISTA DE LOGS ---
 
 @login_required
@@ -365,4 +367,93 @@ def logs_view(request):
     return render(request, 'web_interface/logs.html', {
         'levels': levels,
         'sources': list(sources),
+    })
+
+
+# --- VISTA DE CONFIGURACION EMAIL ---
+    
+@login_required
+def config_email_view(request):
+    env_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env')
+    config = dotenv_values(env_path)
+
+    email_keys = [
+        'EMAIL_HOST',
+        'EMAIL_PORT',
+        'EMAIL_USE_TLS',
+        'EMAIL_USE_SSL',
+        'EMAIL_HOST_USER',
+        'EMAIL_HOST_PASSWORD',
+        'EMAIL_SENDER',
+        'DEFAULT_FROM_EMAIL'
+    ]
+
+    email_config = {key: config.get(key, '') for key in email_keys}
+
+    if request.method == 'POST':
+        action = request.POST.get('action')
+
+        if action == 'test_email':
+            try:
+                recipient = request.POST.get('recipient')
+                if not recipient:
+                    return JsonResponse({'status': 'error', 'message': 'Correo de destino requerido.'})
+
+                from email_service.email_sender import enviar_correo
+
+                subject = "Correo de prueba desde TBot Project"
+                cuerpo_html = """
+                <html>
+                <body>
+                    <h2>Correo de prueba</h2>
+                    <p>Este es un correo de prueba enviado desde la interfaz de configuración de correo.</p>
+                    <p><strong>¡La configuración es correcta!</strong></p>
+                </body>
+                </html>
+                """
+
+                try:
+                    enviar_correo(destinatarios=[recipient], asunto=subject, cuerpo_html=cuerpo_html)
+                    log_event('INFO', f'Correo de prueba enviado exitosamente a {recipient}.', 'config_email')
+                    return JsonResponse({'status': 'success', 'message': 'Correo de prueba enviado.'})
+                except Exception as e:
+                    error_msg = str(e)
+                    log_event('ERROR', f'Fallo al enviar correo de prueba a {recipient}: {error_msg}', 'config_email')
+                    return JsonResponse({'status': 'error', 'message': f'Error al enviar: {error_msg}'})
+
+            except Exception as e:
+                logger.exception("Error inesperado al enviar correo de prueba")
+                log_event('CRITICAL', f'Error inesperado en prueba de correo: {str(e)}', 'config_email')
+                return JsonResponse({'status': 'error', 'message': f'Error interno: {str(e)}'}, status=500)
+
+        elif action == 'save_config':
+            try:
+                if not os.path.exists(env_path):
+                    open(env_path, 'w').close()
+
+                # ← Usar set_key de python-dotenv
+                for key in email_keys:
+                    value = request.POST.get(key)
+                    if value is not None:
+                        set_key(env_path, key, value)
+
+                # ← Recargar variables de entorno
+                load_dotenv(env_path, override=True)
+
+                log_event('INFO', 'Configuración de correo actualizada desde la interfaz web.', 'config_email')
+                return JsonResponse({'status': 'success', 'message': 'Configuración guardada.'})
+
+            except Exception as e:
+                logger.exception("Error al guardar configuración de correo")
+                log_event('ERROR', 'Error al guardar configuración de correo desde la interfaz web.', 'config_email')
+                return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
+
+        else:
+            logger.warning(f"Acción inválida en config_email: {action}")
+            log_event('WARNING', 'Acción inválida en config_email: {action}.', 'config_email')
+            return JsonResponse({'status': 'error', 'message': 'Acción no válida.'}, status=400)
+
+    # ← Solo en GET: renderizar plantilla
+    return render(request, 'web_interface/config_email.html', {
+        'config': email_config
     })

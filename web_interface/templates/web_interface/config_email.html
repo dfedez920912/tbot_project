@@ -1,0 +1,129 @@
+{% extends 'web_interface/base.html' %}
+{% load static %}
+{% block name%}<title>TBot Project | Email</title>{%endblock%}
+{% block title %}Configuración de Correo{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-12">
+    <div class="card card-primary">
+      <div class="card-header">
+        <h3 class="card-title">Configuración de Correo Electrónico</h3>
+      </div>
+      <form id="email-config-form" method="post">
+        {% csrf_token %}
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="EMAIL_HOST">Servidor SMTP</label>
+                <input type="text" class="form-control" id="EMAIL_HOST" name="EMAIL_HOST" value="{{ config.EMAIL_HOST }}">
+              </div>
+              <div class="form-group">
+                <label for="EMAIL_PORT">Puerto</label>
+                <input type="number" class="form-control" id="EMAIL_PORT" name="EMAIL_PORT" value="{{ config.EMAIL_PORT }}">
+              </div>
+              <div class="form-group">
+                <label for="EMAIL_USE_TLS">Usar TLS</label>
+                <select class="form-control" id="EMAIL_USE_TLS" name="EMAIL_USE_TLS">
+                  <option value="True" {% if config.EMAIL_USE_TLS == 'True' %}selected{% endif %}>Sí</option>
+                  <option value="False" {% if config.EMAIL_USE_TLS == 'False' %}selected{% endif %}>No</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="EMAIL_USE_SSL">Usar SSL</label>
+                <select class="form-control" id="EMAIL_USE_SSL" name="EMAIL_USE_SSL">
+                  <option value="True" {% if config.EMAIL_USE_SSL == 'True' %}selected{% endif %}>Sí</option>
+                  <option value="False" {% if config.EMAIL_USE_SSL == 'False' %}selected{% endif %}>No</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="EMAIL_HOST_USER">Usuario</label>
+                <input type="text" class="form-control" id="EMAIL_HOST_USER" name="EMAIL_HOST_USER" value="{{ config.EMAIL_HOST_USER }}">
+              </div>
+              <div class="form-group">
+                <label for="EMAIL_HOST_PASSWORD">Contraseña</label>
+                <input type="password" class="form-control" id="EMAIL_HOST_PASSWORD" name="EMAIL_HOST_PASSWORD" value="{{ config.EMAIL_HOST_PASSWORD }}">
+              </div>
+              <div class="form-group">
+                <label for="EMAIL_SENDER">Remitente (EMAIL_SENDER)</label>
+                <input type="email" class="form-control" id="EMAIL_SENDER" name="EMAIL_SENDER" value="{{ config.EMAIL_SENDER }}">
+              </div>
+              <div class="form-group">
+                <label for="DEFAULT_FROM_EMAIL">Desde (DEFAULT_FROM_EMAIL)</label>
+                <input type="email" class="form-control" id="DEFAULT_FROM_EMAIL" name="DEFAULT_FROM_EMAIL" value="{{ config.DEFAULT_FROM_EMAIL }}">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <button type="button" id="test-email-btn" class="btn btn-info">Probar Configuración</button>
+              <button type="button" id="save-config-btn" class="btn btn-primary" disabled>Guardar Configuración</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Prueba de Correo -->
+<div class="modal fade" id="test-email-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Probar Correo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Se enviará un correo de prueba al siguiente correo:</p>
+        <input type="email" id="test-recipient" class="form-control" placeholder="correo@ejemplo.com" required>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="send-test-btn">Enviar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Confirmación de Guardado -->
+<div class="modal fade" id="confirm-save-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmar Guardado</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>¿Desea guardar la configuración de correo?</p>
+        <p><strong>Se aplicarán los siguientes cambios:</strong></p>
+        <ul id="changes-list"></ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="confirm-save-btn">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // ← Pasar el token CSRF
+    function getCSRFToken() {
+        return document.querySelector('[name=csrfmiddlewaretoken]').value;
+    }
+</script>
+{% endblock %}
+
+{% block custom_scripts %}
+<script src="{% static 'web_interface/js/config_email.js' %}"></script>
+{% endblock %}

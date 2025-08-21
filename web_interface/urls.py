@@ -13,9 +13,13 @@ urlpatterns = [
     
     # Configuración
     path('config/telegram/', views.dashboard_view, name='config_telegram'),
-    path('config/email/', views.dashboard_view, name='config_email'),
+    path('config/email/', views.config_email_view, name='config_email'),
     path('config/cron/', views.dashboard_view, name='config_cron'),
     path('config/todus/', views.dashboard_view, name='config_todus'),
     path('config/ad/', views.config_ad_view, name='config_ad'),  # ← Añade esta línea
     path('users/', views.users_view, name='users'),  # ← Vista de usuarios
+    
+    # Notificaciones
+    path('notid/email/', views.config_email_view, name='notif_email'),
+    path('notif/todus/', views.dashboard_view, name='notif_todus'),
 ]
