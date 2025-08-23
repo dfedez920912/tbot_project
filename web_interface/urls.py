@@ -12,7 +12,7 @@ urlpatterns = [
     path('logs/', views.logs_view, name='logs'),
     
     # Configuración
-    path('config/telegram/', views.dashboard_view, name='config_telegram'),
+    path('config/telegram/', views.config_telegram_view, name='config_telegram'),
     path('config/email/', views.config_email_view, name='config_email'),
     path('config/cron/', views.dashboard_view, name='config_cron'),
     path('config/todus/', views.dashboard_view, name='config_todus'),

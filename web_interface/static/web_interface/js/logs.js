@@ -42,6 +42,8 @@ $(document).ready(function () {
                                     WARNING: "warning",
                                     ERROR: "danger",
                                     CRITICAL: "dark",
+                                    DEBUG: "success",
+                                    EXCEPTION: "primary",
                                 }[log.level]
                             }">${log.level}</span>
                         </td>

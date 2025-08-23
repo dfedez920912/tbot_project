@@ -1,6 +1,7 @@
 import os
 import json
 import logging
+import requests
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.contrib.auth import authenticate, login, logout
@@ -8,6 +9,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.core.paginator import Paginator
+from pathlib import Path
+from collections import OrderedDict
 from dotenv import dotenv_values, load_dotenv, set_key
 from decouple import AutoConfig, config as decouple_config
 from django.views.decorators.csrf import csrf_exempt
@@ -30,6 +33,36 @@ from .utils import log_event
 logger = logging.getLogger(__name__)
 
 
+
+
+# ← Función para guardar el JSON manteniendo el orden original
+def save_messages_with_order(messages_file, updated_messages, original_order):
+    """
+    Guarda el JSON manteniendo el orden original de las claves.
+    """
+    ordered_data = OrderedDict()
+
+    # ← Recorrer el orden original y reconstruir el JSON
+    for key in original_order:
+        if key in updated_messages:
+            ordered_data[key] = updated_messages[key]
+        else:
+            # ← Si la clave no fue modificada, intentar mantenerla
+            pass
+
+    # ← Asegurar que todas las claves del orden original estén presentes
+    with open(messages_file, 'r', encoding='utf-8') as f:
+        original_data = json.load(f, object_pairs_hook=OrderedDict)
+
+    for key in original_order:
+        if key in original_data:
+            ordered_data[key] = updated_messages.get(key, original_data[key])
+
+    # ← Escribir con indentación
+    with open(messages_file, 'w', encoding='utf-8') as f:
+        json.dump(ordered_data, f, ensure_ascii=False, indent=4)
+        
+        
 # --- VISTAS DE AUTENTICACIÓN ---
 
 def login_view(request):
@@ -456,4 +489,131 @@ def config_email_view(request):
     # ← Solo en GET: renderizar plantilla
     return render(request, 'web_interface/config_email.html', {
         'config': email_config
+    })
+    
+# --- VISTA DE CONFIGURACION TELEGRAM ---
+@login_required
+def config_telegram_view(request):
+    env_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env')
+    
+    # --- 1. Leer el token de Telegram ---
+    config = dotenv_values(env_path)
+    telegram_token = config.get('TELEGRAM_BOT_TOKEN', '')
+
+    # --- 2. Leer los mensajes del bot ---
+    messages_file = Path(__file__).parent.parent / 'telegram_bot' / 'messages.json'
+    messages = {}
+    if messages_file.exists():
+        with open(messages_file, 'r', encoding='utf-8') as f:
+            try:
+                messages = json.load(f, object_pairs_hook=OrderedDict)
+            except json.JSONDecodeError as e:
+                logger.error(f"Error al leer messages.json: {e}")
+                messages = {}
+
+    # --- 3. Leer las etiquetas de los mensajes ---
+    labels_file = Path(__file__).parent.parent / 'telegram_bot' / 'message_labels.json'
+    labels = {}  # ← Definido aquí
+    if labels_file.exists():
+        with open(labels_file, 'r', encoding='utf-8') as f:
+            try:
+                labels = json.load(f)
+            except json.JSONDecodeError as e:
+                logger.error(f"Error al leer message_labels.json: {e}")
+                labels = {}
+
+    # ← Procesar mensajes para agrupar por secciones
+    processed_messages = []
+    current_section = {"title": "Mensajes Generales", "fields": []}
+
+    for key, value in messages.items():
+        if key.startswith('_comment_'):
+            # ← Guardar la sección anterior si tiene campos
+            if current_section["fields"]:
+                processed_messages.append(current_section)
+            # ← Crear nueva sección
+            current_section = {
+                "title": value,
+                "fields": []
+            }
+        else:
+            current_section["fields"].append({
+                "key": key,
+                "value": value,
+                "label": labels.get(key, key)  # ← Ahora `labels` está definida
+            })
+
+    # ← Agregar la última sección
+    if current_section["fields"] or not processed_messages:
+        processed_messages.append(current_section)
+
+    if request.method == 'POST':
+        action = request.POST.get('action')
+
+        # --- Acción: Verificar Token ---
+        if action == 'test_token':
+            token = request.POST.get('TELEGRAM_BOT_TOKEN')
+            if not token:
+                return JsonResponse({'status': 'error', 'message': 'Token requerido.'})
+
+            try:
+                response = requests.get(f"https://api.telegram.org/bot{token}/getMe")
+                data = response.json()
+                if data.get('ok'):
+                    user = data['result']
+                    return JsonResponse({
+                        'status': 'success',
+                        'message': f'✅ Token válido. Bot: @{user["username"]} ({user["first_name"]})'
+                    })
+                else:
+                    return JsonResponse({'status': 'error', 'message': f'❌ Token inválido: {data.get("description", "Desconocido")}'})
+            except Exception as e:
+                return JsonResponse({'status': 'error', 'message': f'❌ Error de conexión: {str(e)}'})
+
+        # --- Acción: Guardar Configuración ---
+        elif action == 'save_config':
+            try:
+                # ← Guardar el token
+                new_token = request.POST.get('TELEGRAM_BOT_TOKEN')
+                if new_token:
+                    set_key(env_path, 'TELEGRAM_BOT_TOKEN', new_token)
+
+                # ← Guardar los mensajes
+                updated_messages = {}
+                for section in processed_messages:
+                    for field in section['fields']:
+                        key = field['key']
+                        value = request.POST.get(f'message_{key}')
+                        if value is not None:
+                            updated_messages[key] = value
+
+                # ← Leer el orden original del archivo
+                with open(messages_file, 'r', encoding='utf-8') as f:
+                    original_data = json.load(f, object_pairs_hook=OrderedDict)
+
+                # ← Crear nuevo OrderedDict con el mismo orden
+                ordered_data = OrderedDict()
+                for key, value in original_data.items():
+                    if key.startswith('_comment_'):
+                        ordered_data[key] = value
+                    else:
+                        ordered_data[key] = updated_messages.get(key, value)
+
+                # ← Escribir con el orden preservado
+                with open(messages_file, 'w', encoding='utf-8') as f:
+                    json.dump(ordered_data, f, ensure_ascii=False, indent=4)
+
+                # ← Recargar variables de entorno
+                load_dotenv(env_path, override=True)
+
+                log_event('INFO', 'Configuración de Telegram actualizada desde la interfaz web.', 'config_telegram')
+                return JsonResponse({'status': 'success', 'message': 'Configuración guardada.'})
+
+            except Exception as e:
+                logger.exception("Error al guardar configuración de Telegram")
+                return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
+
+    return render(request, 'web_interface/config_telegram.html', {
+        'telegram_token': telegram_token,
+        'processed_messages': processed_messages
     })

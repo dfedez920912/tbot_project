@@ -42,6 +42,10 @@ def log_event(level: str, message: str, source: str):
         logger.error(message, extra=extra)
     elif level == 'CRITICAL':
         logger.critical(message, extra=extra)
+    elif level == 'EXCEPTION':
+        logger.exception(message, extra=extra)
+    elif level == 'DEBUG':
+        logger.debug(message, extra=extra)
 
     # 2. Log en base de datos (solo si Django está listo)
     try:

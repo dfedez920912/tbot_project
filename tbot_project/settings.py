@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'telegram_bot',
     'db_handler',
     'ad_connector',
-    'bot_handler',
     'web_interface',
 ]
 
@@ -165,6 +164,11 @@ AUTHENTICATION_BACKENDS = [
     'web_interface.auth_backend.ADGroupBackend',  # ← Tu backend personalizado
     'django.contrib.auth.backends.ModelBackend',  # ← Backend por defecto (para usuarios locales)
 ]
+
+# CONFIGURACIONES DE COOKIES Y CSRF
+CSRF_COOKIE_AGE = 7200
+CSRF_USE_SESSIONS = True
+CSRF_COOKIE_SECURE = True
 
 # URL de login
 LOGIN_URL = '/login/'

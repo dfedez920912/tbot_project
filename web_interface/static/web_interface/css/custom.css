@@ -99,13 +99,13 @@ body.dark-mode .toggle-container:hover {
 
 /* Estilos para el navbar en modo oscuro */
 body.dark-mode .main-header {
-    background-color: #1e1e2 f !important;
+    background-color: #1e1e2f !important;
     color: #ffffff;
-    border-bottom: 1px solid #3a3b4 d;
+    border-bottom: 1px solid #3a3b4d;
 }
 
 body.dark-mode .main-header .nav-link {
-    color: #d0 d0 d0 !important;
+    color: #d0d0d0 !important;
 }
 
 body.dark-mode .main-header .nav-link:hover {
@@ -122,15 +122,15 @@ body.dark-mode .main-header .close {
 
 body.dark-mode .main-header .dropdown-menu {
     background-color: #252637;
-    border: 1 px solid #3a3 b4 d;
+    border: 1px solid #3a3b4d;
 }
 
 body.dark-mode .main-header .dropdown-item {
-    color: #e0 e0 e0;
+    color: #e0e0e0;
 }
 
 body.dark-mode .main-header .dropdown-item:hover {
-    background-color: #3a3 b4 d;
+    background-color: #3a3b4d;
 }
 
 /* Estilos por defecto para el navbar (modo claro) */
@@ -163,4 +163,19 @@ body.dark-mode #main-navbar .brand-text {
 
 body.dark-mode #main-navbar .close {
     color: #ffffff;
+}
+
+/* Variables para tema claro/oscuro */
+:root {
+    --bg-primary: #fff;
+    --bg-secondary: #f8f9fa;
+    --border: #dee2e6;
+    --text: #333;
+}
+
+body.dark-mode {
+    --bg-primary: #2d3748;
+    --bg-secondary: #2d3748;
+    --border: #4a5568;
+    --text: #e0e0e0;
 }
