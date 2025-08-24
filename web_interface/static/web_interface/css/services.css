@@ -1,0 +1,64 @@
+/* Contenedor del input con icono */
+.search-container {
+    position: relative;
+    margin: 0 10px 15px;
+    max-width: 300px; /* Ajusta el ancho según necesites */
+}
+
+/* Estilo del input de búsqueda */
+.search-input {
+    width: 100%;
+    padding: 10px 40px 10px 15px; /* Espacio para el icono a la derecha */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1rem;
+    color: #e0e0e0;
+    background-color: #2d2d2d;
+    border: none;
+    border-bottom: 2px solid #555; /* Línea inferior inicial */
+    border-radius: 0;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* Efecto al enfocar el input */
+.search-input:focus {
+    border-bottom-color: #007bff; /* Cambia a azul cuando se selecciona */
+}
+
+/* Label flotante */
+.search-label {
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    font-size: 1rem;
+    color: #999;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    background-color: #2d2d2d;
+    padding: 0 5px;
+    z-index: 1;
+}
+
+/* Estado del label cuando el input está enfocado o tiene valor */
+.search-input:focus + .search-label,
+.search-input:not(:placeholder-shown) + .search-label {
+    top: -10px;
+    font-size: 0.75rem;
+    color: #007bff;
+}
+
+/* Icono de lupa */
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    pointer-events: none;
+    transition: color 0.3s ease;
+}
+
+/* Icono cambia de color cuando el input está enfocado */
+.search-input:focus ~ .search-icon {
+    color: #007bff;
+}

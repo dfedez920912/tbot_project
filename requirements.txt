@@ -14,6 +14,7 @@ ldap3==2.9.1
 mysqlclient==2.2.7
 phonenumbers==8.12.25
 pillow==11.1.0
+psutil==7.0.0
 pyasn1==0.6.1
 python-decouple==3.8
 python-dotenv==1.0.1

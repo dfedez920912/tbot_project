@@ -37,6 +37,8 @@
       href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
       rel="stylesheet"
     />
+    {% block styles%}
+    {%endblock%}
   </head>
   <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -119,10 +121,10 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/logs/" class="nav-link">
-                  <i class="nav-icon fas fa-list-alt"></i>
-                  <p>Servicios</p>
-                </a>
+                  <a href="{% url 'web_interface:services' %}" class="nav-link">
+                      <i class="nav-icon fas fa-server"></i>
+                      <p>Servicios</p>
+                  </a>
               </li>
               <li class="nav-item has-treeview">
                 <a href="#" class="nav-link">
@@ -205,6 +207,12 @@
                           <a href="{% url 'web_interface:notif_todus' %}" class="nav-link">
                               <i class="nav-icon fas fa-cloud"></i>
                               <p>Todus</p>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="{% url 'web_interface:monitor_telegram' %}" class="nav-link">
+                              <i class="nav-icon fas fa-broadcast-tower"></i>
+                              <p>Monitor de Telegram</p>
                           </a>
                       </li>
                   </ul>

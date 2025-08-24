@@ -2,6 +2,13 @@ import os
 import json
 import logging
 import requests
+import threading
+import psutil
+import asyncio
+import subprocess
+import sys
+import time
+from datetime import datetime
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.contrib.auth import authenticate, login, logout
@@ -14,6 +21,7 @@ from collections import OrderedDict
 from dotenv import dotenv_values, load_dotenv, set_key
 from decouple import AutoConfig, config as decouple_config
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_http_methods
 
 # Importaciones desde ad_connector
 from ad_connector.ad_operations import (
@@ -26,14 +34,145 @@ from ad_connector.ad_operations import (
     get_users_in_ad_group,
 )
 
+from telegram_bot.handlers import run_bot
+
+# ← Variable global para controlar el hilo
+telegram_bot_thread = None
+bot_running = False
+
 # Importaciones locales
 from .models import LogEntry, AppSetting
 from .utils import log_event
 
+
+# ← Ruta absoluta al proyecto
+PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 logger = logging.getLogger(__name__)
 
+# ← Ruta al archivo de estado
+STATUS_FILE = Path(__file__).parent.parent / 'telegram_bot' / 'services_status.json'
 
 
+# ← Definir el evento global ANTES de cualquier función que lo use
+stop_bot_event = threading.Event()
+
+# ← Variable global para el hilo del bot
+bot_thread = None
+
+def get_status():
+    if STATUS_FILE.exists():
+        try:
+            with open(STATUS_FILE, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                return {
+                    "telegram_running": data.get("telegram_running", False),
+                    "telegram_start_time": data.get("telegram_start_time"),
+                    "telegram_auto_start": data.get("telegram_auto_start", False)
+                }
+        except json.JSONDecodeError as e:
+            logger.error(f"Error al leer {STATUS_FILE}: {e}")
+    return {
+        "telegram_running": False,
+        "telegram_start_time": None,
+        "telegram_auto_start": False
+    }
+
+def update_status(**kwargs):
+    status = get_status()
+    status.update(kwargs)
+    with open(STATUS_FILE, 'w', encoding='utf-8') as f:
+        json.dump(status, f, indent=4, ensure_ascii=False)
+
+# ← Importar run_bot_sync desde handlers.py
+try:
+    from telegram_bot.handlers import run_bot_sync
+    RUN_BOT_AVAILABLE = True
+except Exception as e:
+    logger.exception("No se pudo importar run_bot_sync")
+    RUN_BOT_AVAILABLE = False
+    run_bot_sync = None
+
+@require_http_methods(["POST"])
+@csrf_exempt
+@login_required
+def telegram_start(request):
+    status = get_status()
+    if status["telegram_running"]:
+        return JsonResponse({'status': 'error', 'message': 'El bot ya está en ejecución.'}, status=400)
+
+    token = os.getenv('TELEGRAM_BOT_TOKEN')
+    if not token:
+        return JsonResponse({'status': 'error', 'message': 'Falta el token del bot en .env'}, status=500)
+
+    if not RUN_BOT_AVAILABLE:
+        return JsonResponse({'status': 'error', 'message': 'No se puede iniciar el bot: módulo no disponible.'}, status=500)
+
+    def run_bot_safe():
+        try:
+            # ← Ejecutar run_bot_sync en este hilo
+            run_bot_sync(token, stop_event=stop_bot_event)
+        except Exception as e:
+            logger.exception(f"Error en run_bot: {str(e)}")
+        finally:
+            # ← Resetear el evento
+            stop_bot_event.clear()
+            # ← Actualizar estado
+            update_status(telegram_running=False, telegram_start_time=None)
+            global bot_thread
+            bot_thread = None
+
+    # ← Actualizar estado: iniciando
+    current_time = time.time()
+    update_status(
+        telegram_running=True,
+        telegram_start_time=current_time,
+        telegram_auto_start=status["telegram_auto_start"]
+    )
+
+    global bot_thread
+    bot_thread = threading.Thread(target=run_bot_safe, daemon=True)
+    bot_thread.start()
+
+    logger.info("Bot de Telegram iniciado desde la API.")
+    return JsonResponse({'status': 'success', 'message': 'Bot de Telegram iniciado.'})
+
+@require_http_methods(["POST"])
+@csrf_exempt
+@login_required
+def telegram_stop(request):
+    status = get_status()
+    if not status["telegram_running"]:
+        return JsonResponse({'status': 'error', 'message': 'El bot ya está detenido.'}, status=400)
+
+    # ← Activar el evento para detener el bot
+    global stop_bot_event
+    stop_bot_event.set()
+
+    logger.info("Señal de detención enviada al bot de Telegram.")
+    return JsonResponse({'status': 'success', 'message': 'Señal de detención enviada. El bot se detendrá pronto.'})
+
+@require_http_methods(["GET"])
+@login_required
+def telegram_status(request):
+    status = get_status()
+    uptime = None
+    if status["telegram_running"] and status["telegram_start_time"]:
+        uptime_seconds = time.time() - status["telegram_start_time"]
+        hours = int(uptime_seconds // 3600)
+        mins = int((uptime_seconds % 3600) // 60)
+        secs = int(uptime_seconds % 60)
+        uptime = f"{hours}h {mins}m {secs}s"
+
+    return JsonResponse({
+        'status': 'success',
+        'data': {
+            'running': status["telegram_running"],
+            'start_time': status["telegram_start_time"],
+            'auto_start': status["telegram_auto_start"],
+            'uptime': uptime
+        }
+    })
 
 # ← Función para guardar el JSON manteniendo el orden original
 def save_messages_with_order(messages_file, updated_messages, original_order):
@@ -617,3 +756,153 @@ def config_telegram_view(request):
         'telegram_token': telegram_token,
         'processed_messages': processed_messages
     })
+    
+    
+@login_required
+def monitor_telegram_view(request):
+    # ← Usar 'timestamp', no 'created_at'
+    logs = LogEntry.objects.filter(source='telegram_bot').order_by('-timestamp')[:100]
+    return render(request, 'web_interface/monitor_telegram.html', {
+        'logs': logs
+    })
+    
+
+@login_required
+def services_view(request):
+    status = get_bot_status()
+    # ← Pasar variables a la plantilla
+    context = {
+        'status': status,
+        'BOT_RUNNING': status['running'],
+        'START_TIME': status['start_time'],
+    }
+    return render(request, 'web_interface/services.html', context)
+
+
+def get_bot_status():
+    """Devuelve el estado actual del bot."""
+    try:
+        status_file = Path(__file__).parent.parent / 'telegram_bot' / 'services_status.json'
+        if status_file.exists():
+            with open(status_file, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                return {
+                    'running': data.get("telegram_running", False),
+                    'auto_start': data.get("telegram_auto_start", False),
+                    'start_time': data.get("telegram_start_time"),
+                }
+        return {'running': False, 'auto_start': False, 'start_time': None}
+    except Exception as e:
+        logger.exception("Error al leer el estado del bot")
+        return {'running': False, 'auto_start': False, 'start_time': None}
+    
+    
+@csrf_exempt
+@login_required
+def toggle_telegram(request):
+    if request.method != 'POST':
+        return JsonResponse({'status': 'error', 'message': 'Método no permitido.'}, status=405)
+
+    try:
+        data = json.loads(request.body)
+        action = data.get('action')
+        logger.info(f"[toggle_telegram] Acción recibida: {action}")
+
+        if action == 'start':
+            status = get_status()
+            if status["telegram_running"]:
+                return JsonResponse({'status': 'error', 'message': 'El bot ya está en ejecución.'})
+
+            token = os.getenv('TELEGRAM_BOT_TOKEN')
+            if not token:
+                return JsonResponse({'status': 'error', 'message': 'Falta el token del bot en .env'})
+
+            def run_bot_safe():
+                try:
+                    asyncio.set_event_loop(asyncio.new_event_loop())
+                    run_bot(token)
+                except Exception as e:
+                    logger.exception(f"Error en run_bot: {str(e)}")
+                    log_event('CRITICAL', f'Error en run_bot: {str(e)}', 'services')
+                finally:
+                    # ← Solo marcar como detenido si el hilo termina
+                    update_status(telegram_running=False, telegram_start_time=None)
+
+            # ✅ SOLO EL BACKEND ESCRIBE EL start_time
+            current_time = time.time()
+            update_status(
+                telegram_running=True,
+                telegram_start_time=current_time,
+                telegram_auto_start=status["telegram_auto_start"]
+            )
+
+            thread = threading.Thread(target=run_bot_safe, daemon=True)
+            thread.start()
+
+            log_event('INFO', 'Bot de Telegram iniciado desde la interfaz web.', 'services')
+            return JsonResponse({'status': 'success', 'message': 'Bot de Telegram iniciado.'})
+
+        elif action == 'stop':
+            # ✅ SOLO EL BACKEND ACTUALIZA EL ESTADO
+            update_status(telegram_running=False, telegram_start_time=None)
+            log_event('INFO', 'Bot de Telegram detenido desde la interfaz web.', 'services')
+            return JsonResponse({'status': 'success', 'message': 'Bot de Telegram detenido.'})
+
+        else:
+            return JsonResponse({'status': 'error', 'message': 'Acción inválida.'})
+
+    except Exception as e:
+        logger.exception("Error en toggle_telegram")
+        return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
+
+@csrf_exempt
+@login_required
+def set_auto_start_linux(request):
+    if request.method == 'POST' and sys.platform == 'linux':
+        try:
+            data = json.loads(request.body)
+            enable = data.get('enable', False)
+
+            service_file = '/etc/systemd/system/tbot_telegram.service'
+            project_path = os.path.dirname(os.path.dirname(__file__))
+            python_path = sys.executable
+
+            if enable:
+                # ← Crear servicio systemd
+                service_content = f"""
+[Unit]
+Description=TBot Telegram Bot
+After=network.target
+
+[Service]
+Type=simple
+User={os.getlogin()}
+WorkingDirectory={project_path}
+ExecStart={python_path} manage.py run_bot
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+"""
+                with open('/tmp/tbot_telegram.service', 'w') as f:
+                    f.write(service_content.strip())
+
+                os.system('sudo mv /tmp/tbot_telegram.service /etc/systemd/system/')
+                os.system('sudo systemctl daemon-reexec')
+                os.system('sudo systemctl enable tbot_telegram.service')
+                os.system('sudo systemctl start tbot_telegram.service')
+
+                set_bot_status(get_bot_status()["running"], auto_start=True)
+                return JsonResponse({'status': 'success', 'message': 'Servicio configurado para iniciar con el sistema.'})
+
+            else:
+                # ← Deshabilitar servicio
+                os.system('sudo systemctl stop tbot_telegram.service')
+                os.system('sudo systemctl disable tbot_telegram.service')
+                set_bot_status(get_bot_status()["running"], auto_start=False)
+                return JsonResponse({'status': 'success', 'message': 'Inicio automático desactivado.'})
+
+        except Exception as e:
+            return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
+
+    return JsonResponse({'status': 'error', 'message': 'Sistema no compatible o método no permitido.'}, status=400)

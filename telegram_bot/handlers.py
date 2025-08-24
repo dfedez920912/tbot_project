@@ -5,6 +5,7 @@ import logging
 import os
 import json
 import asyncio
+import threading
 from pathlib import Path
 from asgiref.sync import sync_to_async
 from django.utils import timezone
@@ -27,7 +28,6 @@ from telegram.ext import (
 )
 from telegram_bot.models import Session
 
-
 # Importar funciones de la base de datos y AD
 from db_handler.db_handler import get_user_by_phone, delete_session
 from ad_connector.ad_operations import (
@@ -44,39 +44,8 @@ from email_service.email_sender import (
 
 from web_interface.utils import log_event
 
-# ← Importación segura de log_event
-try:
-    from web_interface.utils import log_event
-    # ← Verificar que sea la función real, no un fallback
-    if 'logger.log' in str(log_event):  # ← Detección burda de función falsa
-        raise ImportError("log_event es un fallback, no el real")
-except Exception as e:
-    # ← Si falla, definir una función que registre el error
-    def log_event(level: str, message: str, source: str):
-        print(f"[CRITICAL] No se pudo cargar log_event real: {e}")
-        print(f"[{level}] [{source}] {message}")
-        # ← Intentar registrar el error en consola y forzar revisión
-
 # Ruta al archivo de mensajes
 MESSAGES_FILE = Path(__file__).parent / "messages.json"
-
-
-def log_event(level: str, message: str, source: str):
-    # 1. Log en archivo y consola
-    extra = {'source': source}
-    logger_method = getattr(logger, level.lower(), logger.info)
-    logger_method(message, extra=extra)
-
-    # 2. Log en base de datos
-    try:
-        from web_interface.models import LogEntry  # ← Importación diferida
-        LogEntry.objects.create(
-            level=level,
-            message=message,
-            source=source
-        )
-    except Exception as e:
-        logger.error(f"[DB] No se pudo guardar log: {e}", extra={'source': 'log_system'})
 
 # Cargar mensajes
 def load_messages():
@@ -87,18 +56,6 @@ def load_messages():
 
 messages = load_messages()
 
-
-def handle_password_change(user_id, username):
-    try:
-        # ... lógica de cambio de contraseña
-        log_event('INFO',f"Usuario {user_id} solicitó cambio de contraseña para {username}",'telegram_bot')
-        print("DEBUG: log_event definido en:", log_event.__code__.co_filename)
-        print("DEBUG: log_event contenido:", log_event.__code__.co_code)
-        return True
-    except Exception as e:
-        log_event('ERROR',f"Error al cambiar contraseña para {username}: {str(e)}",'telegram_bot')
-        return False
-
 # Configurar logging
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -107,21 +64,17 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Estados para los ConversationHandlers
-# Flujo para cambiar la propia contraseña
 GET_NEW_PASSWORD = 2
 GET_PASSWORD_CONFIRMATION = 3
-# Flujo para cambiar la contraseña de otro usuario (administrador)
 GET_USER_EMAIL = 10
 GET_USER_NEW_PASSWORD = 11
 GET_USER_PASSWORD_CONFIRMATION = 12
-# Flujo para verificar vigencia de otro usuario
 GET_EMAIL = 1
 
-# Duración de la sesión en minutos (definida en .env, por defecto 30)
-SESSION_DURATION = int(os.getenv("SESSION_DURATION"))
+# Duración de la sesión en minutos
+SESSION_DURATION = int(os.getenv("SESSION_DURATION", 30))
 
 def get_greeting():
-    """Devuelve el saludo según la hora actual."""
     hour = datetime.now().hour
     if 5 <= hour < 12:
         return "¡Buenos días! 🌅"
@@ -130,12 +83,9 @@ def get_greeting():
     else:
         return "¡Buenas noches! 🌙"
 
-# -------------------- Función: escape_markdown_v2 ----------------------- #
 def escape_markdown_v2(text: str) -> str:
-    """Escapa caracteres según la especificación de Markdown V2 para Telegram."""
     escape_chars = r"_*\[\]()~`>#+-=|{}.!\\"
     return re.sub(rf'([{re.escape(escape_chars)}])', r'\\\1', text)
-
 
 # ---------------- Funciones de sesión ------------------
 async def verify_session(update: Update, context: ContextTypes.DEFAULT_TYPE) -> bool:
@@ -151,7 +101,6 @@ async def verify_session(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
             )
             return False
         else:
-            # Actualizar el campo `last_updated` si la sesión sigue activa
             session.last_updated = timezone.now() + timedelta(minutes=SESSION_DURATION)
             await sync_to_async(session.save)()
             return True
@@ -163,42 +112,34 @@ async def verify_session(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
         )
         return False
     except Exception as e:
-        log_event('ERROR', "Error verificando la sesión: %s", 'telegram_bot')
+        await sync_to_async(log_event)('ERROR', f"Error verificando la sesión: {str(e)}", 'telegram_bot')
         return False
 
 async def terminate_bot(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Cierra la sesión del usuario y elimina el registro."""
     try:
         user_id = str(update.effective_user.id)
-
-        # Llamar directamente a la función asíncrona delete_session
         deleted_count = await delete_session(user_id)
-
         if deleted_count > 0:
-            log_event('INFO', "Sesión eliminada para el usuario {user_id}", 'telegram_bot')
+            await sync_to_async(log_event)('INFO', f"Sesión eliminada para el usuario {user_id}", 'telegram_bot')
             await context.bot.send_message(
                 chat_id=update.effective_chat.id,
                 text=messages.get("bot_terminated","🤖 Sesión terminada. ¡Hasta pronto!")
             )
         else:
-            log_event('WARNING', "No se encontró una sesión activa para el usuario {user_id}", 'telegram_bot')
+            await sync_to_async(log_event)('WARNING', f"No se encontró una sesión activa para el usuario {user_id}", 'telegram_bot')
             await context.bot.send_message(
                 chat_id=update.effective_chat.id,
                 text=messages.get("error_session_inactive","⚠️ No se encontró una sesión activa para cerrar. Si es un error, intenta autenticándote nuevamente.")
             )
-
     except Exception as e:
-        log_event('ERROR', "Error terminando la sesión para el usuario {update.effective_user.id}: {str(e)}", 'telegram_bot')
+        await sync_to_async(log_event)('ERROR', f"Error terminando la sesión para el usuario {update.effective_user.id}: {str(e)}", 'telegram_bot')
         await context.bot.send_message(
             chat_id=update.effective_chat.id,
             text=messages.get("error_session_contact","⚠️ Hubo un error inesperado al terminar tu sesión. Por favor, contacta al administrador.")
         )
 
 async def handle_contact(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Valida el contacto del usuario, verifica AD y crea la sesión."""
     contact = update.message.contact
-
-    # Validar que el contacto corresponde al usuario
     if update.effective_user.id != contact.user_id:
         await context.bot.send_message(
             chat_id=update.effective_chat.id,
@@ -210,7 +151,6 @@ async def handle_contact(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = contact.user_id
 
     try:
-        # Buscar usuario por teléfono en la base de datos
         usuario = await get_user_by_phone(raw_phone)
         if not usuario:
             await context.bot.send_message(
@@ -219,7 +159,6 @@ async def handle_contact(update: Update, context: ContextTypes.DEFAULT_TYPE):
             )
             return
 
-        # Verificar si el usuario está activo en AD
         is_active = await sync_to_async(is_user_active)(usuario['mail'])
         if not is_active:
             await context.bot.send_message(
@@ -228,10 +167,8 @@ async def handle_contact(update: Update, context: ContextTypes.DEFAULT_TYPE):
             )
             return
 
-        # Verificar si el usuario pertenece al grupo permitido
         is_member = await sync_to_async(check_group_membership)(usuario['mail'])
 
-        # Crear la sesión después de todas las verificaciones exitosas
         await sync_to_async(Session.objects.update_or_create)(
             session_id=str(user_id),
             defaults={
@@ -242,7 +179,6 @@ async def handle_contact(update: Update, context: ContextTypes.DEFAULT_TYPE):
             }
         )
 
-        # Construir las botoneras y enviarlas al usuario
         keyboard = [
             [InlineKeyboardButton("🔐 Verificar vigencia", callback_data="check_expiry"),
              InlineKeyboardButton("🔄 Cambiar contraseña 🔑", callback_data="change_password")]
@@ -255,8 +191,7 @@ async def handle_contact(update: Update, context: ContextTypes.DEFAULT_TYPE):
         keyboard.append([InlineKeyboardButton("❌ Terminar bot 🤖", callback_data="terminar_bot")])
         reply_markup = InlineKeyboardMarkup(keyboard)
 
-
-        message_text = messages.get("start_success","👤 : {usuario['name']}\n📧 : {usuario['mail']}\n\n✅ Autenticación exitosa.")
+        message_text = messages.get("start_success","👤 : {name}\n📧 : {email}\n\n✅ Autenticación exitosa.")
         message_text = message_text.format(name=usuario['name'], email=usuario['mail'])    
         await context.bot.send_message(
             chat_id=update.effective_chat.id,
@@ -265,7 +200,7 @@ async def handle_contact(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
 
     except Exception as e:
-        log_event('ERROR', "Error autenticando al usuario {user_id}: {str(e)}", 'telegram_bot')
+        await sync_to_async(log_event)('ERROR', f"Error autenticando al usuario {user_id}: {str(e)}", 'telegram_bot')
         await context.bot.send_message(
             chat_id=update.effective_chat.id,
             text=messages.get("start_error","⚠️ Hubo un error durante la autenticación. Inténtalo de nuevo más tarde.")
@@ -285,13 +220,12 @@ async def process_new_password(update: Update, context: ContextTypes.DEFAULT_TYP
     try:
         new_password = update.message.text.strip()
         chat_id = update.message.chat_id
-        # Borrar el mensaje con la nueva contraseña del usuario (para no dejar datos sensibles)
         await update.message.delete()
         context.user_data['new_password'] = new_password
         await context.bot.send_message(chat_id=chat_id, text=messages.get("password_confirmation_request","🙏 Por favor, confirma tu nueva contraseña:"))
         return GET_PASSWORD_CONFIRMATION
     except Exception as e:
-        log_event('EXCEPTION', "Error en process_new_password: %s", 'telegram_bot')
+        await sync_to_async(log_event)('EXCEPTION', f"Error en process_new_password: {str(e)}", 'telegram_bot')
         await context.bot.send_message(chat_id=chat_id, text=messages.get("error_processing","⚠️ Ocurrió un error. Inténtalo nuevamente."))
         return ConversationHandler.END
 
@@ -300,7 +234,6 @@ async def process_password_confirmation(update: Update, context: ContextTypes.DE
         confirmation = update.message.text.strip()
         chat_id = update.message.chat_id
         await update.message.delete()
-
         new_password = context.user_data.get('new_password')
         if not new_password:
             await context.bot.send_message(
@@ -308,22 +241,17 @@ async def process_password_confirmation(update: Update, context: ContextTypes.DE
                 text=messages.get("initial_password_error", "⚠️ No se recibió la contraseña inicial. Inténtalo de nuevo.")
             )
             return ConversationHandler.END
-
         if new_password != confirmation:
             await context.bot.send_message(
                 chat_id=chat_id,
                 text=messages.get("passwords_not_match", "⚠️ Las contraseñas no coinciden. Inténtalo de nuevo.")
             )
-            # ← Eliminar la contraseña guardada
             context.user_data.pop('new_password', None)
-            # ← Volver a solicitar nueva contraseña
             await context.bot.send_message(
                 chat_id=chat_id,
                 text=messages.get("change_password_request", "🙏 Por favor, introduce tu nueva contraseña:")
             )
             return GET_NEW_PASSWORD
-
-        # ← Si coinciden, cambiar la contraseña
         session = await sync_to_async(Session.objects.get)(session_id=str(chat_id))
         email = session.email
         if not email:
@@ -332,21 +260,17 @@ async def process_password_confirmation(update: Update, context: ContextTypes.DE
                 text=messages.get("user_email_invalid", "❌ No tienes un email asociado. Inicia sesión nuevamente.")
             )
             return ConversationHandler.END
-
         result = await sync_to_async(cambiar_password_usuario)(email, new_password)
         if result["success"]:
             await context.bot.send_message(
                 chat_id=chat_id,
                 text=messages.get("password_changed_success", "✅ La contraseña fue cambiada exitosamente.")
             )
-            # Notificar vía email
             notificar_cambio_contrasena_usuario(email, new_password)
-            # Notificar a admins
             admin_emails_str = config('ADMIN_EMAILS', default='')
             admin_emails = [e.strip() for e in admin_emails_str.split(",") if e.strip()]
             if admin_emails:
                 notificar_cambio_contrasena_admin(admin_emails, email)
-            # Limpiar datos
             context.user_data.clear()
             return ConversationHandler.END
         else:
@@ -355,14 +279,12 @@ async def process_password_confirmation(update: Update, context: ContextTypes.DE
                 text=f"⚠️ Error al cambiar contraseña: {result['message']}"
             )
             return ConversationHandler.END
-
     except Exception as e:
-        log_event('ERROR', f"Error en process_password_confirmation: {str(e)}", 'telegram_bot')
+        await sync_to_async(log_event)('ERROR', f"Error en process_password_confirmation: {str(e)}", 'telegram_bot')
         await context.bot.send_message(
             chat_id=chat_id,
             text=messages.get("error_processing", "⚠️ Ocurrió un error. Inténtalo nuevamente.")
         )
-        # ← Limpiar datos en caso de error
         context.user_data.clear()
         return ConversationHandler.END
     
@@ -394,15 +316,15 @@ async def process_user_email(update: Update, context: ContextTypes.DEFAULT_TYPE)
             return GET_USER_EMAIL
         context.user_data['target_email'] = target_email
         await context.bot.send_message(
-    chat_id=chat_id,
-    text=messages.get(
-        "change_password_request",  # ← Clave del mensaje
-        f"🔍 Se procederá a cambiar la contraseña para {target_email}. 🙏 Por favor, introduce la nueva contraseña:"
-    )
-)
+            chat_id=chat_id,
+            text=messages.get(
+                "change_password_request",
+                f"🔍 Se procederá a cambiar la contraseña para {target_email}. 🙏 Por favor, introduce la nueva contraseña:"
+            )
+        )
         return GET_USER_NEW_PASSWORD
     except Exception as e:
-        log_event('EXCEPTION', "Error en process_user_email: %s", 'telegram_bot')
+        await sync_to_async(log_event)('EXCEPTION', f"Error en process_user_email: {str(e)}", 'telegram_bot')
         await context.bot.send_message(chat_id=update.effective_chat.id, text=messages.get("error_processing","⚠️ Ocurrió un error. Inténtalo nuevamente."))
         return ConversationHandler.END
 
@@ -415,7 +337,7 @@ async def process_user_new_password(update: Update, context: ContextTypes.DEFAUL
         await context.bot.send_message(chat_id=chat_id, text=messages.get("change_password_reuqest","🙏 Por favor, confirma la nueva contraseña:"))
         return GET_USER_PASSWORD_CONFIRMATION
     except Exception as e:
-        log_event('EXCEPTION', "Error en process_user_new_password: %s", 'telegram_bot')
+        await sync_to_async(log_event)('EXCEPTION', f"Error en process_user_new_password: {str(e)}", 'telegram_bot')
         await context.bot.send_message(chat_id=update.effective_chat.id, text=messages.get("error_processing","⚠️ Ocurrió un error. Inténtalo nuevamente."))
         return ConversationHandler.END
 
@@ -436,58 +358,47 @@ async def process_user_password_confirmation(update: Update, context: ContextTyp
         if result["success"]:
             await context.bot.send_message(chat_id=chat_id,
                                            text=messages.get("admin_password_changed","✅ La contraseña fue cambiada exitosamente para el usuario."))
-            # Notificar al usuario afectado.
             notificar_cambio_contrasena_usuario(target_email, new_password)
-            # Notificar a los administradores.
             admin_emails_str = config('ADMIN_EMAILS', default='')
             admin_emails = [e.strip() for e in admin_emails_str.split(",") if e.strip()]
-            log_event('INFO', "Emails de administradores leídos: {admin_emails}", 'telegram_bot')
+            await sync_to_async(log_event)('INFO', f"Emails de administradores leídos: {admin_emails}", 'telegram_bot')
             if admin_emails:
                 notificar_cambio_contrasena_admin(admin_emails, target_email)
         else:
             await context.bot.send_message(chat_id=chat_id, text=messages.get(f"general_error",f"⚠️ Error: {result['message']}"))
     except Exception as e:
-        log_event('EXCEPTION', "Error en process_user_password_confirmation: %s", 'telegram_bot')
+        await sync_to_async(log_event)('EXCEPTION', f"Error en process_user_password_confirmation: {str(e)}", 'telegram_bot')
         await context.bot.send_message(chat_id=chat_id, text=messages.get("password_confirmation_error","⚠️ Ocurrió un error al procesar la confirmación."))
     finally:
         context.user_data.clear()
         return ConversationHandler.END
 
-
-# ----------------- Otros flujos (handle_contact, check_expiry, check_user_expiry, process_email) -----------------
+# ----------------- Otros flujos -----------------
 async def check_user_expiry(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """
-    Inicia el flujo para verificar la vigencia de otro usuario.
-    Se solicita el email completo y se procesa con la misma estructura que para el propio usuario.
-    """
     if not await verify_session(update, context):
         return
-
     try:
         query = update.callback_query
         await query.answer()
-        log_event('INFO', "Inicio de check_user_expiry", 'telegram_bot')
-
+        await sync_to_async(log_event)('INFO', "Inicio de check_user_expiry", 'telegram_bot')
         session = await sync_to_async(Session.objects.get)(session_id=str(query.from_user.id))
-        log_event('DEBUG', "Sesión obtenida: {session.session_id}", 'telegram_bot')
+        await sync_to_async(log_event)('DEBUG', f"Sesión obtenida: {session.session_id}", 'telegram_bot')
         if not await sync_to_async(check_group_membership)(session.email):
-            log_event('WARNING', "Intento de acceso no autorizado", 'telegram_bot')
+            await sync_to_async(log_event)('WARNING', "Intento de acceso no autorizado", 'telegram_bot')
             await context.bot.send_message(
                 chat_id=query.message.chat_id,
                 text=messages.get("error_access","❌ Acceso restringido: Solo para administradores")
             )
             return ConversationHandler.END
-
-        log_event('INFO', "Solicitando email completo para verificación de vigencia de otro usuario", 'telegram_bot')
+        await sync_to_async(log_event)('INFO', "Solicitando email completo para verificación de vigencia de otro usuario", 'telegram_bot')
         await context.bot.send_message(
             chat_id=query.message.chat_id,
             text=messages.get("admin_password_fullemail_request","🙏 Por favor, introduce el email completo del usuario:"),
             reply_markup=ReplyKeyboardRemove()
         )
         return GET_EMAIL
-
     except Exception as e:
-        log_event('EXCEPTION', "Error en check_user_expiry:", 'telegram_bot')
+        await sync_to_async(log_event)('EXCEPTION', f"Error en check_user_expiry: {str(e)}", 'telegram_bot')
         await context.bot.send_message(
             chat_id=query.message.chat_id,
             text=messages.get("internal_error","⚠️ Error interno. Contacte al administrador.")
@@ -495,65 +406,39 @@ async def check_user_expiry(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return ConversationHandler.END
 
 async def process_email(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """
-    Recibe el email ingresado y lo envía a get_password_expiry.
-    La respuesta se construye con la misma estructura que en la verificación del propio usuario.
-    """
     if not await verify_session(update, context):
         return ConversationHandler.END
-
     try:
         if not update.message or not update.message.text:
-            log_event('DEBUG', "No se recibió mensaje de texto en process_email", 'telegram_bot')
+            await sync_to_async(log_event)('DEBUG', "No se recibió mensaje de texto en process_email", 'telegram_bot')
             await update.message.reply_text("🙏 Por favor, introduce un email válido.")
             return GET_EMAIL
-
         email = update.message.text.strip().lower()
-        log_event('DEBUG', "Email recibido: %s {email}", 'telegram_bot')
-
+        await sync_to_async(log_event)('DEBUG', f"Email recibido: {email}", 'telegram_bot')
         if not re.match(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", email):
             await update.message.reply_text("❌ El formato del email no es válido. Inténtalo de nuevo:")
             return GET_EMAIL
-
-        await update.message.reply_text(
-            f"🔍 Procesando vigencia de la contraseña para el email: {email}"
-        )
-
+        await update.message.reply_text(f"🔍 Procesando vigencia de la contraseña para el email: {email}")
         try:
             expiry_info = await sync_to_async(get_password_expiry, thread_sensitive=True)(email)
-            log_event('DEBUG', "Resultado obtenido de get_password_expiry: %s {expiry_info}", 'telegram_bot')
+            await sync_to_async(log_event)('DEBUG', f"Resultado obtenido de get_password_expiry: {expiry_info}", 'telegram_bot')
         except Exception as e_inner:
-            log_event('ERROR', "Error en consulta a AD: %s [str(e_inner)]", 'telegram_bot')
-            await update.message.reply_text(
-                "⚠️ Error al verificar la vigencia del email. Intenta nuevamente más tarde."
-            )
+            await sync_to_async(log_event)('ERROR', f"Error en consulta a AD: {str(e_inner)}", 'telegram_bot')
+            await update.message.reply_text("⚠️ Error al verificar la vigencia del email. Intenta nuevamente más tarde.")
             return ConversationHandler.END
-
         if expiry_info['is_expired']:
-            response = (
-                f"🔴 CONTRASEÑA EXPIRADA\n"
-                f"📧 Email: {email}\n"
-                f"🗓️ Expiró hace {-expiry_info['days_remaining']} días"
-            )
+            response = (f"🔴 CONTRASEÑA EXPIRADA\n" f"📧 Email: {email}\n" f"🗓️ Expiró hace {-expiry_info['days_remaining']} días")
         else:
-            response = (
-                f"🟢 CONTRASEÑA VIGENTE\n"
-                f"📧 Email: {email}\n"
-                f"🗓️ Expira: {expiry_info.get('expiry_date', 'N/A')}\n"
-                f"⌛ Días restantes: {expiry_info.get('days_remaining', 'N/A')}"
-            )
-
-        log_event('INFO', "Enviando respuesta al usuario: %s {response}", 'telegram_bot')
+            response = (f"🟢 CONTRASEÑA VIGENTE\n" f"📧 Email: {email}\n" f"🗓️ Expira: {expiry_info.get('expiry_date', 'N/A')}\n" f"⌛ Días restantes: {expiry_info.get('days_remaining', 'N/A')}")
+        await sync_to_async(log_event)('INFO', f"Enviando respuesta al usuario: {response}", 'telegram_bot')
         response_escaped = escape_markdown_v2(response)
         await update.message.reply_text(response_escaped, parse_mode="MarkdownV2")
-
     except Exception as e:
-        log_event('EXCEPTION', "Error crítico en process_email:", 'telegram_bot')
+        await sync_to_async(log_event)('EXCEPTION', f"Error crítico en process_email: {str(e)}", 'telegram_bot')
         await update.message.reply_text("⚠️ Error procesando solicitud.")
     finally:
         context.user_data.clear()
         return ConversationHandler.END
-
 
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     await update.message.reply_text("❌ Operación cancelada", reply_markup=ReplyKeyboardRemove())
@@ -574,48 +459,27 @@ async def check_expiry(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if expiry_info['error']:
             raise Exception(expiry_info['error'])
         if expiry_info['is_expired']:
-            message = (f"🔴 CONTRASEÑA EXPIRADA\n"
-                       f"📧 Email: {email}\n"
-                       f"🗓️ Expiró hace {-expiry_info['days_remaining']} días")
+            message = (f"🔴 CONTRASEÑA EXPIRADA\n" f"📧 Email: {email}\n" f"🗓️ Expiró hace {-expiry_info['days_remaining']} días")
         else:
-            message = (f"🟢 CONTRASEÑA VIGENTE\n"
-                       f"📧 Email: {email}\n"
-                       f"🗓️ Expira: {expiry_info['expiry_date']}\n"
-                       f"⌛ Días restantes: {expiry_info['days_remaining']}")
+            message = (f"🟢 CONTRASEÑA VIGENTE\n" f"📧 Email: {email}\n" f"🗓️ Expira: {expiry_info['expiry_date']}\n" f"⌛ Días restantes: {expiry_info['days_remaining']}")
         await context.bot.send_message(chat_id=query.message.chat_id, text=escape_markdown_v2(message), parse_mode='MarkdownV2')
     except Exception as e:
-        log_event('ERROR', "Error en check_expiry: %s", 'telegram_bot')
+        await sync_to_async(log_event)('ERROR', f"Error en check_expiry: {str(e)}", 'telegram_bot')
         await context.bot.send_message(chat_id=update.effective_chat.id, text=messages.get(f"error_verifiying2", f"⚠️ Error al verificar: {str(e)}"))
 
-
-
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Maneja el comando /start y autentica al usuario."""
     user = update.effective_user
     session_exists = await sync_to_async(Session.objects.filter(session_id=str(user.id)).exists)()
-
-    # Si ya hay una sesión activa, asegúrate de eliminarla o manejarla correctamente
     if session_exists:
         await sync_to_async(Session.objects.filter(session_id=str(user.id)).delete)()
-        log_event('INFO', "Sesión previa eliminada para el usuario {user.id}", 'telegram_bot')
-
-
-
+        await sync_to_async(log_event)('INFO', f"Sesión previa eliminada para el usuario {user.id}", 'telegram_bot')
     greeting = get_greeting()
-    # ← Crear un contexto con todas las variables
     contexts = {
         'g_greeting': greeting,
         'user_first_name': user.first_name
     }
-
-    # ← Usar format_map con un dict
-    message_template = messages.get(
-        "start_session",
-        "{g_greeting} {user_first_name}! 👋\n\nPara continuar, 🙏 comparte tu número de contacto:"
-    )
+    message_template = messages.get("start_session", "{g_greeting} {user_first_name}! 👋\n\nPara continuar, 🙏 comparte tu número de contacto:")
     message_text = message_template.format_map(contexts)
-    
-    # Solicitar al usuario compartir su contacto
     await context.bot.send_message(
         chat_id=update.effective_chat.id,
         text=message_text,
@@ -626,68 +490,118 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
     )
 
-
 async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Gestiona las acciones de los botones inline."""
     query = update.callback_query
     await query.answer()
-
     action = query.data
     if action == "check_expiry":
         await check_expiry(update, context)
     elif action == "check_user_expiry":
         await check_user_expiry(update, context)
     elif action == "change_password":
-        # El ConversationHandler de cambio de contraseña captará este callback.
         return
     elif action == "exit_bot":
         await terminate_bot(update, context)
-    # Otros callbacks (p.ej.: "change_user_password") se podrían configurar de forma similar.
 
+async def run_bot(token: str, stop_event: threading.Event = None):
+    """Inicia la aplicación del bot de Telegram."""
+    application = None
 
-def run_bot(token: str):
-    application = ApplicationBuilder().token(token).build()
+    try:
+        # ← Crear la aplicación
+        application = ApplicationBuilder().token(token).build()
 
-    application.add_handler(CommandHandler('start', start))
-    application.add_handler(MessageHandler(filters.CONTACT, handle_contact))
-    application.add_handler(CommandHandler('terminar_bot', terminate_bot))
+        # ← Añadir handlers
+        application.add_handler(CommandHandler('start', start))
+        application.add_handler(MessageHandler(filters.CONTACT, handle_contact))
+        application.add_handler(CommandHandler('terminar_bot', terminate_bot))
 
-    conv_handler_change = ConversationHandler(
-        entry_points=[CallbackQueryHandler(start_change_password, pattern='^change_password$')],
-        states={
-            GET_NEW_PASSWORD: [MessageHandler(filters.TEXT & ~filters.COMMAND, process_new_password)],
-            GET_PASSWORD_CONFIRMATION: [MessageHandler(filters.TEXT & ~filters.COMMAND, process_password_confirmation)]
-        },
-        fallbacks=[CommandHandler('cancel', cancel)]
-    )
-    application.add_handler(conv_handler_change)
+        conv_handler_change = ConversationHandler(
+            entry_points=[CallbackQueryHandler(start_change_password, pattern='^change_password$')],
+            states={
+                GET_NEW_PASSWORD: [MessageHandler(filters.TEXT & ~filters.COMMAND, process_new_password)],
+                GET_PASSWORD_CONFIRMATION: [MessageHandler(filters.TEXT & ~filters.COMMAND, process_password_confirmation)]
+            },
+            fallbacks=[CommandHandler('cancel', cancel)]
+        )
+        application.add_handler(conv_handler_change)
 
-    conv_handler_change_user = ConversationHandler(
-        entry_points=[CallbackQueryHandler(start_change_user_password, pattern='^change_user_password$')],
-        states={
-            GET_USER_EMAIL: [MessageHandler(filters.TEXT & ~filters.COMMAND, process_user_email)],
-            GET_USER_NEW_PASSWORD: [MessageHandler(filters.TEXT & ~filters.COMMAND, process_user_new_password)],
-            GET_USER_PASSWORD_CONFIRMATION: [
-                MessageHandler(filters.TEXT & ~filters.COMMAND, process_user_password_confirmation)]
-        },
-        fallbacks=[CommandHandler('cancel', cancel)]
-    )
-    application.add_handler(conv_handler_change_user)
+        conv_handler_change_user = ConversationHandler(
+            entry_points=[CallbackQueryHandler(start_change_user_password, pattern='^change_user_password$')],
+            states={
+                GET_USER_EMAIL: [MessageHandler(filters.TEXT & ~filters.COMMAND, process_user_email)],
+                GET_USER_NEW_PASSWORD: [MessageHandler(filters.TEXT & ~filters.COMMAND, process_user_new_password)],
+                GET_USER_PASSWORD_CONFIRMATION: [
+                    MessageHandler(filters.TEXT & ~filters.COMMAND, process_user_password_confirmation)]
+            },
+            fallbacks=[CommandHandler('cancel', cancel)]
+        )
+        application.add_handler(conv_handler_change_user)
 
-    conv_handler_verify = ConversationHandler(
-        entry_points=[CallbackQueryHandler(check_user_expiry, pattern='^check_user_expiry$')],
-        states={GET_EMAIL: [MessageHandler(filters.TEXT & ~filters.COMMAND, process_email)]},
-        fallbacks=[CommandHandler('cancel', cancel)]
-    )
-    application.add_handler(conv_handler_verify)
+        conv_handler_verify = ConversationHandler(
+            entry_points=[CallbackQueryHandler(check_user_expiry, pattern='^check_user_expiry$')],
+            states={GET_EMAIL: [MessageHandler(filters.TEXT & ~filters.COMMAND, process_email)]},
+            fallbacks=[CommandHandler('cancel', cancel)]
+        )
+        application.add_handler(conv_handler_verify)
 
-    # Agregar un handler para check_expiry: este se activa cuando se pulsa el botón "check_expiry"
-    application.add_handler(CallbackQueryHandler(check_expiry, pattern='^check_expiry$'))
-    # Luego, registra el handler para "exit_bot"
-    application.add_handler(CallbackQueryHandler(terminate_bot, pattern='^terminar_bot$'))
-    application.run_polling()
+        application.add_handler(CallbackQueryHandler(check_expiry, pattern='^check_expiry$'))
+        application.add_handler(CallbackQueryHandler(terminate_bot, pattern='^terminar_bot$'))
 
+        # ← Función asíncrona que ejecuta el bot
+        async def run():
+            # ← Inicializar y empezar el bot
+            await application.initialize()
+            await application.start()
 
-if __name__ == "__main__":
-    TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "your_token_here")
-    run_bot(TOKEN)
+            # ← Iniciar el polling
+            await application.updater.start_polling()
+
+            # ← Esperar a que se detenga
+            if stop_event:
+                while not stop_event.is_set():
+                    await asyncio.sleep(1)
+                await sync_to_async(log_event)('INFO', 'Señal de detención recibida. Deteniendo el bot...', 'telegram_bot')
+
+            # ← Detener el updater (esto detendrá run_polling)
+            await application.updater.stop()
+
+            # ← Detener la aplicación
+            await application.stop()
+
+            await sync_to_async(log_event)('INFO', 'Bot de Telegram detenido correctamente.', 'telegram_bot')
+
+        # ← Ejecutar el bot
+        await run()
+
+    except Exception as e:
+        await sync_to_async(log_event)('CRITICAL', f'Error al iniciar run_polling: {str(e)}', 'telegram_bot')
+        raise
+    finally:
+        # ← Actualizar estado
+        try:
+            from web_interface.views import update_status
+            update_status(telegram_running=False, telegram_start_time=None)
+        except Exception as e:
+            await sync_to_async(log_event)('ERROR', f'Error al actualizar estado: {str(e)}', 'telegram_bot')
+
+# ← Función síncrona para iniciar el bot en un hilo
+def run_bot_sync(token: str, stop_event: threading.Event = None):
+    """Función síncrona que ejecuta run_bot en un loop asyncio."""
+    # ← Crear un nuevo event loop para este hilo
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    try:
+        loop.run_until_complete(run_bot(token, stop_event))
+    finally:
+        loop.close()
+        
+def run_bot_sync(token: str, stop_event: threading.Event = None):
+    """Función síncrona que ejecuta run_bot en un loop asyncio."""
+    # ← Crear un nuevo event loop para este hilo
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    try:
+        loop.run_until_complete(run_bot(token, stop_event))
+    finally:
+        loop.close()

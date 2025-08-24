@@ -1,0 +1,57 @@
+{% extends 'web_interface/base.html' %}
+{% load static %}
+{% block name%}<title>TBot Project | RT Telegram</title>{%endblock%}
+{% block title %}Monitor de Telegram{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Monitor en Tiempo Real - Bot de Telegram</h3>
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-card-widget="collapse">
+            <i class="fas fa-minus"></i>
+          </button>
+        </div>
+      </div>
+      <div class="card-body p-0">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Nivel</th>
+              <th>Mensaje</th>
+            </tr>
+          </thead>
+          <tbody id="logs-table-body">
+            {% for log in logs %}
+            <tr>
+              <td>{{ log.created_at|date:"H:i:s" }}</td>
+              <td>
+                <span class="badge badge-{{ log.level|lower }}">{{ log.level }}</span>
+              </td>
+              <td>{{ log.message }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function refreshLogs() {
+        $.get('{% url "web_interface:monitor_telegram" %}', function(data) {
+            const $body = $(data).find('#logs-table-body');
+            $('#logs-table-body').html($body.html());
+        });
+    }
+
+    // ← Actualizar cada 5 segundos
+    setInterval(refreshLogs, 5000);
+</script>
+{% endblock %}

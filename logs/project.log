@@ -21407,3 +21407,377 @@ NameError: name 'greeting' is not defined
 2025-08-23 00:26:39,406 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
 2025-08-23 00:26:43,167 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
 2025-08-23 00:28:46,517 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 00:45:42,134 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 00:45:44,661 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 00:48:03,681 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:02:27,713 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:02:30,973 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:05:04,697 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:05:05,346 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:08:51,472 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:08:51,961 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:10:17,040 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:10:20,537 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:10:33,818 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:10:34,305 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:11:35,575 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:11:48,243 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:12:01,131 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:12:01,632 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:18:30,003 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:18:30,563 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:19:37,259 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:19:37,867 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:20:36,049 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:20:36,552 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:36:45,359 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:37:04,126 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:38:09,738 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:38:29,150 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:38:55,305 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:38:58,702 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:39:43,009 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:40:05,320 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:41:36,156 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:41:43,367 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:41:48,547 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:41:52,907 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 01:41:58,273 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:13:59,563 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:20:17,869 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:20:20,965 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:20:25,858 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:21:01,440 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:22:03,822 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:22:11,493 - telegram.ext.Application - INFO - Application started
+2025-08-23 02:22:21,496 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:22:22,582 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:24:47,400 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:25:04,513 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:25:25,118 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:25:28,335 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:25:34,115 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:25:39,822 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:25:46,765 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:26:09,375 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:26:36,515 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:26:41,576 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:27:39,065 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:27:39,586 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:30:20,567 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:30:25,409 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:30:26,468 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:35:11,892 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:35:12,426 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:43:54,561 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:43:55,660 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:48:33,965 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:48:38,590 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:48:43,306 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:48:45,352 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:48:51,529 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:48:55,853 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:48:59,902 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:49:15,576 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:49:23,020 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:49:39,788 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:49:49,969 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:50:27,236 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:51:14,352 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:51:25,036 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:51:31,655 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:52:36,860 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:52:37,356 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:57:12,120 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 02:57:12,785 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:01:49,322 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:02:20,359 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:02:35,945 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:05:20,971 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:06:36,126 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:06:46,591 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:06:55,946 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:07:21,649 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:07:26,216 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:07:30,150 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:07:45,622 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:08:29,026 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:09:25,063 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:13:21,776 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:14:30,708 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:14:31,921 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:15:14,213 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:15:14,737 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:18:09,708 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:19:04,577 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:19:05,136 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:23:09,566 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:23:21,074 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:23:21,589 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:23:26,812 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:25:45,519 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:26:02,036 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:26:02,556 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:27:11,518 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:29:25,376 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:29:29,852 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:29:34,985 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:29:39,763 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:31:35,834 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:31:36,721 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:37:02,177 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:37:22,095 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:37:35,799 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:37:40,172 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:37:43,413 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:37:47,103 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:37:54,281 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:38:45,252 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:38:48,311 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:38:57,090 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:38:57,623 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:39:22,007 - telegram.ext.Application - INFO - Application started
+2025-08-23 03:47:36,380 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:47:40,781 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:50:36,494 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:50:39,577 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:51:30,928 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:51:31,478 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:51:43,049 - telegram.ext.Application - INFO - Application started
+2025-08-23 03:56:58,415 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:57:00,146 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 03:57:15,978 - telegram.ext.Application - INFO - Application started
+2025-08-23 04:01:51,966 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 04:01:52,804 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 04:03:19,260 - telegram.ext.Application - INFO - Application started
+2025-08-23 04:04:54,248 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 04:04:54,789 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 04:05:13,667 - telegram.ext.Application - INFO - Application started
+2025-08-23 04:14:12,877 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 04:14:16,518 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 04:15:55,458 - telegram.ext.Application - INFO - Application started
+2025-08-23 04:36:11,487 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 04:36:17,677 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 04:37:01,843 - telegram.ext.Application - INFO - Application started
+2025-08-23 04:44:29,845 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 04:44:36,375 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 04:44:58,708 - telegram.ext.Application - INFO - Application started
+2025-08-23 04:46:03,068 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 04:46:03,598 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 04:49:51,957 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 04:49:52,459 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 04:50:06,885 - telegram.ext.Application - INFO - Application started
+2025-08-23 05:07:44,717 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 05:07:48,257 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 05:08:24,358 - telegram.ext.Application - INFO - Application started
+2025-08-23 05:15:55,412 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 05:16:05,678 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 05:16:56,084 - telegram.ext.Application - INFO - Application started
+2025-08-23 05:34:02,829 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 05:34:07,295 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 05:34:59,396 - telegram.ext.Application - INFO - Application started
+2025-08-23 05:41:24,041 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 05:41:26,865 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 05:43:08,119 - telegram.ext.Application - INFO - Application started
+2025-08-23 05:43:59,690 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 05:44:00,348 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 05:47:40,531 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 05:47:41,073 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 05:48:59,490 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 05:49:00,140 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 05:49:13,480 - telegram.ext.Application - INFO - Application started
+2025-08-23 05:54:26,709 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 05:54:27,409 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 05:56:09,377 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 05:56:35,010 - telegram.ext.Application - INFO - Application started
+2025-08-23 13:40:33,891 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 13:40:39,774 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 13:57:38,364 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 13:57:41,216 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:04:15,346 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:04:24,668 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:04:47,866 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:05:02,152 - telegram.ext.Application - INFO - Application started
+2025-08-23 14:29:41,160 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:29:43,811 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:33:42,337 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:33:49,139 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:34:00,357 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:35:19,199 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:35:43,249 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:35:56,756 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:36:09,223 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:36:12,742 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:36:53,449 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:37:08,094 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:37:14,557 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:37:30,606 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:37:48,989 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:38:33,932 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:38:34,424 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:44:39,106 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:45:21,453 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:45:24,850 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:45:31,340 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:45:31,839 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:46:27,058 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:46:27,539 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:52:09,494 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 14:52:09,984 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 15:01:05,504 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 15:01:08,032 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 15:03:59,038 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 15:05:51,333 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 15:05:56,776 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 15:05:57,334 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 15:18:55,321 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 15:18:55,835 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 15:19:05,657 - telegram.ext.Application - INFO - Application started
+2025-08-23 15:31:37,863 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 15:31:38,353 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 15:31:50,595 - telegram.ext.Application - INFO - Application started
+2025-08-23 15:33:52,914 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 15:33:53,418 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:17:02,417 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:17:08,211 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:18:09,657 - telegram.ext.Application - INFO - Application started
+2025-08-23 17:19:21,720 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:19:22,270 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:19:27,139 - telegram.ext.Application - INFO - Application started
+2025-08-23 17:21:32,043 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:21:35,387 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:21:45,591 - telegram.ext.Application - INFO - Application started
+2025-08-23 17:24:31,446 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:24:31,976 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:28:46,729 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:28:51,593 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:29:01,748 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:29:21,603 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:33:31,115 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:33:31,621 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:33:43,583 - telegram.ext.Application - INFO - Application started
+2025-08-23 17:54:05,913 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:54:54,883 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:58:27,822 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:58:43,419 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:58:44,024 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:59:13,492 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:59:18,430 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:59:41,178 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:59:46,884 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:59:49,856 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 17:59:55,691 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 18:00:05,968 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 18:00:06,471 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 18:00:53,760 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 18:00:54,261 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 18:04:44,023 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 18:04:51,624 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 18:04:52,121 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 18:06:54,463 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 18:21:56,158 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 18:22:11,335 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 18:22:11,870 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 18:22:59,906 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 18:24:02,510 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 18:24:47,920 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 18:24:48,401 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 18:25:17,254 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 19:30:19,439 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 19:44:41,679 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 20:04:02,088 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 20:04:22,696 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 20:04:23,803 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 20:13:09,386 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 20:13:34,087 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 20:13:39,686 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 20:13:40,180 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 20:13:49,216 - telegram.ext.Application - INFO - Application started
+2025-08-23 20:14:21,441 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 20:14:24,049 - telegram.ext.Application - INFO - Application started
+2025-08-23 20:14:30,447 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 20:14:33,221 - telegram.ext.Application - INFO - Application started
+2025-08-23 20:14:48,587 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 20:14:49,073 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 20:14:56,292 - telegram.ext.Application - INFO - Application started
+2025-08-23 20:19:25,597 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 20:21:20,322 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 20:21:20,918 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 20:21:31,027 - telegram.ext.Application - INFO - Application started
+2025-08-23 20:33:36,702 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 20:35:11,684 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 20:35:12,201 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 20:35:21,902 - telegram.ext.Application - INFO - Application started
+2025-08-23 20:45:42,025 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 20:45:44,608 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 20:46:10,498 - telegram.ext.Application - INFO - Application started
+2025-08-23 20:52:49,044 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 20:52:57,344 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 20:52:57,857 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:00:52,266 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:00:59,659 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:06:58,138 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:07:12,541 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:08:08,591 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:08:16,361 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:08:23,015 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:08:27,328 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:08:37,325 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:08:52,231 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:08:52,764 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:09:05,544 - telegram.ext.Application - INFO - Application started
+2025-08-23 21:14:12,544 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:14:13,070 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:22:32,716 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:22:33,221 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:22:45,994 - telegram.ext.Application - INFO - Application started
+2025-08-23 21:25:23,970 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:25:28,546 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:25:29,102 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:25:35,223 - telegram.ext.Application - INFO - Application started
+2025-08-23 21:25:40,004 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-08-23 21:25:40,005 - telegram.ext.Application - INFO - Application.stop() complete
+2025-08-23 21:26:09,929 - telegram.ext.Application - INFO - Application started
+2025-08-23 21:26:24,805 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-08-23 21:26:24,805 - telegram.ext.Application - INFO - Application.stop() complete
+2025-08-23 21:30:13,490 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:35:21,996 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:35:22,786 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:35:28,344 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:35:36,550 - telegram.ext.Application - INFO - Application started
+2025-08-23 21:35:37,233 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-08-23 21:35:37,233 - telegram.ext.Application - INFO - Application.stop() complete
+2025-08-23 21:40:20,327 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:40:22,804 - telegram.ext.Application - INFO - Application started
+2025-08-23 21:40:23,549 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-08-23 21:40:23,550 - telegram.ext.Application - INFO - Application.stop() complete
+2025-08-23 21:47:32,551 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:49:09,025 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 21:49:11,600 - telegram.ext.Application - INFO - Application started
+2025-08-23 21:49:17,397 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-08-23 21:49:17,399 - telegram.ext.Application - INFO - Application.stop() complete
+2025-08-23 22:17:34,785 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 22:17:43,612 - telegram.ext.Application - INFO - Application started
+2025-08-23 22:17:49,468 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-08-23 22:17:49,469 - telegram.ext.Application - INFO - Application.stop() complete
+2025-08-23 22:17:54,266 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 22:17:54,856 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 22:36:03,278 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 22:36:05,953 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 22:56:01,564 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 22:56:08,163 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 22:56:09,870 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 23:06:43,925 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 23:06:46,771 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 23:31:19,223 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-23 23:31:20,340 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-24 00:01:26,829 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-24 00:01:27,448 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-24 11:20:58,492 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-24 11:21:04,271 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-24 11:58:54,866 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-24 11:58:55,562 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-24 13:21:57,694 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-24 13:21:58,207 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-24 14:12:23,317 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-24 14:12:32,224 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
