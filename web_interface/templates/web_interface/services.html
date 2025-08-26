@@ -8,60 +8,77 @@
     <div class="col-md-12">
         <div class="card card-primary">
             <div class="card-body p-0">
-                <!-- Barra de búsqueda estilo Material Design for Bootstrap -->
+                <!-- Barra de búsqueda estilo MDB -->
                 <div class="input-group mb-3" style="justify-content: flex-start; padding: 10px;">
+                    <!-- Input de búsqueda -->
                     <div class="form-outline" data-mdb-input-init>
-                        <input type="search" id="filter-service" class="form-control" style="background: transparent; border: none; outline: none; color: #e0e0e0; font-family: 'Source Sans Pro', sans-serif; padding: 5px 0;" />
+                        <input 
+                            type="search" 
+                            id="filter-service" 
+                            class="form-control" 
+                            placeholder=" " 
+                            style="background: transparent; border: none; outline: none; color: #e0e0e0; font-family: 'Roboto', sans-serif; padding: 10px 15px;"
+                        />
                         <label class="form-label" for="filter-service" style="color: #999;">Filtrar Servicio</label>
                     </div>
-                    <button type="button" class="btn btn-primary" data-mdb-ripple-init style="background-color: #007bff; border: none;">
-                        <i class="fas fa-search"></i>
+                    <!-- Botón de búsqueda -->
+                    <button 
+                        type="button" 
+                        class="btn btn-primary" 
+                        data-mdb-ripple-init 
+                        style="background-color: #007bff; border: none; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;"
+                        onclick="searchServices()"
+                    >
+                        <i class="fas fa-search" style="color: white;"></i>
                     </button>
                 </div>
 
-                <!-- Tabla estilo Material Design for Bootstrap -->
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Corriendo</th>
-                            <th>Iniciar Automáticamente</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td colspan="4">
-                                <table class="table mb-0">
-                                    <tbody>
-                                        <tr>
-                                            <td>TBot Telegram Bot</td>
-                                            <td>
-                                                <!-- Switch para "Corriendo" -->
-                                                <div class="form-check form-switch">
-                                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
-                                                    <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <!-- Checkbox para "Iniciar Automáticamente" -->
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                                    <label class="form-check-label" for="flexCheckDefault">Default checkbox</label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <a href="{% url 'web_interface:config_telegram' %}" class="btn btn-sm btn-warning">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <!-- Tabla de servicios -->
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th style="padding: 12px 16px;">Nombre</th>
+                                <th style="padding: 12px 16px;">Corriendo</th>
+                                <th style="padding: 12px 16px;">Iniciar Automáticamente</th>
+                                <th style="padding: 12px 16px;">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 12px 16px;">TBot Telegram Bot</td>
+                                <td style="padding: 12px 16px;">
+                                    <div class="form-switch">
+                                        <input 
+                                            class="form-check-input" 
+                                            type="checkbox" 
+                                            role="switch" 
+                                            id="telegram_running" 
+                                            {% if bot_running %}checked{% endif %}
+                                        >
+                                        <label class="form-check-label" for="telegram_running"></label>
+                                    </div>
+                                </td>
+                                <td style="padding: 12px 16px;">
+                                    <div class="form-check">
+                                        <input 
+                                            class="form-check-input" 
+                                            type="checkbox" 
+                                            id="auto_start" 
+                                            {% if auto_start %}checked{% endif %}
+                                        >
+                                        <label class="form-check-label" for="auto_start">Sí</label>
+                                    </div>
+                                </td>
+                                <td style="padding: 12px 16px;">
+                                    <a href="{% url 'web_interface:config_telegram' %}" class="btn btn-sm btn-warning">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="card-footer">
                 <small>1 total</small>
@@ -71,11 +88,7 @@
 </div>
 {% endblock %}
 
-{% block scripts %}
-<!-- Cargar jQuery primero -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Cargar Toastr -->
-<script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
-<!-- Cargar tu script personalizado -->
+{% block custom_scripts %}
+
 <script src="{% static 'web_interface/js/services.js' %}"></script>
 {% endblock %}

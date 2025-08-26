@@ -1,0 +1,38 @@
+{% load gravatar %}
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand" id="main-navbar">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+    </li>
+  </ul>
+  <ul class="navbar-nav ml-auto">
+    <!-- Toggle Dual: Sol y Luna -->
+    <li class="nav-item mr-2 d-flex align-items-center">
+      <div class="theme-toggle-dual" style="display: flex; align-items: center; cursor: pointer">
+        <i class="fas fa-sun" style="color: #ffd700; margin-right: 4px"></i>
+        <div class="toggle-container" style="width: 50px; height: 24px; background: #ddd; border-radius: 12px; position: relative; margin: 0 4px; transition: background 0.3s;">
+          <div class="toggle-thumb" style="width: 20px; height: 20px; background: white; border-radius: 50%; position: absolute; top: 2px; left: 2px; transition: left 0.3s, background 0.3s;"></div>
+        </div>
+        <i class="fas fa-moon" style="color: #1e90ff; margin-left: 4px"></i>
+      </div>
+    </li>
+    <!-- Perfil de Usuario con Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+        <img src="https://www.gravatar.com/avatar/{{ request.user.email|cut:'@'|make_md5 }}?s=40&d=identicon" class="img-circle elevation-1" alt="Gravatar" width="30" height="30" style="object-fit: cover;">
+      </a>
+      <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+        <div class="dropdown-header text-center border-bottom">
+          <img src="https://www.gravatar.com/avatar/{{ request.user.email|cut:'@'|make_md5 }}?s=80&d=identicon" class="img-circle mb-2" alt="User Image" width="60" height="60">
+          <p class="mb-0 font-weight-bold">{{ request.user.get_full_name|default:request.user.username }}</p>
+          <small class="text-muted">{{ request.user.email|default:"Sin correo" }}</small>
+        </div>
+        <div class="dropdown-divider"></div>
+        <a href="{% url 'web_interface:logout' %}" class="dropdown-item text-center text-danger">
+          <i class="fas fa-sign-out-alt mr-2"></i> Cerrar sesión
+        </a>
+      </div>
+    </li>
+  </ul>
+</nav>

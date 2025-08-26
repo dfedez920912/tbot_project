@@ -1,233 +1,33 @@
-{% load static %} {% load gravatar %}
+{% load static %}
+{% load gravatar %}
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="{% static 'web_interface/img/tbot_logo.ico' %}"
-      alt="logo de Tbot_project"
-    />
-{% block name%}
-{% endblock%}
-    
+    <link rel="icon" type="image/x-icon" href="{% static 'web_interface/img/tbot_logo.ico' %}" alt="logo de Tbot_project" />
+    {% block name%} {% endblock%}
 
     <!-- Google Font: Source Sans Pro -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"
-    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+    <!-- Google Fonts: Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
     <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="{% static 'web_interface/adminlte/plugins/fontawesome-free/css/all.min.css' %}"
-    />
+    <link rel="stylesheet" href="{% static 'web_interface/adminlte/plugins/fontawesome-free/css/all.min.css' %}" />
     <!-- Theme style -->
-    <link
-      rel="stylesheet"
-      href="{% static 'web_interface/adminlte/dist/css/adminlte.min.css' %}"
-    />
+    <link rel="stylesheet" href="{% static 'web_interface/adminlte/dist/css/adminlte.min.css' %}" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'web_interface/css/custom.css' %}" />
     <!-- Toastr CSS -->
-    <link
-      href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
-      rel="stylesheet"
-    />
-    {% block styles%}
-    {%endblock%}
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    {% block styles%} {%endblock%}
   </head>
   <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
       <!-- Navbar -->
-      <nav class="main-header navbar navbar-expand" id="main-navbar">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" href="#" role="button"
-              ><i class="fas fa-bars"></i
-            ></a>
-          </li>
-        </ul>
-          <ul class="navbar-nav ml-auto">
-            <!-- Toggle Dual: Sol y Luna -->
-            <li class="nav-item mr-2 d-flex align-items-center">
-              <div class="theme-toggle-dual" style="display: flex; align-items: center; cursor: pointer;">
-                <i class="fas fa-sun" style="color: #FFD700; margin-right: 4px;"></i>
-                <div class="toggle-container" style="width: 50px; height: 24px; background: #ddd; border-radius: 12px; position: relative; margin: 0 4px; transition: background 0.3s;">
-                  <div class="toggle-thumb" style="width: 20px; height: 20px; background: white; border-radius: 50%; position: absolute; top: 2px; left: 2px; transition: left 0.3s, background 0.3s;"></div>
-                </div>
-                <i class="fas fa-moon" style="color: #1E90FF; margin-left: 4px;"></i>
-              </div>
-            </li>
-            <!-- Perfil de Usuario con Dropdown -->
-            <li class="nav-item dropdown">
-              <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
-                <img src="https://www.gravatar.com/avatar/{{ request.user.email|cut:"@"|make_md5 }}?s=40&d=identicon" 
-                    class="img-circle elevation-1" 
-                    alt="Gravatar" 
-                    width="30" 
-                    height="30"
-                    style="object-fit: cover;">
-              </a>
-              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <div class="dropdown-header text-center border-bottom">
-                  <img src="https://www.gravatar.com/avatar/{{ request.user.email|cut:"@"|make_md5 }}?s=80&d=identicon" 
-                      class="img-circle mb-2" 
-                      alt="User Image" 
-                      width="60" 
-                      height="60">
-                  <p class="mb-0 font-weight-bold">{{ request.user.get_full_name|default:request.user.username }}</p>
-                  <small class="text-muted">{{ request.user.email|default:"Sin correo" }}</small>
-                </div>
-                <div class="dropdown-divider"></div>
-                <a href="{% url 'web_interface:logout' %}" class="dropdown-item text-center text-danger">
-                  <i class="fas fa-sign-out-alt mr-2"></i> Cerrar sesión
-                </a>
-              </div>
-            </li>
-          </ul>
-      </nav>
-
-      <!-- Main Sidebar Container -->
-      <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <a
-          href="{% url 'web_interface:dashboard' %}"
-          class="brand-link text-center"
-        >
-          <img
-            src="{% static 'web_interface/img/tbot_logo.png' %}"
-            alt="Ícono personalizado"
-            width="60"
-            height="60"
-          />
-          <span class="brand-text font-weight-light">TBot Project</span>
-        </a>
-
-        <div class="sidebar">
-          <nav class="mt-2">
-            <ul
-              class="nav nav-pills nav-sidebar flex-column"
-              data-widget="treeview"
-              role="menu"
-              data-accordion="false"
-            >
-              <li class="nav-item">
-                <a href="{% url 'web_interface:dashboard' %}" class="nav-link">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
-                  <p>Dashboard</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                  <a href="{% url 'web_interface:services' %}" class="nav-link">
-                      <i class="nav-icon fas fa-server"></i>
-                      <p>Servicios</p>
-                  </a>
-              </li>
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-cog"></i>
-                  <p>
-                    Configuración
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a
-                      href="{% url 'web_interface:config_telegram' %}"
-                      class="nav-link"
-                    >
-                      <i class="nav-icon fab fa-telegram-plane"></i>
-                      <p>Telegram</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      href="{% url 'web_interface:config_email' %}"
-                      class="nav-link"
-                    >
-                      <i class="nav-icon fas fa-envelope"></i>
-                      <p>Correo</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      href="{% url 'web_interface:config_cron' %}"
-                      class="nav-link"
-                    >
-                      <i class="nav-icon fas fa-clock"></i>
-                      <p>Cron</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      href="{% url 'web_interface:config_todus' %}"
-                      class="nav-link"
-                    >
-                      <i class="nav-icon fas fa-cloud"></i>
-                      <p>Todus</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      href="{% url 'web_interface:config_ad' %}"
-                      class="nav-link"
-                    >
-                      <i class="nav-icon fas fa-network-wired"></i>
-                      <p>Active Directory</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{% url 'web_interface:users' %}" class="nav-link">
-                      <i class="nav-icon fas fa-users"></i>
-                      <p>Usuarios</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item has-treeview">
-                  <a href="#" class="nav-link">
-                      <i class="nav-icon fas fa-bell"></i>
-                      <p>
-                          Notificaciones
-                          <i class="right fas fa-angle-left"></i>
-                      </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-                      <li class="nav-item">
-                          <a href="{% url 'web_interface:notif_email' %}" class="nav-link">
-                              <i class="nav-icon fas fa-envelope"></i>
-                              <p>Correo</p>
-                          </a>
-                      </li>
-                      <li class="nav-item">
-                          <a href="{% url 'web_interface:notif_todus' %}" class="nav-link">
-                              <i class="nav-icon fas fa-cloud"></i>
-                              <p>Todus</p>
-                          </a>
-                      </li>
-                      <li class="nav-item">
-                          <a href="{% url 'web_interface:monitor_telegram' %}" class="nav-link">
-                              <i class="nav-icon fas fa-broadcast-tower"></i>
-                              <p>Monitor de Telegram</p>
-                          </a>
-                      </li>
-                  </ul>
-              </li>
-              <li class="nav-item">
-                <a href="/logs/" class="nav-link">
-                  <i class="nav-icon fas fa-list-alt"></i>
-                  <p>Logs del Sistema</p>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </aside>
-
+      {% include 'web_interface/navbar.html' %}
+      <!-- Sidebar -->
+      {% include 'web_interface/sidebar.html' %}
       <!-- Content Wrapper -->
       <div class="content-wrapper">
         <div class="content-header">
@@ -239,21 +39,14 @@
             </div>
           </div>
         </div>
-
         <!-- Main content -->
         <section class="content">
           <div class="container-fluid">{% block content %}{% endblock %}</div>
         </section>
       </div>
-
       <!-- Footer -->
       <footer class="main-footer">
-        <strong
-          >Copyright &copy; 2024
-          <a href="https://github.com/dfedez920912/tbot_project">TBot Project</a
-          >.</strong
-        >
-        Todos los derechos reservados.
+        <strong>Copyright &copy; 2024 <a href="https://github.com/dfedez920912/tbot_project">TBot Project</a>.</strong> Todos los derechos reservados.
       </footer>
     </div>
     {% block scripts %}{% endblock %}
@@ -263,13 +56,12 @@
     <script src="{% static 'web_interface/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <!-- AdminLTE App -->
     <script src="{% static 'web_interface/adminlte/dist/js/adminlte.min.js' %}"></script>
-    <!-- Chart.js (para gráficos) -->
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Toastr JS -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <!-- Custom Base JS -->
     <script src="{% static 'web_interface/js/custom-base.js' %}"></script>
-
     {% block custom_scripts %}
     <!-- Custom JS -->
     {% endblock %}

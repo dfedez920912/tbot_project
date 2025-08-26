@@ -766,35 +766,49 @@ def monitor_telegram_view(request):
         'logs': logs
     })
     
-
 @login_required
 def services_view(request):
     status = get_bot_status()
-    # ← Pasar variables a la plantilla
-    context = {
-        'status': status,
-        'BOT_RUNNING': status['running'],
-        'START_TIME': status['start_time'],
-    }
-    return render(request, 'web_interface/services.html', context)
+    # ← Usar .get() para evitar KeyError
+    bot_running = status.get("running", False)
+    start_time = status.get("start_time", None)
+    auto_start = status.get("auto_start", False)  # ← Usa .get() con valor por defecto
+    return render(request, 'web_interface/services.html', {
+        'bot_running': bot_running,
+        'start_time': start_time,
+        'auto_start': auto_start
+    })
 
 
 def get_bot_status():
-    """Devuelve el estado actual del bot."""
+    """Devuelve el estado del bot de Telegram."""
     try:
-        status_file = Path(__file__).parent.parent / 'telegram_bot' / 'services_status.json'
-        if status_file.exists():
-            with open(status_file, 'r', encoding='utf-8') as f:
-                data = json.load(f)
+        # ← Intenta leer el archivo de estado
+        status_file = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'telegram_bot_status.json')
+        if os.path.exists(status_file):
+            with open(status_file, 'r') as f:
+                status = json.load(f)
+                # ← Asegurarse de que todas las claves existan
                 return {
-                    'running': data.get("telegram_running", False),
-                    'auto_start': data.get("telegram_auto_start", False),
-                    'start_time': data.get("telegram_start_time"),
+                    "running": status.get("running", False),
+                    "start_time": status.get("start_time", None),
+                    "auto_start": status.get("auto_start", False)  # ← Añadido
                 }
-        return {'running': False, 'auto_start': False, 'start_time': None}
+        else:
+            # ← Si no existe el archivo, estado por defecto
+            return {
+                "running": False,
+                "start_time": None,
+                "auto_start": False
+            }
     except Exception as e:
         logger.exception("Error al leer el estado del bot")
-        return {'running': False, 'auto_start': False, 'start_time': None}
+        return {
+            "running": False,
+            "start_time": None,
+            "auto_start": False
+        }
+
     
     
 @csrf_exempt
