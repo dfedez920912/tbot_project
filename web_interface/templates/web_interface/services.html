@@ -8,70 +8,51 @@
     <div class="col-md-12">
         <div class="card card-primary">
             <div class="card-body p-0">
-                <!-- Barra de búsqueda estilo MDB -->
-                <div class="input-group mb-3" style="justify-content: flex-start; padding: 10px;">
-                    <!-- Input de búsqueda -->
-                    <div class="form-outline" data-mdb-input-init>
-                        <input 
-                            type="search" 
-                            id="filter-service" 
-                            class="form-control" 
-                            placeholder=" " 
-                            style="background: transparent; border: none; outline: none; color: #e0e0e0; font-family: 'Roboto', sans-serif; padding: 10px 15px;"
-                        />
-                        <label class="form-label" for="filter-service" style="color: #999;">Filtrar Servicio</label>
-                    </div>
-                    <!-- Botón de búsqueda -->
-                    <button 
-                        type="button" 
-                        class="btn btn-primary" 
-                        data-mdb-ripple-init 
-                        style="background-color: #007bff; border: none; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;"
-                        onclick="searchServices()"
-                    >
-                        <i class="fas fa-search" style="color: white;"></i>
-                    </button>
-                </div>
-
                 <!-- Tabla de servicios -->
                 <div class="table-responsive">
                     <table class="table table-hover mb-0">
-                        <thead>
+                        <thead class="bg-dark text-white">
                             <tr>
                                 <th style="padding: 12px 16px;">Nombre</th>
                                 <th style="padding: 12px 16px;">Corriendo</th>
                                 <th style="padding: 12px 16px;">Iniciar Automáticamente</th>
+                                <th style="padding: 12px 16px;">Tiempo de Ejecución</th>
                                 <th style="padding: 12px 16px;">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td style="padding: 12px 16px;">TBot Telegram Bot</td>
-                                <td style="padding: 12px 16px;">
-                                    <div class="form-switch">
+                            <tr style="border-bottom: 1px ">
+                                <td style="padding: 12px 16px; ">TBot Telegram Bot</td>
+                                <td style="padding: 12px 16px; text-align: center; vertical-align: middle;">
+                                    <div class="custom-control custom-switch">
                                         <input 
-                                            class="form-check-input" 
                                             type="checkbox" 
-                                            role="switch" 
-                                            id="telegram_running" 
+                                            class="custom-control-input" 
+                                            id="telegram_running"
                                             {% if bot_running %}checked{% endif %}
                                         >
-                                        <label class="form-check-label" for="telegram_running"></label>
+                                        <label class="custom-control-label" for="telegram_running"></label>
                                     </div>
                                 </td>
-                                <td style="padding: 12px 16px;">
-                                    <div class="form-check">
-                                        <input 
-                                            class="form-check-input" 
-                                            type="checkbox" 
-                                            id="auto_start" 
-                                            {% if auto_start %}checked{% endif %}
-                                        >
-                                        <label class="form-check-label" for="auto_start">Sí</label>
+                                <td style="padding: 12px 16px; text-align: center; vertical-align: middle;">
+                                    <!-- Centrado horizontal con flexbox -->
+                                    <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
+                                        <div class="form-check">
+                                            <input 
+                                                class="form-check-input" 
+                                                type="checkbox" 
+                                                id="auto_start"
+                                                {% if auto_start %}checked{% endif %}
+                                                style="transform: scale(1.5);"
+                                            >
+                                        </div>
                                     </div>
                                 </td>
-                                <td style="padding: 12px 16px;">
-                                    <a href="{% url 'web_interface:config_telegram' %}" class="btn btn-sm btn-warning">
+                                <td id="uptime" style="padding: 12px 16px; text-align: center; vertical-align: middle;">
+                                    --:--:-- <!-- Se actualizará con JavaScript -->
+                                </td>
+                                <td style="padding: 12px 16px; text-align: center; vertical-align: middle;">
+                                    <a href="{% url 'web_interface:config_telegram' %}" ">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                 </td>
@@ -80,8 +61,26 @@
                     </table>
                 </div>
             </div>
-            <div class="card-footer">
-                <small>1 total</small>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Confirmación -->
+<div class="modal fade" id="confirm-modal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmModalLabel">Detener Bot de Telegram</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ¿Estás seguro de que deseas detener el bot de Telegram?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" id="confirm-action-btn">Detener</button>
             </div>
         </div>
     </div>
@@ -89,6 +88,6 @@
 {% endblock %}
 
 {% block custom_scripts %}
-
+<script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
 <script src="{% static 'web_interface/js/services.js' %}"></script>
 {% endblock %}

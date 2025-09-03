@@ -1,5 +1,3 @@
-console.log("custom-base.js cargado");
-
 $(document).ready(function () {
     const $body = $('body');
     const $container = $('.toggle-container');

@@ -21808,3 +21808,1889 @@ NameError: name 'greeting' is not defined
 2025-08-26 14:35:19,624 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
 2025-08-26 14:35:22,230 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
 2025-08-26 14:35:39,449 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-31 22:58:06,900 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-31 22:58:07,490 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-31 22:58:07,491 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-31 23:10:32,132 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-31 23:10:33,269 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-31 23:15:02,712 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-31 23:15:03,348 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-31 23:16:25,273 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-31 23:16:34,306 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-31 23:17:18,346 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-31 23:19:11,648 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-31 23:19:23,996 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-31 23:19:52,232 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-31 23:19:55,647 - telegram.ext.Application - INFO - Application started
+2025-08-31 23:20:08,497 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-08-31 23:20:08,498 - telegram.ext.Application - INFO - Application.stop() complete
+2025-08-31 23:39:46,889 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-31 23:39:51,831 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-31 23:45:15,459 - telegram.ext.Application - INFO - Application started
+2025-08-31 23:47:13,054 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-31 23:50:03,709 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-31 23:53:24,469 - telegram.ext.Application - INFO - Application started
+2025-08-31 23:53:25,300 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-08-31 23:53:25,300 - telegram.ext.Application - INFO - Application.stop() complete
+2025-08-31 23:53:49,605 - telegram.ext.Application - INFO - Application started
+2025-08-31 23:54:00,447 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-08-31 23:54:00,448 - telegram.ext.Application - INFO - Application.stop() complete
+2025-08-31 23:54:29,944 - telegram.ext.Application - INFO - Application started
+2025-08-31 23:54:39,759 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-08-31 23:54:39,759 - telegram.ext.Application - INFO - Application.stop() complete
+2025-08-31 23:55:29,092 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-31 23:55:29,752 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-08-31 23:57:35,975 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-01 01:05:07,469 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-01 11:26:46,534 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-01 11:26:48,521 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-01 20:53:26,863 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-01 20:53:28,465 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-01 21:46:11,824 - telegram.ext.Application - INFO - Application started
+2025-09-01 22:01:36,466 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-01 22:01:36,947 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-01 22:04:41,935 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-01 22:04:45,226 - telegram.ext.Application - INFO - Application started
+2025-09-01 22:05:05,465 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-01 22:05:05,465 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-01 22:07:37,100 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-01 22:07:39,897 - telegram.ext.Application - INFO - Application started
+2025-09-01 22:07:40,634 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-01 22:07:40,634 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-01 22:07:44,976 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-01 22:07:45,453 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-01 22:20:00,933 - telegram.ext.Application - INFO - Application started
+2025-09-01 22:33:13,212 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-01 22:33:13,882 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-01 22:33:36,452 - telegram.ext.Application - INFO - Application started
+2025-09-01 22:49:06,479 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-01 22:49:07,045 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-01 22:58:34,068 - telegram.ext.Application - INFO - Application started
+2025-09-01 23:23:54,865 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-01 23:23:55,464 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-01 23:24:07,312 - telegram.ext.Application - INFO - Application started
+2025-09-01 23:24:34,491 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-01 23:24:34,491 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-01 23:25:22,879 - telegram.ext.Application - INFO - Application started
+2025-09-01 23:26:48,933 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-01 23:26:48,933 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-01 23:32:16,429 - telegram.ext.Application - INFO - Application started
+2025-09-01 23:32:39,359 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-01 23:32:39,359 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-01 23:44:18,071 - telegram.ext.Application - INFO - Application started
+2025-09-01 23:44:25,970 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-01 23:44:25,972 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-01 23:56:12,028 - telegram.ext.Application - INFO - Application started
+2025-09-01 23:57:40,531 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-01 23:57:41,042 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-01 23:57:55,967 - telegram.ext.Application - INFO - Application started
+2025-09-01 23:58:06,796 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-01 23:58:06,797 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-01 23:58:17,806 - telegram.ext.Application - INFO - Application started
+2025-09-01 23:58:32,608 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-01 23:58:32,609 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 00:05:00,235 - telegram.ext.Application - INFO - Application started
+2025-09-02 00:05:19,122 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 00:05:19,122 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 18:04:56,369 - telegram.ext.Application - INFO - Application started
+2025-09-02 18:05:03,157 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 18:05:03,158 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 18:49:11,081 - telegram.ext.Application - INFO - Application started
+2025-09-02 18:49:33,698 - telegram.ext.Application - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\backends\mysql\base.py", line 76, in execute
+    return self.cursor.execute(query, args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\MySQLdb\connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (2006, 'Server has gone away')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_application.py", line 1325, in process_update
+    await coroutine
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_handlers\basehandler.py", line 158, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\telegram_bot\handlers.py", line 472, in start
+    session_exists = await sync_to_async(Session.objects.filter(session_id=str(user.id)).exists)()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\models\query.py", line 1288, in exists
+    return self.query.has_results(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\models\sql\query.py", line 660, in has_results
+    return compiler.has_results()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1542, in has_results
+    return bool(self.execute_sql(SINGLE))
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\backends\mysql\base.py", line 76, in execute
+    return self.cursor.execute(query, args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\MySQLdb\connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (2006, 'Server has gone away')
+2025-09-02 18:50:09,538 - telegram.ext.Application - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\backends\mysql\base.py", line 76, in execute
+    return self.cursor.execute(query, args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\MySQLdb\connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (2006, 'Server has gone away')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_application.py", line 1325, in process_update
+    await coroutine
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_handlers\basehandler.py", line 158, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\telegram_bot\handlers.py", line 472, in start
+    session_exists = await sync_to_async(Session.objects.filter(session_id=str(user.id)).exists)()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\models\query.py", line 1288, in exists
+    return self.query.has_results(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\models\sql\query.py", line 660, in has_results
+    return compiler.has_results()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1542, in has_results
+    return bool(self.execute_sql(SINGLE))
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\django\db\backends\mysql\base.py", line 76, in execute
+    return self.cursor.execute(query, args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\MySQLdb\cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\MySQLdb\cursors.py", line 330, in _query
+    db.query(q)
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\MySQLdb\connections.py", line 280, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (2006, 'Server has gone away')
+2025-09-02 18:50:43,502 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-02 18:50:48,378 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-02 18:51:22,074 - telegram.ext.Application - INFO - Application started
+2025-09-02 18:54:03,183 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 18:54:03,185 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 18:54:21,700 - telegram.ext.Application - INFO - Application started
+2025-09-02 18:54:36,560 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 18:54:36,560 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 18:55:30,613 - telegram.ext.Application - INFO - Application started
+2025-09-02 19:17:20,404 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 19:17:20,404 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 19:17:24,767 - telegram.ext.Application - INFO - Application started
+2025-09-02 19:17:41,551 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 19:17:41,551 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 19:37:51,252 - telegram.ext.Application - INFO - Application started
+2025-09-02 19:39:18,869 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 19:39:18,870 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 19:45:23,252 - telegram.ext.Application - INFO - Application started
+2025-09-02 19:45:59,277 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 19:45:59,277 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 19:46:12,275 - telegram.ext.Application - INFO - Application started
+2025-09-02 19:46:32,108 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 19:46:32,108 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 19:46:34,048 - telegram.ext.Application - INFO - Application started
+2025-09-02 19:46:39,817 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 19:46:39,817 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 19:46:47,457 - telegram.ext.Application - INFO - Application started
+2025-09-02 19:49:20,503 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 19:49:20,503 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 19:50:04,115 - telegram.ext.Application - INFO - Application started
+2025-09-02 19:52:20,331 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 19:52:20,332 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 19:52:23,691 - telegram.ext.Application - INFO - Application started
+2025-09-02 19:52:33,508 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 19:52:33,509 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 19:52:35,721 - telegram.ext.Application - INFO - Application started
+2025-09-02 19:54:03,162 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 19:54:03,162 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 19:54:11,704 - telegram.ext.Application - INFO - Application started
+2025-09-02 19:54:28,550 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 19:54:28,550 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 19:54:37,608 - telegram.ext.Application - INFO - Application started
+2025-09-02 19:55:06,711 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 19:55:06,712 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 19:55:13,595 - telegram.ext.Application - INFO - Application started
+2025-09-02 19:55:34,628 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 19:55:34,629 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 19:55:40,237 - telegram.ext.Application - INFO - Application started
+2025-09-02 19:55:47,050 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 19:55:47,050 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 20:03:11,880 - telegram.ext.Application - INFO - Application started
+2025-09-02 20:03:21,670 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 20:03:21,670 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 20:03:24,794 - telegram.ext.Application - INFO - Application started
+2025-09-02 20:03:31,580 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 20:03:31,581 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 20:12:32,025 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-02 20:12:34,867 - telegram.ext.Application - INFO - Application started
+2025-09-02 20:12:50,790 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 20:12:50,790 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 20:14:14,556 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-02 20:14:17,171 - telegram.ext.Application - INFO - Application started
+2025-09-02 20:14:37,058 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 20:14:37,058 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 20:15:54,357 - telegram.ext.Application - INFO - Application started
+2025-09-02 20:16:04,389 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 20:16:04,389 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 20:42:09,013 - telegram.ext.Application - INFO - Application started
+2025-09-02 20:42:15,165 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 20:42:15,165 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 20:43:28,368 - telegram.ext.Application - INFO - Application started
+2025-09-02 20:43:39,209 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 20:43:39,209 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 20:43:46,136 - telegram.ext.Application - INFO - Application started
+2025-09-02 20:43:46,168 - telegram.ext.Application - INFO - Application started
+2025-09-02 20:43:47,026 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:43:51,823 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:43:53,012 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:43:57,722 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:43:59,427 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:44:04,850 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:44:07,302 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:44:10,868 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:44:14,442 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:44:20,056 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:44:25,692 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:44:33,824 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:44:41,974 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:44:53,998 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:44:58,201 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:45:01,590 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 20:45:01,590 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 20:45:07,876 - telegram.ext.Application - INFO - Application started
+2025-09-02 20:45:07,954 - telegram.ext.Application - INFO - Application started
+2025-09-02 20:45:08,658 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:45:12,840 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:45:14,050 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:45:18,730 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:45:18,831 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 20:45:18,832 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 20:45:18,835 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:45:21,270 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:45:26,706 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:45:30,273 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:45:33,821 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:45:39,421 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:45:45,000 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:45:53,173 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:45:55,255 - telegram.ext.Application - INFO - Application started
+2025-09-02 20:45:59,006 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:46:01,303 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:46:05,522 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:46:07,077 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 20:46:07,079 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 20:46:10,969 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 20:46:10,970 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 20:46:14,460 - telegram.ext.Application - INFO - Application started
+2025-09-02 20:46:17,448 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:46:21,633 - telegram.ext.Updater - ERROR - Error while calling `get_updates` one more time to mark all fetched updates as read: %s. Suppressing error to ensure graceful shutdown. When polling for updates is restarted, updates may be fetched again. Please adjust timeouts via `ApplicationBuilder` or the parameter `get_updates_request` of `Bot`.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 432, in _get_updates_cleanup
+    await self.bot.get_updates(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:46:21,636 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 20:46:21,636 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 20:47:12,202 - telegram.ext.Application - INFO - Application started
+2025-09-02 20:47:12,893 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:47:17,087 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:47:18,293 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:47:23,006 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 20:47:24,694 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 20:47:24,707 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 20:47:27,806 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 20:47:27,806 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 20:52:24,123 - telegram.ext.Application - INFO - Application started
+2025-09-02 20:52:28,852 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 20:52:28,853 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 21:08:44,422 - telegram.ext.Application - INFO - Application started
+2025-09-02 21:08:49,226 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 21:08:49,226 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 21:09:10,673 - telegram.ext.Application - INFO - Application started
+2025-09-02 21:09:30,745 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 21:09:30,745 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 21:15:23,508 - telegram.ext.Application - INFO - Application started
+2025-09-02 21:15:59,621 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 21:15:59,621 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 21:16:38,135 - telegram.ext.Application - INFO - Application started
+2025-09-02 21:16:53,985 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 21:16:53,985 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 21:17:14,750 - telegram.ext.Application - INFO - Application started
+2025-09-02 21:17:14,802 - telegram.ext.Application - INFO - Application started
+2025-09-02 21:17:15,492 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 21:17:19,682 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 21:17:20,866 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 21:17:25,572 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 21:17:26,728 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 21:17:26,728 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 21:17:30,273 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 21:17:30,273 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 21:17:54,701 - telegram.ext.Application - INFO - Application started
+2025-09-02 21:18:02,483 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 21:18:02,483 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 21:21:36,213 - telegram.ext.Application - INFO - Application started
+2025-09-02 21:21:40,952 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 21:21:40,952 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 21:21:45,122 - telegram.ext.Application - INFO - Application started
+2025-09-02 21:21:48,881 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 21:21:48,882 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 21:22:29,835 - telegram.ext.Application - INFO - Application started
+2025-09-02 21:22:44,719 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 21:22:44,719 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 21:27:05,570 - telegram.ext.Application - INFO - Application started
+2025-09-02 21:28:10,828 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 21:28:10,829 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 21:28:13,507 - telegram.ext.Application - INFO - Application started
+2025-09-02 21:28:13,515 - telegram.ext.Application - INFO - Application started
+2025-09-02 21:28:13,532 - telegram.ext.Application - INFO - Application started
+2025-09-02 21:28:14,221 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 21:28:17,285 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 21:28:18,416 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 21:28:18,497 - telegram.ext.Updater - ERROR - Exception happened while polling for updates.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 750, in _network_loop_retry
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 744, in do_action
+    return action_cb_task.result()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 371, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 21:28:25,376 - telegram.ext.Updater - ERROR - Error while calling `get_updates` one more time to mark all fetched updates as read: %s. Suppressing error to ensure graceful shutdown. When polling for updates is restarted, updates may be fetched again. Please adjust timeouts via `ApplicationBuilder` or the parameter `get_updates_request` of `Bot`.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 432, in _get_updates_cleanup
+    await self.bot.get_updates(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 21:28:25,381 - telegram.ext.Updater - ERROR - Error while calling `get_updates` one more time to mark all fetched updates as read: %s. Suppressing error to ensure graceful shutdown. When polling for updates is restarted, updates may be fetched again. Please adjust timeouts via `ApplicationBuilder` or the parameter `get_updates_request` of `Bot`.
+Traceback (most recent call last):
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_updater.py", line 432, in _get_updates_cleanup
+    await self.bot.get_updates(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 650, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 4480, in get_updates
+    await self._post(
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 619, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 354, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\_bot.py", line 648, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 202, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Work\Proyectos\tbot_project\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 385, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-09-02 21:28:25,384 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 21:28:25,386 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 21:28:25,390 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 21:28:25,389 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 21:28:25,389 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 21:28:25,391 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 21:28:34,054 - telegram.ext.Application - INFO - Application started
+2025-09-02 21:28:55,040 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 21:28:55,040 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 21:29:01,795 - telegram.ext.Application - INFO - Application started
+2025-09-02 21:29:20,650 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 21:29:20,650 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 21:29:32,249 - telegram.ext.Application - INFO - Application started
+2025-09-02 21:29:42,203 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 21:29:42,203 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 21:29:55,917 - telegram.ext.Application - INFO - Application started
+2025-09-02 21:30:43,088 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 21:30:43,088 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 21:30:45,828 - telegram.ext.Application - INFO - Application started
+2025-09-02 21:31:01,727 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 21:31:01,727 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 21:40:57,659 - telegram.ext.Application - INFO - Application started
+2025-09-02 21:41:04,466 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 21:41:04,466 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 21:41:18,456 - telegram.ext.Application - INFO - Application started
+2025-09-02 21:42:33,540 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 21:42:33,540 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 21:42:38,434 - telegram.ext.Application - INFO - Application started
+2025-09-02 21:47:38,122 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 21:47:38,123 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 21:56:23,987 - telegram.ext.Application - INFO - Application started
+2025-09-02 21:56:30,760 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 21:56:30,760 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 22:00:35,274 - telegram.ext.Application - INFO - Application started
+2025-09-02 22:00:52,141 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 22:00:52,142 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 22:01:02,144 - telegram.ext.Application - INFO - Application started
+2025-09-02 22:01:16,983 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 22:01:16,983 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 22:02:41,056 - telegram.ext.Application - INFO - Application started
+2025-09-02 22:02:56,918 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 22:02:56,919 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 22:03:06,292 - telegram.ext.Application - INFO - Application started
+2025-09-02 22:03:13,133 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 22:03:13,134 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 22:03:26,475 - telegram.ext.Application - INFO - Application started
+2025-09-02 22:03:35,258 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 22:03:35,258 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 22:15:57,845 - telegram.ext.Application - INFO - Application started
+2025-09-02 22:16:07,599 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 22:16:07,599 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 22:16:41,283 - telegram.ext.Application - INFO - Application started
+2025-09-02 22:16:57,201 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 22:16:57,201 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 22:19:02,559 - telegram.ext.Application - INFO - Application started
+2025-09-02 22:19:10,336 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 22:19:10,338 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 22:27:19,471 - telegram.ext.Application - INFO - Application started
+2025-09-02 22:27:24,271 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 22:27:24,272 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 22:35:16,796 - telegram.ext.Application - INFO - Application started
+2025-09-02 22:35:31,743 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 22:35:31,743 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 22:35:51,755 - telegram.ext.Application - INFO - Application started
+2025-09-02 22:36:06,646 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 22:36:06,647 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 22:36:25,329 - telegram.ext.Application - INFO - Application started
+2025-09-02 22:36:40,204 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 22:36:40,205 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 22:37:42,585 - telegram.ext.Application - INFO - Application started
+2025-09-02 22:47:01,382 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 22:47:01,383 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 22:48:16,606 - telegram.ext.Application - INFO - Application started
+2025-09-02 22:48:22,357 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 22:48:22,357 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 23:24:45,655 - telegram.ext.Application - INFO - Application started
+2025-09-02 23:24:56,742 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 23:24:56,742 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 23:25:08,713 - telegram.ext.Application - INFO - Application started
+2025-09-02 23:25:18,840 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 23:25:18,841 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-02 23:43:51,779 - telegram.ext.Application - INFO - Application started
+2025-09-02 23:44:01,580 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-02 23:44:01,580 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-03 00:37:52,603 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-03 00:38:08,205 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-03 00:39:59,368 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-03 00:40:03,646 - telegram.ext.Application - INFO - Application started
+2025-09-03 00:40:11,482 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-03 00:40:11,482 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-03 00:40:25,518 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-03 00:41:45,434 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-03 00:41:50,820 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-03 00:42:47,997 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-03 00:42:50,518 - telegram.ext.Application - INFO - Application started
+2025-09-03 00:42:55,267 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-03 00:42:55,267 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-03 00:43:22,285 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-03 00:54:33,896 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-03 00:54:36,905 - telegram.ext.Application - INFO - Application started
+2025-09-03 00:54:53,876 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-03 00:54:53,876 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-03 01:04:31,517 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-03 01:04:34,534 - telegram.ext.Application - INFO - Application started
+2025-09-03 01:05:34,000 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-03 01:05:34,000 - telegram.ext.Application - INFO - Application.stop() complete
+2025-09-03 01:08:52,062 - environ.environ - INFO - E:\Work\Proyectos\tbot_project\tbot_project\.env doesn't exist - if you're not configuring your environment separately, create one.
+2025-09-03 01:08:55,071 - telegram.ext.Application - INFO - Application started
+2025-09-03 01:09:11,939 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-09-03 01:09:11,940 - telegram.ext.Application - INFO - Application.stop() complete

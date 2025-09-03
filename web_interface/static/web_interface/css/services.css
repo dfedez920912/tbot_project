@@ -1,64 +1,62 @@
-/* Contenedor del input con icono */
-.search-container {
+/* Toggle Switch Personalizado */
+.switch-container {
+    display: inline-block;
     position: relative;
-    margin: 0 10px 15px;
-    max-width: 300px; /* Ajusta el ancho según necesites */
+    width: 52px;
+    height: 28px;
 }
 
-/* Estilo del input de búsqueda */
-.search-input {
-    width: 100%;
-    padding: 10px 40px 10px 15px; /* Espacio para el icono a la derecha */
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 1rem;
-    color: #e0e0e0;
-    background-color: #2d2d2d;
-    border: none;
-    border-bottom: 2px solid #555; /* Línea inferior inicial */
-    border-radius: 0;
-    outline: none;
-    transition: border-color 0.3s ease;
+.switch-container input {
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
-/* Efecto al enfocar el input */
-.search-input:focus {
-    border-bottom-color: #007bff; /* Cambia a azul cuando se selecciona */
-}
-
-/* Label flotante */
-.search-label {
+.slider-custom {
     position: absolute;
-    left: 15px;
-    top: 10px;
-    font-size: 1rem;
-    color: #999;
-    pointer-events: none;
-    transition: all 0.3s ease;
-    background-color: #2d2d2d;
-    padding: 0 5px;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #6c757d;
+    transition: .4s;
+    border-radius: 34px;
+    border: 2px solid #495057;
+}
+
+.slider-custom:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 2px;
+    background-color: #e9ecef;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+input:checked + .slider-custom {
+    background-color: #007bff;
+    border-color: #0056b3;
+}
+
+input:checked + .slider-custom:before {
+    transform: translateX(24px);
+}
+
+/* Asegurar que el círculo sobresalga */
+.slider-custom:before {
     z-index: 1;
 }
 
-/* Estado del label cuando el input está enfocado o tiene valor */
-.search-input:focus + .search-label,
-.search-input:not(:placeholder-shown) + .search-label {
-    top: -10px;
-    font-size: 0.75rem;
-    color: #007bff;
-}
-
-/* Icono de lupa */
-.search-icon {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #999;
-    pointer-events: none;
-    transition: color 0.3s ease;
-}
-
-/* Icono cambia de color cuando el input está enfocado */
-.search-input:focus ~ .search-icon {
-    color: #007bff;
+/* Spinner centrado */
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 28px;
+    width: 52px;
 }

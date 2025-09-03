@@ -595,13 +595,3 @@ def run_bot_sync(token: str, stop_event: threading.Event = None):
         loop.run_until_complete(run_bot(token, stop_event))
     finally:
         loop.close()
-        
-def run_bot_sync(token: str, stop_event: threading.Event = None):
-    """Función síncrona que ejecuta run_bot en un loop asyncio."""
-    # ← Crear un nuevo event loop para este hilo
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-    try:
-        loop.run_until_complete(run_bot(token, stop_event))
-    finally:
-        loop.close()
