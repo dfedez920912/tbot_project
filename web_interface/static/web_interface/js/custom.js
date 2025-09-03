@@ -20,6 +20,8 @@ $(document).ready(function () {
         }
     });
 
+    
+
     // --- Inicializar interruptor de autenticación ---
     $('#enable_ad_admin_auth').prop('checked', typeof AUTH_ENABLED !== 'undefined' ? AUTH_ENABLED : false);
 

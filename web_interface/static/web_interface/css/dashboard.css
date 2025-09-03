@@ -1,0 +1,79 @@
+/* Chat Widget */
+.chat-widget {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.chat-messages {
+    height: 200px;
+    overflow-y: auto;
+}
+
+.message {
+    margin-bottom: 10px;
+}
+
+.message .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.message.right .avatar {
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+.message-content {
+    display: flex;
+    flex-direction: column;
+    background-color: #f1f1f1;
+    padding: 8px 12px;
+    border-radius: 12px;
+    max-width: 70%;
+}
+
+.message.right .message-content {
+    background-color: #ffc107;
+    align-self: flex-end;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+.time {
+    font-size: 0.7em;
+    color: #666;
+    margin-bottom: 2px;
+}
+
+.chat-input {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+}
+
+.user-card {
+    text-align: center;
+}
+
+.user-name {
+    font-size: 0.8em;
+    margin: 5px 0;
+}
+
+.user-time {
+    font-size: 0.7em;
+    color: #666;
+}

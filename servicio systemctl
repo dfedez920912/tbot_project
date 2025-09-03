@@ -1,0 +1,11 @@
+
+Asegúrate de que el usuario www-data pueda ejecutar:
+sudo systemctl enable tbot_telegram.service
+sudo systemctl disable tbot_telegram.service
+sudo systemctl start tbot_telegram.service
+sudo systemctl stop tbot_telegram.service
+
+sudo visudo
+
+www-data ALL=(ALL) NOPASSWD: /bin/systemctl enable tbot_telegram.service, /bin/systemctl disable tbot_telegram.service, /bin/systemctl start tbot_telegram.service, /bin/systemctl stop tbot_telegram.service, /bin/systemctl daemon-reload
+www-data ALL=(ALL) NOPASSWD: /usr/bin/crontab

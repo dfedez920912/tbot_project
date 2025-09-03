@@ -1,139 +1,166 @@
 {% extends 'web_interface/base.html' %}
-{% load static %} 
+{% load static %}
+
 {% block title %}Dashboard{% endblock %}
+
+{% block styles%}<link rel="stylesheet" href="{% static 'web_interface/css/dashboard.css' %}" />{% endblock %}
 
 {% block content %}
 <div class="row">
-  <div class="col-lg-3 col-6">
-    <div class="small-box bg-info">
-      <div class="inner">
-        <h3 id="active-directory-users">0</h3>
-        <p>Usuarios en Directorio Activo</p>
-      </div>
-      <div class="icon">
-        <i class="fas fa-users"></i>
-      </div>
-      <a href="#" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
-    </div>
-  </div>
+    <div class="col-md-12">
+        <div class="card card-primary">
 
-  <div class="col-lg-3 col-6">
-    <div class="small-box bg-success">
-      <div class="inner">
-        <h3 id="active-users">0</h3>
-        <p>Usuarios Activos (AD)</p>
-      </div>
-      <div class="icon">
-        <i class="fas fa-user-check"></i>
-      </div>
-      <a href="#" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
-    </div>
-  </div>
+            <div class="card-body p-0">
+                <!-- Cards de Métricas -->
+                <div class="row mb-4">
+                    <!-- CPU Load -->
+                    <div class="col-md-4">
+                        <div class="card bg-info text-white">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="fas fa-microchip fa-2x mr-3"></i>
+                                <div>
+                                    <h5 class="mb-0">CPU Load</h5>
+                                    <p class="mb-0" id="cpu-percent">--%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-  <div class="col-lg-3 col-6">
-    <div class="small-box bg-warning">
-      <div class="inner">
-        <h3 id="expiring-passwords">0</h3>
-        <p>Contraseñas Próximas a Vencer</p>
-      </div>
-      <div class="icon">
-        <i class="fas fa-clock"></i>
-      </div>
-      <a href="#" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
-    </div>
-  </div>
+                    <!-- RAM Usage -->
+                    <div class="col-md-4">
+                        <div class="card bg-warning text-white">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="fas fa-memory fa-2x mr-3"></i>
+                                <div>
+                                    <h5 class="mb-0">RAM Usage</h5>
+                                    <p class="mb-0" id="ram-used">-- GB / -- GB</p>
+                                    <small id="ram-percent">--%</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-  <div class="col-lg-3 col-6">
-    <div class="small-box bg-primary">
-      <div class="inner">
-        <h3 id="valid-telegram-todus">0</h3>
-        <p>Válidos para Telegram & Todus</p>
-      </div>
-      <div class="icon">
-        <i class="fas fa-check-double"></i>
-      </div>
-      <a href="#" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
-    </div>
-  </div>
+                    <!-- Network Bandwidth -->
+                    <div class="col-md-4">
+                        <div class="card bg-success text-white">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="fas fa-network-wired fa-2x mr-3"></i>
+                                <div>
+                                    <h5 class="mb-0">LAN Bandwidth</h5>
+                                    <p class="mb-0" id="download-speed">↓ --</p>
+                                    <p class="mb-0" id="upload-speed">↑ --</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-  <div class="col-lg-3 col-6">
-    <div class="small-box bg-teal">
-      <div class="inner">
-        <h3 id="active-telegram">0</h3>
-        <p>Usuarios Activos en Telegram</p>
-      </div>
-      <div class="icon">
-        <i class="fab fa-telegram-plane"></i>
-      </div>
-      <a href="#" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+                <!-- Gráfico de uso (opcional) -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <canvas id="systemChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <div class="col-lg-3 col-6">
-    <div class="small-box bg-purple">
-      <div class="inner">
-        <h3 id="active-todus">0</h3>
-        <p>Usuarios Activos en Todus</p>
-      </div>
-      <div class="icon">
-        <i class="fas fa-cloud"></i>
-      </div>
-      <a href="#" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
-    </div>
-  </div>
-</div>
-
-<!-- Gráfico de ejemplo -->
-<div class="row">
-  <div class="col-md-8">
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">Actividad Reciente</h3>
-      </div>
-      <div class="card-body">
-        <canvas id="activityChart"></canvas>
-      </div>
-    </div>
-  </div>
 </div>
 {% endblock %}
 
-{% block scripts %}
+{% block custom_scripts %}
 <script>
-// Simulación de datos (en producción, vienen del backend)
-document.getElementById('active-directory-users').textContent = '124';
-document.getElementById('active-users').textContent = '112';
-document.getElementById('expiring-passwords').textContent = '8';
-document.getElementById('valid-telegram-todus').textContent = '95';
-document.getElementById('active-telegram').textContent = '78';
-document.getElementById('active-todus').textContent = '70';
+    // ✅ Usa el app_name
+    const statsUrl = "{% url 'web_interface:get_status' %}";
 
-// Gráfico
-const ctx = document.getElementById('activityChart').getContext('2d');
-new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'],
-    datasets: [{
-      label: 'Mensajes en Telegram',
-      data: [12, 19, 3, 17, 28, 24, 7],
-      borderColor: '#007bff',
-      tension: 0.3,
-      fill: false
-    }, {
-      label: 'Archivos en Todus',
-      data: [5, 8, 12, 15, 20, 18, 10],
-      borderColor: '#6f42c1',
-      tension: 0.3,
-      fill: false
-    }]
-  },
-  options: {
-    animation: {
-      duration: 1500,
-      easing: 'easeInOutQuart'
+    async function updateStats() {
+        try {
+            const response = await fetch(statsUrl);
+            const data = await response.json();
+
+            if (data.error) throw new Error(data.error);
+
+            document.getElementById('cpu-percent').textContent = data.cpu_percent + '%';
+            document.getElementById('ram-used').textContent = `${data.ram_used} GB / ${data.ram_total} GB`;
+            document.getElementById('ram-percent').textContent = data.ram_percent + '%';
+            document.getElementById('download-speed').textContent = '↓ ' + data.download_speed;
+            document.getElementById('upload-speed').textContent = '↑ ' + data.upload_speed;
+        } catch (e) {
+            console.error('Error al obtener estadísticas:', e);
+        }
     }
-  }
-});
+
+    setInterval(updateStats, 2000);
+    updateStats();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // ← Actualizar métricas cada 2 segundos
+    async function updateStats() {
+        try {
+            const response = await fetch('{% url "web_interface:get_status" %}');
+            const data = await response.json();
+
+            if (data.error) throw new Error(data.error);
+
+            document.getElementById('cpu-percent').textContent = data.cpu_percent + '%';
+            document.getElementById('ram-used').textContent = `${data.ram_used} GB / ${data.ram_total} GB`;
+            document.getElementById('ram-percent').textContent = data.ram_percent + '%';
+            document.getElementById('download-speed').textContent = '↓ ' + data.download_speed;
+            document.getElementById('upload-speed').textContent = '↑ ' + data.upload_speed;
+
+            // ← Actualizar gráfico
+            if (window.chart) {
+                window.chart.data.labels.push(new Date().toLocaleTimeString());
+                window.chart.data.datasets[0].data.push(data.cpu_percent);
+                window.chart.data.datasets[1].data.push(data.ram_percent);
+                if (window.chart.data.labels.length > 10) {
+                    window.chart.data.labels.shift();
+                    window.chart.data.datasets[0].data.shift();
+                    window.chart.data.datasets[1].data.shift();
+                }
+                window.chart.update();
+            }
+        } catch (e) {
+            console.error('Error al obtener estadísticas:', e);
+        }
+    }
+
+    // ← Iniciar actualización
+    setInterval(updateStats, 2000);
+
+    // ← Gráfico
+    const ctx = document.getElementById('systemChart').getContext('2d');
+    window.chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [
+                {
+                    label: 'CPU (%)',
+                    data: [],
+                    borderColor: '#007bff',
+                    backgroundColor: 'rgba(0, 123, 255, 0.1)',
+                    fill: true
+                },
+                {
+                    label: 'RAM (%)',
+                    data: [],
+                    borderColor: '#ffc107',
+                    backgroundColor: 'rgba(255, 193, 7, 0.1)',
+                    fill: true
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: { min: 0, max: 100 }
+            }
+        }
+    });
+
+    // ← Obtener datos iniciales
+    updateStats();
 </script>
 {% endblock %}

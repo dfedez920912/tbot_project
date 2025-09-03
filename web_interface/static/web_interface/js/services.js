@@ -10,20 +10,20 @@ $(document).ready(function () {
     // ← Variables de estado
     let botRunning = false;
     let startTime = null;
-    let uptimeInterval = null;
-    let statusInterval = null;
+    let uptimeInterval = null; // ← ID del intervalo del contador
+    let statusInterval = null; // ← ID del intervalo de estado
     let lastKnownRunning = null;
 
-    // ← Control de operación de detención
-    let stopRequestSent = false; // ← Se envió la señal de stop
-    let stopConfirmationReceived = false; // ← Backend confirmó detención
+    // ← Control de operación
+    let isProcessing = false;
 
     // ← Elementos del DOM
     const $container = $('.custom-control.custom-switch');
     const $modal = $('#confirm-modal');
     const $confirmBtn = $('#confirm-action-btn');
     const $cancelBtn = $modal.find('[data-dismiss="modal"]');
-    const $uptimeElement = $('#uptime');
+    const $uptimeElement = $('#uptime'); // ← Elemento del DOM
+    const $autoStart = $('#auto_start');
 
     if ($container.length === 0) {
         console.error("services.js: No se encontró el contenedor del toggle");
@@ -114,7 +114,7 @@ $(document).ready(function () {
     // ← Detener el contador
     function stopUptime() {
         clearInterval(uptimeInterval);
-        $uptimeElement.text('--:--:--');
+        $uptimeElement.text('--:--:--'); // ← Corregido: era $uptimeInterval
     }
 
     // ← Mostrar notificación
@@ -132,17 +132,13 @@ $(document).ready(function () {
         }
 
         if (lastKnownRunning && !newState) {
-            // ← Bot se detuvo completamente
-            if (stopRequestSent && !stopConfirmationReceived) {
-                stopConfirmationReceived = true;
+            if (isProcessing) {
                 showNotification('🔴 El bot ha sido <strong>detenido</strong>.', 'error');
-                // ← Ahora sí, restaurar UI
                 restoreToggle(false);
                 stopUptime();
+                isProcessing = false;
             }
-        }
-
-        if (!lastKnownRunning && newState) {
+        } else if (!lastKnownRunning && newState) {
             showNotification('🟢 El bot ha sido <strong>iniciado</strong>.', 'success');
         }
 
@@ -156,6 +152,8 @@ $(document).ready(function () {
 
     // ← Obtener estado del bot
     async function getTelegramStatus() {
+        if (isProcessing) return;
+
         try {
             const response = await fetch(TELEGRAM_STATUS_URL, {
                 method: 'GET',
@@ -163,7 +161,8 @@ $(document).ready(function () {
                     'X-CSRFToken': getCSRFToken(),
                     'Content-Type': 'application/json'
                 },
-                credentials: 'same-origin'
+                credentials: 'same-origin',
+                cache: 'no-store'
             });
 
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -179,10 +178,7 @@ $(document).ready(function () {
                 handleStatusChange(botRunning, startTime);
 
                 if (wasRunning !== botRunning || startTime !== oldStartTime) {
-                    // ← Solo restaurar si no está en proceso de detención
-                    if (!stopRequestSent || !botRunning) {
-                        restoreToggle(botRunning);
-                    }
+                    restoreToggle(botRunning);
                 }
 
                 if (botRunning && startTime) {
@@ -190,18 +186,16 @@ $(document).ready(function () {
                 } else {
                     stopUptime();
                 }
-            } else {
-                toastr.error('Error: ' + data.message);
             }
         } catch (error) {
             console.error('Error en getTelegramStatus:', error);
-            toastr.error('Error de conexión.');
         }
     }
 
     // ← Iniciar el bot
     async function startTelegram() {
-        if (stopRequestSent) return;
+        if (isProcessing) return;
+        isProcessing = true;
         showSpinner();
         try {
             const response = await fetch(TELEGRAM_START_URL, {
@@ -234,6 +228,8 @@ $(document).ready(function () {
             console.error('Error en startTelegram:', error);
             restoreToggle(false);
             showNotification('⚠️ Error de conexión.', 'error');
+        } finally {
+            isProcessing = false;
         }
     }
 
@@ -241,14 +237,6 @@ $(document).ready(function () {
     async function stopTelegram() {
         $modal.modal('hide');
         showSpinner();
-
-        // ← Marcar que se envió la señal
-        stopRequestSent = true;
-        stopConfirmationReceived = false;
-
-        // ← Mostrar primer toastr
-        showNotification('🛑 Bot <strong>detenido</strong>.', 'success');
-
         try {
             const response = await fetch(TELEGRAM_STOP_URL, {
                 method: 'POST',
@@ -263,24 +251,30 @@ $(document).ready(function () {
 
             const data = await response.json();
             if (data.status === 'success') {
-                // ← Backend confirmó, pero no actualizamos UI aún
-                console.log("Señal de detención enviada correctamente");
+                botRunning = false;
+                showNotification('🛑 Bot <strong>detenido</strong>.', 'success');
             } else {
-                // ← Error al detener
-                stopRequestSent = false;
+                botRunning = true;
+                startUptime();
                 restoreToggle(true);
                 showNotification('❌ Error al detener: ' + data.message, 'error');
             }
         } catch (error) {
             console.error('Error en stopTelegram:', error);
-            stopRequestSent = false;
-            restoreToggle(true);
+            botRunning = true;
+            startUptime();
             showNotification('⚠️ Error de conexión.', 'error');
+            restoreToggle(true);
         }
     }
 
     // ✅ Manejar el cambio del toggle usando DELEGACIÓN
     $container.on('change', '#telegram_running', function () {
+        if (isProcessing) {
+            restoreToggle(botRunning);
+            return;
+        }
+
         if ($(this).is(':checked')) {
             startTelegram();
         } else {

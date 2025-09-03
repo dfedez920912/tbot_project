@@ -1,6 +1,7 @@
 from django.urls import path, include
 from django.views.generic import RedirectView
-from . import views
+from .import views
+
 
 app_name = 'web_interface'
 
@@ -20,15 +21,26 @@ urlpatterns = [
     path('config/ad/', views.config_ad_view, name='config_ad'),  # ← Añade esta línea
     path('users/', views.users_view, name='users'),  # ← Vista de usuarios
     
-    # servicios
+    # servicios_telegram
     path('services/', views.services_view, name='services'),
     path('services/telegram/start/', views.telegram_start, name='telegram_start'),
     path('services/telegram/stop/', views.telegram_stop, name='telegram_stop'),
     path('services/telegram/status/', views.telegram_status, name='telegram_status'),
     path('services/telegram/toggle/', views.toggle_telegram, name='toggle_telegram'),
     path('services/telegram/set_auto_start/', views.set_auto_start_linux, name='set_auto_start_linux'),
+    path('services/telegram/auto_start/enable/', views.set_auto_start_enable, name='set_auto_start_enable'),
+    path('services/telegram/auto_start/disable/', views.set_auto_start_disable, name='set_auto_start_disable'),
+
+    # Rutas Dashboard
+    path('dashboard/', views.dashboard_view, name='dashboard'),
+    path('dashboard/stats/', views.get_stats, name='get_status'),
     
     # Notificaciones
     path('notid/email/', views.config_email_view, name='notif_email'),
     path('notif/todus/', views.dashboard_view, name='notif_todus'),
+    
+    # Rutas Cron ...
+    path('config/cron/', views.cron_view, name='cron_view'),
+    path('config/cron/edit/<str:job>/', views.edit_cron_job, name='edit_cron_job'),
+    path('config/cron/save/', views.save_cron_job, name='save_cron_job'),
 ]

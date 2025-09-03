@@ -1,0 +1,43 @@
+<form id="cron-form">
+    <input type="hidden" id="job-name" value="{{ job.name }}">
+
+    <div class="form-group mb-3">
+        <label for="command">Comando</label>
+        <input type="text" class="form-control" id="command" value="{{ job.command }}" readonly>
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Programación Rápida</label>
+        <div class="btn-group d-flex flex-wrap gap-2">
+            <button type="button" class="btn btn-sm btn-outline-primary quick-schedule" data-value="*/5 * * * *">Cada 5 min</button>
+            <button type="button" class="btn btn-sm btn-outline-primary quick-schedule" data-value="*/10 * * * *">Cada 10 min</button>
+            <button type="button" class="btn btn-sm btn-outline-primary quick-schedule" data-value="*/30 * * * *">Cada 30 min</button>
+            <button type="button" class="btn btn-sm btn-outline-primary quick-schedule" data-value="0 * * * *">Cada hora</button>
+            <button type="button" class="btn btn-sm btn-outline-primary quick-schedule" data-value="0 */6 * * *">Cada 6 horas</button>
+            <button type="button" class="btn btn-sm btn-outline-primary quick-schedule" data-value="0 8 * * *">Diario (8 AM)</button>
+            <button type="button" class="btn btn-sm btn-outline-primary quick-schedule" data-value="0 8 * * 1">Semanal (Lunes)</button>
+            <button type="button" class="btn btn-sm btn-outline-primary quick-schedule" data-value="0 8 1 * *">Mensual</button>
+        </div>
+    </div>
+
+    <div class="form-group mb-3">
+        <label>Cron Manual</label>
+        <div class="input-group">
+            <input type="text" class="form-control" id="manual-schedule" placeholder="Ej: 0 8 * * *" value="{{ job.schedule }}">
+            <button type="button" class="btn btn-sm btn-primary" id="apply-schedule">Aplicar</button>
+        </div>
+        <small class="form-text text-muted">
+            Formato: <code>minuto hora día mes día_semana</code>
+        </small>
+    </div>
+
+    <div class="form-check mb-3">
+        <input type="checkbox" class="form-check-input" id="enable-job" {% if job.enabled %}checked{% endif %}>
+        <label class="form-check-label" for="enable-job">Habilitar esta tarea</label>
+    </div>
+
+    <div class="alert alert-info" style="font-size: 0.9em;">
+        <i class="fas fa-info-circle"></i>
+        Usa <a href="https://crontab.guru" target="_blank" class="alert-link">crontab.guru</a> para generar expresiones cron.
+    </div>
+</form>

@@ -3,6 +3,7 @@ $(document).ready(function () {
     const $container = $('.toggle-container');
     const $thumb = $('.toggle-thumb');
 
+    
     // Verificar preferencia guardada
     const isDarkMode = localStorage.getItem('darkMode') === 'true';
 

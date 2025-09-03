@@ -14,12 +14,14 @@
             <p>Dashboard</p>
           </a>
         </li>
+        
         <li class="nav-item">
           <a href="{% url 'web_interface:services' %}" class="nav-link">
-            <i class="nav-icon fas fa-server"></i>
+            <i class="nav-icon fas fa-list-alt"></i>
             <p>Servicios</p>
           </a>
         </li>
+
         <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-cog"></i>
@@ -42,7 +44,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="{% url 'web_interface:config_cron' %}" class="nav-link">
+              <a href="{% url 'web_interface:cron_view' %}" class="nav-link">
                 <i class="nav-icon fas fa-clock"></i>
                 <p>Cron</p>
               </a>
@@ -97,7 +99,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a href="/logs/" class="nav-link">
+          <a href="{% url 'web_interface:logs' %}" class="nav-link">
             <i class="nav-icon fas fa-list-alt"></i>
             <p>Logs del Sistema</p>
           </a>

@@ -7,6 +7,7 @@ import psutil
 import asyncio
 import subprocess
 import sys
+import re
 import time
 from datetime import datetime
 from django.shortcuts import render, redirect
@@ -60,6 +61,163 @@ stop_bot_event = threading.Event()
 # ← Variable global para el hilo del bot
 bot_thread = None
 
+
+# ← Comando base
+PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MANAGE_PY = f'{sys.executable} {os.path.join(PROJECT_DIR, "manage.py")}'
+
+# ← Tareas disponibles
+CRON_JOBS = {
+    'sync_users': {
+        'command': f'{MANAGE_PY} sync_users',
+        'description': 'Sincroniza usuarios del AD con la base de datos'
+    },
+    'password_expiration': {
+        'command': f'{MANAGE_PY} password_expiration',
+        'description': 'Envía alertas de vencimiento de contraseñas'
+    }
+}
+
+
+def get_crontab():
+    """Lee el crontab del usuario actual."""
+    try:
+        result = os.popen('crontab -l 2>/dev/null').read()
+        lines = result.strip().split('\n') if result.strip() else []
+        jobs = []
+        for line in lines:
+            line = line.strip()
+            if not line or line.startswith('#'):
+                continue
+            parts = line.split()
+            if len(parts) < 6:
+                continue
+            for job_name, job in CRON_JOBS.items():
+                if job['command'] in line:
+                    jobs.append({
+                        'name': job_name,
+                        'schedule': ' '.join(parts[:5]),
+                        'command': job['command'],
+                        'enabled': True
+                    })
+                    break
+        return jobs
+    except Exception as e:
+        print(f"Error leyendo crontab: {e}")
+        return []
+
+def save_crontab(jobs):
+    """Guarda las tareas en el crontab."""
+    try:
+        lines = []
+        for job in jobs:
+            if job['enabled']:
+                lines.append(f"{job['schedule']} {job['command']}")
+        cron_content = '\n'.join(lines) + '\n'
+        with open('/tmp/my_cron', 'w') as f:
+            f.write(cron_content)
+        os.system('crontab /tmp/my_cron')
+        os.remove('/tmp/my_cron')
+        return True
+    except Exception as e:
+        print(f"Error guardando crontab: {e}")
+        return False
+
+@login_required
+def cron_view(request):
+    """Vista para gestionar tareas programadas."""
+    crontab_jobs = get_crontab()
+    jobs_dict = {job['name']: job for job in crontab_jobs}
+
+    # ← Añadir tareas que no están en crontab
+    for job_name in CRON_JOBS:
+        if job_name not in jobs_dict:
+            default_schedule = '0 */6 * * *' if job_name == 'sync_users' else '0 8 * * *'
+            jobs_dict[job_name] = {
+                'name': job_name,
+                'schedule': default_schedule,
+                'command': CRON_JOBS[job_name]['command'],
+                'enabled': False
+            }
+
+    return render(request, 'web_interface/cron.html', {
+        'jobs': jobs_dict,
+        'current_page': 'cron'  # ← Para activar el sidebar
+    })
+
+@csrf_exempt
+@login_required
+def edit_cron_job(request, job):
+    """Muestra el modal de edición."""
+    if request.method != 'GET':
+        return JsonResponse({'status': 'error', 'message': 'Método no permitido'}, status=405)
+
+    if job not in CRON_JOBS:
+        return JsonResponse({'status': 'error', 'message': 'Tarea no válida'}, status=400)
+
+    jobs = get_crontab()
+    current_job = next((j for j in jobs if j['name'] == job), None)
+
+    if not current_job:
+        current_job = {
+            'name': job,
+            'schedule': '0 */6 * * *' if job == 'sync_users' else '0 8 * * *',
+            'command': CRON_JOBS[job]['command'],
+            'enabled': False
+        }
+
+    return render(request, 'web_interface/partials/cron_edit_modal.html', {
+        'job': current_job
+    })
+
+@csrf_exempt
+@login_required
+def save_cron_job(request):
+    """Guarda o actualiza una tarea."""
+    if request.method != 'POST':
+        return JsonResponse({'status': 'error', 'message': 'Método no permitido'}, status=405)
+
+    try:
+        data = json.loads(request.body)
+        job_name = data.get('job')
+        enabled = data.get('enabled', False)
+        schedule = data.get('schedule', '')
+
+        if job_name not in CRON_JOBS:
+            return JsonResponse({'status': 'error', 'message': 'Tarea no válida'}, status=400)
+
+        if enabled and not re.match(r'^(\*|[0-5]?\d)\s+(\*|[01]?\d|2[0-3])\s+(\*|[12]?\d|3[01])\s+(\*|[1-9]|1[0-2])\s+(\*|[0-6])$', schedule):
+            return JsonResponse({'status': 'error', 'message': 'Formato de cron inválido'}, status=400)
+
+        jobs = get_crontab()
+        job_found = False
+        for job in jobs:
+            if job['name'] == job_name:
+                job['enabled'] = enabled
+                if enabled:
+                    job['schedule'] = schedule
+                job_found = True
+                break
+
+        if not job_found and enabled:
+            jobs.append({
+                'name': job_name,
+                'schedule': schedule,
+                'command': CRON_JOBS[job_name]['command'],
+                'enabled': True
+            })
+
+        if save_crontab(jobs):
+            return JsonResponse({
+                'status': 'success',
+                'message': f'Tarea {"habilitada" if enabled else "deshabilitada"} correctamente.'
+            })
+        else:
+            return JsonResponse({'status': 'error', 'message': 'No se pudo guardar el crontab.'}, status=500)
+
+    except Exception as e:
+        return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
+
 def get_status():
     if STATUS_FILE.exists():
         try:
@@ -78,11 +236,28 @@ def get_status():
         "telegram_auto_start": False
     }
 
-def update_status(**kwargs):
-    status = get_status()
-    status.update(kwargs)
-    with open(STATUS_FILE, 'w', encoding='utf-8') as f:
-        json.dump(status, f, indent=4, ensure_ascii=False)
+
+def update_status(telegram_running=None, telegram_start_time=None, telegram_auto_start=None):
+    """Actualiza el estado del bot en services_status.json"""
+    try:
+        status = get_status()
+        if telegram_running is not None:
+            status['telegram_running'] = telegram_running
+        if telegram_start_time is not None:
+            status['telegram_start_time'] = telegram_start_time
+        if telegram_auto_start is not None:
+            status['telegram_auto_start'] = telegram_auto_start
+
+        # ← Asegurar que el directorio exista
+        STATUS_FILE.parent.mkdir(parents=True, exist_ok=True)
+
+        with open(STATUS_FILE, 'w', encoding='utf-8') as f:
+            json.dump(status, f, ensure_ascii=False, indent=4)
+
+        return True
+    except Exception as e:
+        logger.error(f"Error al actualizar estado: {e}")
+        return False
 
 # ← Importar run_bot_sync desde handlers.py
 try:
@@ -92,6 +267,85 @@ except Exception as e:
     logger.exception("No se pudo importar run_bot_sync")
     RUN_BOT_AVAILABLE = False
     run_bot_sync = None
+
+
+
+@csrf_exempt
+@login_required
+def set_auto_start_enable(request):
+    """Habilita el inicio automático del bot."""
+    if request.method == 'POST':
+        try:
+            # ← Crear o actualizar el servicio systemd
+            service_content = """[Unit]
+Description=TBot Telegram Bot
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory={project_dir}
+ExecStart={python_path} manage.py run_bot
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target""".format(
+                project_dir=settings.BASE_DIR,
+                python_path=sys.executable  # ← Usa el mismo Python que Django
+            )
+
+            # ← Guardar el servicio temporalmente
+            temp_service = '/tmp/tbot_telegram.service'
+            with open(temp_service, 'w') as f:
+                f.write(service_content.strip())
+
+            # ← Mover y habilitar el servicio
+            os.system('sudo mv /tmp/tbot_telegram.service /etc/systemd/system/')
+            os.system('sudo systemctl daemon-reload')
+            os.system('sudo systemctl enable tbot_telegram.service')
+            os.system('sudo systemctl start tbot_telegram.service')
+
+            # ← Actualizar estado
+            update_status(telegram_auto_start=True)
+
+            return JsonResponse({
+                'status': 'success',
+                'message': 'Inicio automático habilitado y servicio iniciado.'
+            })
+        except Exception as e:
+            logger.exception("Error al habilitar inicio automático")
+            return JsonResponse({
+                'status': 'error',
+                'message': str(e)
+            }, status=500)
+    return JsonResponse({'status': 'error', 'message': 'Método no permitido'}, status=405)
+
+@csrf_exempt
+@login_required
+def set_auto_start_disable(request):
+    """Deshabilita el inicio automático del bot."""
+    if request.method == 'POST':
+        try:
+            # ← Detener y deshabilitar el servicio
+            os.system('sudo systemctl stop tbot_telegram.service')
+            os.system('sudo systemctl disable tbot_telegram.service')
+            os.system('sudo systemctl daemon-reload')
+
+            # ← Actualizar estado
+            update_status(telegram_auto_start=False)
+
+            return JsonResponse({
+                'status': 'success',
+                'message': 'Inicio automático desactivado.'
+            })
+        except Exception as e:
+            logger.exception("Error al deshabilitar inicio automático")
+            return JsonResponse({
+                'status': 'error',
+                'message': str(e)
+            }, status=500)
+    return JsonResponse({'status': 'error', 'message': 'Método no permitido'}, status=405)
 
 @require_http_methods(["POST"])
 @csrf_exempt
@@ -224,8 +478,51 @@ def login_view(request):
 
 @login_required
 def dashboard_view(request):
-    return render(request, 'web_interface/dashboard.html')
+    return render(request, 'web_interface/dashboard.html', {
+        'current_page': 'dashboard'
+    })
 
+@login_required
+def get_stats(request):
+    """Devuelve métricas del sistema en formato JSON."""
+    try:
+        # ← CPU
+        cpu_percent = psutil.cpu_percent(interval=1)
+
+        # ← RAM
+        ram = psutil.virtual_memory()
+        ram_percent = ram.percent
+        ram_used_gb = ram.used / (1024**3)
+        ram_total_gb = ram.total / (1024**3)
+
+        # ← Red (LAN)
+        net = psutil.net_io_counters()
+        net_bytes_sent = net.bytes_sent
+        net_bytes_recv = net.bytes_recv
+        time.sleep(1)
+        net = psutil.net_io_counters()
+        upload_speed = (net.bytes_sent - net_bytes_sent) / 1.0
+        download_speed = (net.bytes_recv - net_bytes_recv) / 1.0
+
+        def format_speed(bps):
+            if bps < 1024:
+                return f"{bps:.1f} B/s"
+            elif bps < 1024**2:
+                return f"{bps / 1024:.1f} KB/s"
+            else:
+                return f"{bps / (1024**2):.1f} MB/s"
+
+        return JsonResponse({
+            'cpu_percent': round(cpu_percent, 1),
+            'ram_percent': round(ram_percent, 1),
+            'ram_used': round(ram_used_gb, 2),
+            'ram_total': round(ram_total_gb, 2),
+            'download_speed': format_speed(download_speed),
+            'upload_speed': format_speed(upload_speed)
+        })
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)
+    
 
 @login_required
 def logout_view(request):
